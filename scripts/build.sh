@@ -30,4 +30,5 @@ cat > _site/index.html <<'HTML'
 <body><a href="main.html">Open Café au Chromatic Homotopy</a></body></html>
 HTML
  touch _site/.nojekyll
+python3 scripts/fix_toc_links.py
 python3 scripts/check_site.py _site
