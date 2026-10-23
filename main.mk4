@@ -1,0 +1,5 @@
+-- Resolve theorem, equation, and bibliography references in HTML.
+Make:htlatex()
+Make:bibtex()
+Make:htlatex()
+Make:htlatex()
