@@ -21,7 +21,7 @@ python3 scripts/prepare_bibliography.py build/pdf build/html
 (
   cd build/html
   make4ht -u -f html5+dvisvgm_hashes -c web.cfg \
-  -d ../../_site main.tex "mathjax,svg,2"
+  -d ../../_site main.tex "mathjax,svg,3"
 )
 cp build/pdf/main.pdf _site/cafe-au-chromatic-homotopy.pdf
 cat > _site/index.html <<'HTML'
