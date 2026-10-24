@@ -2,21 +2,21 @@
 % Write your notes here. Do not add a documentclass or document environment.
 \begin{definition}
 \cite{PreRudyak}
-    A \textbf{reduced generalized cohomology} is a contravariant functor $\H^*: \Spc_*^{op}\to \mathrm{grAb}$ from the homotopy category of spaces to the category of $\Z$-graded abelian groups, such that 
+    A \textbf{reduced generalized cohomology} is a contravariant functor $\HH^*: \Spc_*^{op}\to \mathrm{grAb}$ from the homotopy category of spaces to the category of $\Z$-graded abelian groups, such that 
     \begin{itemize}
-        \item (Additive) For every set of pointed spaces $X_\alpha$ for $\alpha \in A$, the canonical homomorphism $\H^*(\bigvee_{\alpha \in A}X_\alpha)\to \prod_{\alpha \in A} \H^*(X_\alpha)$ is an isomorphism.
+        \item (Additive) For every set of pointed spaces $X_\alpha$ for $\alpha \in A$, the canonical homomorphism $\HH^*(\bigvee_{\alpha \in A}X_\alpha)\to \prod_{\alpha \in A} \HH^*(X_\alpha)$ is an isomorphism.
         \item (Mayer-Vietoris) For every homotopy cofiber sequence in pointed space $X\to Y\to Z$, there is long exact sequence
         \[
-        ...\to \H^{n-1}(X)\xrightarrow{\delta_{n-1}} \H^n(Z)\to \H^n(Y) \to \H^n(X)\xrightarrow{\delta_n} H^{n+1}(Z)\to ...
+        ...\to \HH^{n-1}(X)\xrightarrow{\delta_{n-1}} \HH^n(Z)\to \HH^n(Y) \to \HH^n(X)\xrightarrow{\delta_n} HH^{n+1}(Z)\to ...
         \]
     \end{itemize}
 
-    A \textbf{reduced generalized homology} is a covariant functor $\H_*: \Spc_*\to \mathrm{grAb}$ from the homotopy category of spaces to the category of $\Z$-graded abelian groups, such that 
+    A \textbf{reduced generalized homology} is a covariant functor $\HH_*: \Spc_*\to \mathrm{grAb}$ from the homotopy category of spaces to the category of $\Z$-graded abelian groups, such that 
      \begin{itemize}
-        \item (Additive) For every set of pointed spaces $X_\alpha$ for $\alpha \in A$, the canonical homomorphism $\coprod_{\alpha \in A} \H_*(X_\alpha)\to \H_*(\bigvee_{\alpha \in A}X_\alpha)$ is an isomorphism.
+        \item (Additive) For every set of pointed spaces $X_\alpha$ for $\alpha \in A$, the canonical homomorphism $\coprod_{\alpha \in A} \HH_*(X_\alpha)\to \HH_*(\bigvee_{\alpha \in A}X_\alpha)$ is an isomorphism.
         \item (Mayer-Vietoris) For every homotopy cofiber sequence in pointed space $X\to Y\to Z$, there is long exact sequence
         \[
-        ...\to \H^{n+1}(Z)\xrightarrow{\delta_{n}} \H_n(X)\to \H_n(Y) \to \H_n(Z)\xrightarrow{\delta_{n-1}} H_{n-1}(X)\to ...
+        ...\to \HH^{n+1}(Z)\xrightarrow{\delta_{n}} \HH_n(X)\to \HH_n(Y) \to \HH_n(Z)\xrightarrow{\delta_{n-1}} HH_{n-1}(X)\to ...
         \]
     \end{itemize}
 
