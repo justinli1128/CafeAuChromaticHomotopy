@@ -1,28 +1,21 @@
 \section{Spectra}\label{sec:preliminary-spectra}
 % Write your notes here. Do not add a documentclass or document environment.
+
+
 \begin{definition}
   A \textbf{spectrum} $E=\{(E_n,e_n, \varphi_n)\}_{n\geq 0}$ contains the following information:
   \begin{itemize}
     \item For every $n\geq 0$, a pointed CW complex $(E_n, e_n)$
-    \item For every $n\geq 0$, a pointed cellular map $\varphi_n: E_n\to \Omega E_{n+1}$
+    \item For every $n\geq 0$, a pointed cellular map $\varphi_n: \Sigma E_n\to E_{n+1}$
   \end{itemize}
   A \textbf{morphism of spectra} $f=\{f_n\}_{n\geq 0}: E=\{(E_n,e_n, \varphi_n)\}_{n\geq 0}\to F=\{(F_n,f_n, \psi_n)\}_{n\geq 0}$ contains pointed map $f_n: (E_n,e_n)\to (F_n,f_n)$ such that 
   \begin{center}
       \begin{tikzcd}
-E_n \arrow[r, "f_n"] \arrow[d, "\varphi_n"] & F_n \arrow[d, "\psi_n"] \\
-\Omega E_{n+1} \arrow[r, "\Omega f_{n+1}"]  & \Omega F_{n+1}         
+\Sigma E_n \arrow[r, "f_n"] \arrow[d, "\Sigma \varphi_n"] & \Sigma F_n \arrow[d, "\psi_n"] \\
+ E_{n+1} \arrow[r, " f_{n+1}"]  &  F_{n+1}         
 \end{tikzcd}
   \end{center}
-  \end{definition} Here $\Omega$ is the loop space functor. Note the definition is equivalent to having a sequence of pointed map $\varphi_n': \Sigma E_n\to E_{n+1}$ due to the adjunction $\Sigma\vdash \Omega: \Spc_*\to \Spc_*$, where $\Sigma$ is the suspension functor, and $\Spc_*$ is the category of pointed spaces (we let $\Spc$ denote the unpointed case)
-
-Let us denote $\Sp$ the category of spectra.
-
-\begin{definition}
-    Define functor $\Sigma^\infty: \Spc_*\to \Sp$ such that $\Sigma^\infty X=\{(X_n,\varphi_n)\}$, where $X_0=X$, $X_n=\Sigma X_{n-1}$, and $\varphi_n: X_n\to \Omega X_{n+1}=\Omega\Sigma X_n$ is the adjunction unit. We call this the \textbf{suspension spectrum functor} and we refer to $\Sigma^\infty X$ as the \textbf{suspension spectrum of} $X$. 
-
-    Define functor $\Omega^\infty: \Sp\to \Spc_*$ such that $\Omega^\infty E=E_0$. We call this the \textbf{infinite loop space functor} and refer to $\Omega^\infty E$ as the \textbf{infinite loop space of} $Y$.
-\end{definition}
-The name suspension spectrum functor makes sense, but infinite loop space does not really. We leave this weird naming issue for later to explain.
+  \end{definition} Here $\Omega$ is the loop space functor. Note the definition is equivalent to having a sequence of pointed map $\varphi_n': \Sigma E_n\to E_{n+1}$ due to the adjunction $\Sigma\vdash \Omega: \Spc_*\to \Spc_*$, where $\Sigma$ is the suspension functor, and $\Spc_*$ is the homotopy category of pointed spaces (we let $\Spc$ denote the unpointed case)
 
 \begin{definition}
     Given a spectrum $E:=\{(E_n, \varphi_n)\}$ and a pointed CW complex $X$, we define the \textbf{smash product} $E\wedge X$ as $\{(E_n\wedge X, \overline{\varphi_n \wedge id _X})\}_{n \geq 0}$, where $\overline{\varphi_n \wedge id _X}:E_n\wedge X\to \Omega (E_{n+1}\wedge X)$ is the adjoint of $\varphi_n' \wedge id_X: \Sigma (E_n\wedge X)=\Sigma E_n\wedge X\to E_{n+1}\wedge X$.
@@ -33,9 +26,40 @@ The name suspension spectrum functor makes sense, but infinite loop space does n
 
     We denote $[E,F]$ the homotopy class of morphisms of spectra from $E$ to $F$.
 \end{definition}
+
+\begin{definition}
+    A $\Omega$-\textbf{spectrum} is a spectrum $E=\{(E_n, \varphi_n )\}_{n \geq 0}$ such that the adjunction map $\varphi_n': E_n\to \Omega E_{n+1}$ is a weak homotopy equivalence.
+\end{definition}
+Notice, for a $\Omega$-spectrum $E$, the stable homotopy group $\pi_kE$ is just the ordinary homotopy group of $\pi_k \Omega^\infty E$, as $\pi_{n+k}E_n\to \pi_{n+1+k}E_{n+1}$ are isomorphisms for all $n$.
+\begin{definition}
+    A morphism of spectra $f:E\to F$ is a \textbf{weak homotopy equivalence} if $f$ induces isomorphism $\pi_kf: \pi_k E\to \pi_k F$ for all $k\in \Z$ (not just nonnegative ones).
+\end{definition}
+\begin{theorem}
+    Every spectrum is weakly equivalent to a $\Omega$-spectrum.
+\end{theorem}
+\begin{proof}
+    Define functor $Q: \Spc_*\to \Spc_*$ as
+    \begin{align*}
+        Q(X)=\colim_n \Omega^n\Sigma^n X
+    \end{align*}
+    and for spectrum $E$, define $Q(E)=\{(Q(E_n), Q(\varphi_n))\}_{n\geq 0}$.
+
+    There is natural transformation $id_{\Spc_*}\implies Q$ from the simply inclusion, which determines a map $E\to Q(E)$.  Notice $\pi_{n+k}E_n\to \pi_{n+k}Q(E_n)$ is an isomorphism for large enough $k$.
+\end{proof}
+
+If one is familiar with the language of model categories, we can develop a pretty nice model category of spectra with fibrant-cofibrant objects being the $\Omega$-spectra. Of course, everything still works even if we refrain from going into the technical details. Let us denote $\Sp$ the homotopy category of spectra, so the objects are $\Omega$-spectra and morphisms are homotopy class.
+
+\begin{definition}
+    Define functor $\Sigma^\infty: \Spc_*\to \Sp$ such that $\Sigma^\infty X=\{(X_n,id)\}$, where $X_0=X$, $X_n=\Sigma X_{n-1}$, and $id: \Sigma X_n\to X_{n+1}$ is the identity. We call this the \textbf{suspension spectrum functor} and we refer to $\Sigma^\infty X$ as the \textbf{suspension spectrum of} $X$. 
+
+    Define functor $\Omega^\infty: \Sp\to \Spc_*$ such that $\Omega^\infty E=E_0$. We call this the \textbf{infinite loop space functor} and refer to $\Omega^\infty E$ as the \textbf{infinite loop space of} $Y$.
+\end{definition}
+The name suspension spectrum functor makes sense, and the infinite loop space is because $\Omega^\infty \Sigma^\infty X$ is precisely $Q(X)$ in the homotopy category.
+
+
 Given a spectrum $E=\{(E_n, \varphi_n)\}_{n\geq 0}$, for every $k\in \Z$, there is a sequence of group homomorphisms
 \begin{align*}
-    ...\to \pi_{n+k}E_n\xrightarrow{\pi_{n+k}\varphi_n}\pi_{n+k}\Omega E_{n+1}\cong \pi_{(n+1)+k} E_{n+1}\to ...
+    ...\to \pi_{n+k}E_n\to\pi_{n+k}\Omega \Sigma E_{n}\cong\pi_{n+1+k}\Sigma E_{n}\xrightarrow{\pi_{n+1+k}\varphi_n} \pi_{n+1+k} E_{n+1}\to ...
 \end{align*}
 Where if $k<0$, $\pi_k$ is understand to be zero.
 \begin{definition}
@@ -64,28 +88,6 @@ Suppose we have any pointed CW complex $X$, $\Sigma^{n}X$ will be at least $n-1$
 
 In other words, as we go down the sequence, the homotopy groups will \textit{stabilize}. Therefore, the stable homotopy group $\pi_k\Sigma^\infty X$ is just $\pi_k X_m$ for large enough $m$.
 
-\begin{definition}
-    A $\Omega$-\textbf{spectrum} is a spectrum $E=\{(E_n, \varphi_n )\}_{n \geq 0}$ such that $\varphi_n$ is a weak homotopy equivalence.
-\end{definition}
-Notice, for a $\Omega$-spectrum $E$, the stable homotopy group $\pi_kE$ is just the ordinary homotopy group of $\pi_k \Omega^\infty E$, as $\pi_{n+k}E_n\to \pi_{n+1+k}E_{n+1}$ are isomorphisms for all $n$.
-\begin{definition}
-    A morphism of spectra $f:E\to F$ is a \textbf{weak homotopy equivalence} if $f$ induces isomorphism $\pi_kf: \pi_k E\to \pi_k F$ for all $k\in \Z$ (not just nonnegative ones).
-\end{definition}
-
-\begin{theorem}
-    Every spectrum is weakly equivalent to a $\Omega$-spectrum.
-\end{theorem}
-\begin{proof}
-    Define functor $Q: \Spc_*\to \Spc_*$ as
-    \begin{align*}
-        Q(X)=\colim_n \Omega^n\Sigma^n X
-    \end{align*}
-    and for spectrum $E$, define $Q(E)=\{(Q(E_n), Q(\varphi_n))\}_{n\geq 0}$.
-
-    There is natural transformation $id_{\Spc_*}\implies Q$ from the simply inclusion, which determines a map $E\to Q(E)$.  Notice $\pi_{n+k}E_n\to \pi_{n+k}Q(E_n)$ is an isomorphism for large enough $k$.
-\end{proof}
-
-If one is familiar with the language of model categories, we can develop a pretty nice model category of spectra with fibrant-cofibrant objects being the $\Omega$-spectra. Of course, everything still works even if we refrain from going into the technical details. From now on, all spectra are $\Omega$-spectra.
 
 \begin{definition}
     We define functor $\Omega: \Sp\to \Sp$ such that $\Omega E=\{(E_{n+1}, \varphi_{n+1})\}_{n+1\geq 0}$, so we shift everything down. There is functor $\Sigma:\Sp \to \Sp$ such that $\Sigma E=\{(E_{n-1}, \varphi_{n-1})\}_{n-1\geq 0}$, where we define $E_{-1}=\Omega E_0$.
@@ -97,3 +99,15 @@ We denote $S:=\Sigma^\infty S^0$. Since we have $\Sigma \vdash \Omega: \Spc_*\to
 \begin{theorem}
     There exists adjunction $\Sigma^\infty\vdash \Omega^\infty: \Spc_*\to \Sp$, i.e. $[\Sigma^\infty X, E]\cong [X, \Omega^\infty E]_*$
 \end{theorem}
+\begin{proof}
+    Given $f:\Sigma^\infty X\to E$, there is 
+
+    \begin{center}
+
+\begin{tikzcd}
+\Sigma \Sigma ^n X \arrow[r, "\Sigma f_n"] \arrow[d, no head, Rightarrow] & \Sigma E_n \arrow[d, "\varphi_n"] \\
+\Sigma^{n+1} X \arrow[r, "f_{n+1}"]                                       &  E_{n+1}                         
+\end{tikzcd}
+    \end{center}
+    Notice, that $f_0$ determines $f_n$ uniquely.
+\end{proof}
