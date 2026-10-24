@@ -3,6 +3,7 @@
 
 
 \begin{definition}
+    \cite{PreSwitzer}
   A \textbf{spectrum} $E=\{(E_n,e_n, \varphi_n)\}_{n\geq 0}$ contains the following information:
   \begin{itemize}
     \item For every $n\geq 0$, a pointed CW complex $(E_n, e_n)$
@@ -18,23 +19,28 @@
   \end{definition} Here $\Omega$ is the loop space functor. Note the definition is equivalent to having a sequence of pointed map $\varphi_n': \Sigma E_n\to E_{n+1}$ due to the adjunction $\Sigma\vdash \Omega: \Spc_*\to \Spc_*$, where $\Sigma$ is the suspension functor, and $\Spc_*$ is the homotopy category of pointed spaces (we let $\Spc$ denote the unpointed case)
 
 \begin{definition}
+    \cite{PreSwitzer}
     Given a spectrum $E:=\{(E_n, \varphi_n)\}$ and a pointed CW complex $X$, we define the \textbf{smash product} $E\wedge X$ as $\{(E_n\wedge X, \overline{\varphi_n \wedge id _X})\}_{n \geq 0}$, where $\overline{\varphi_n \wedge id _X}:E_n\wedge X\to \Omega (E_{n+1}\wedge X)$ is the adjoint of $\varphi_n' \wedge id_X: \Sigma (E_n\wedge X)=\Sigma E_n\wedge X\to E_{n+1}\wedge X$.
 \end{definition}
 
 \begin{definition}
+    \cite{PreSwitzer}
     Given two spectra morphisms $f,g :E\to F$, a \textbf{homotopy} between $f,g$ is a map $H: E\wedge I_+\to F$, such that $H|_{0}=f$ and $H|_1=g$, and we call $f$ \textbf{homotopic to} $g$. A \textbf{homotopy equivalence} is a pair of map $f:E\to F: g$, such that $f\circ g$ is homotopic to $id_F$ and $g\circ f$ is homotopic to $id_E$.
 
     We denote $[E,F]$ the homotopy class of morphisms of spectra from $E$ to $F$.
 \end{definition}
 
 \begin{definition}
+    \cite{PreRudyak}
     A $\Omega$-\textbf{spectrum} is a spectrum $E=\{(E_n, \varphi_n )\}_{n \geq 0}$ such that the adjunction map $\varphi_n': E_n\to \Omega E_{n+1}$ is a weak homotopy equivalence.
 \end{definition}
 Notice, for a $\Omega$-spectrum $E$, the stable homotopy group $\pi_kE$ is just the ordinary homotopy group of $\pi_k \Omega^\infty E$, as $\pi_{n+k}E_n\to \pi_{n+1+k}E_{n+1}$ are isomorphisms for all $n$.
 \begin{definition}
+    \cite{PreSwitzer}
     A morphism of spectra $f:E\to F$ is a \textbf{weak homotopy equivalence} if $f$ induces isomorphism $\pi_kf: \pi_k E\to \pi_k F$ for all $k\in \Z$ (not just nonnegative ones).
 \end{definition}
 \begin{theorem}
+    \cite{PreRudyak}
     Every spectrum is weakly equivalent to a $\Omega$-spectrum.
 \end{theorem}
 \begin{proof}
@@ -114,15 +120,98 @@ We denote $S:=\Sigma^\infty S^0$. Since we have $\Sigma \vdash \Omega: \Spc_*\to
     Notice, that $f_0$ determines $f_n$ uniquely.
 \end{proof}
 
-The details of definitions below require the knowledge of the model structure on the category of spectra, which is not necessary for understanding the note.
 
-\begin{definition}
-    Given $E$ and $F$, define $E\wedge F$ to be the left derived smash product
-\end{definition}
+The details of definitions below require the knowledge of the model structure on the category of spectra, which is not necessary for understanding the note.
 
 \begin{definition}
     Let $F: I\to \Sp$ be a homotopy coherent diagram of spectra, we denote $\holim_IF$ the \textbf{homotopy limit} of $F$ in the model category of spectra, and $\hocolim_I F$ the \textbf{homotopy colimit} in the model category of spectra.
 \end{definition}
 
+We specifically look at the homotopy cofiber sequence. For every $f: E\to F$, we define $Cf:=\{ (F_n\cup_{f_n}CE_n, \varphi_n)\}$, where $\varphi_n$ is induced from the structure map $\Sigma F_n\to F_{n+1}$ and $\Sigma (CE_n)=C(\Sigma E_n)\to CE_{n+1}$.
 
-We specifically look at the homotopy cofiber of $f:E\to F$, which is $F\wedge CE$
+\begin{proposition}
+    \cite{PreSwitzer}
+    For every morphism $f: E\to F$, there is a homotopy cofiber sequence
+    \begin{align*}
+        E\xrightarrow{f}F\to Cf\to \Sigma E
+    \end{align*}
+\end{proposition}
+\begin{proof}
+Homotopy cofiber in a simplicial model category (for instance $\Sp$) is just ordinary pushout with the point in the diagram replacement with the cone, so $Cf$ determines the homotopy cofiber of $f$.
+
+We have homotopy pasting law, so we just need to show the homotopy pushout of $E$ is $\Sigma E$ (which we guess is true from the notation chosen). We have that the homotopy pushout will be $E'$ where $E'_0=*$ and $E'_n=\Sigma E_{n-1}$. There is map $f: E' \to \Sigma E$ induced from the structure map $\Sigma E_{n-1}\to E_n$, which we know induces isomorphism on the stable homotopy groups. 
+\end{proof}
+
+We have a similar result regarding homotopy fiber. Given map $f: E\to F$, let $Pf$ be the homotopy fiber of $f$. There is then homotopy fiber sequence
+\[
+\Omega F\to Pf\to E\xrightarrow{f}F 
+\]
+
+\begin{proposition}
+    A sequence $E\to F\to G$ is a homotopy cofiber sequence if and only if it is a homotopy fiber sequence.
+\end{proposition}
+
+In other words, we can extend every cofiber(equivalently fiber) sequence $E\to F\to G$ into a long exact sequence
+\[
+...\to \Omega F\to \Omega G\to E\to F\to G \to \Sigma E\to \Sigma F\to ...
+\]
+where any two adjacent map determines a cofiber/fiber sequence.
+
+Since every spectrum is a looping of its suspension, so the homotopy class of spectra morphisms are abelian groups (in fact, the suspension and loop space functor, with the additive property of the homotopy category of spectra determines a triangulated category)
+
+\begin{proposition}
+Suppose $E\to F\to G$ is a cofiber sequence, then for any spectrum $X$
+\begin{align*}
+[X, E]\to [X, F]\to [X, G]
+\\ [G, X]\to [F, X]\to [E, X]
+\end{align*}
+are exact sequences of abelian groups.
+\end{proposition}
+
+\begin{theorem}
+    \cite{PreRudyak}
+    There exists a symmetric monoidal structure $\wedge$ on $\Sp$ such that 
+    \begin{itemize}
+        \item There are natural equivalences determining the symmetric monoidal structure
+        \begin{align*}
+            \alpha_{E,F,G}: (E\wedge F)\wedge G \to E\wedge (F\wedge G)
+            \\ \tau_{E,F}: E\wedge F\to F\wedge E
+            \\ l_E: S \wedge E\to E
+            \\ r_E: E\wedge S\to E 
+        \end{align*}
+        \item There are natural equivalence $e_{X, E}: E\wedge X\to E\wedge \Sigma^\infty X$.
+        \item For every diagram $F: I \to \Sp$, the canonical morphism $(\hocolim_I F)\wedge E\to \hocolim_I(F\wedge E)$ is an equivalence
+    \end{itemize}
+\end{theorem}
+
+\begin{definition}
+    \cite{PreSwitzer}
+ A \textbf{ring spectrum} is a tuple $(E, \psi, e)$ with $\psi: E\wedge E\to E$ and $e: S\to E$, such that
+ \begin{center}
+    \begin{tikzcd}
+(E\wedge E)\wedge E \arrow[r, "{\alpha_{E,E,E}}"] \arrow[d, "\psi \wedge id_E"] & E\wedge (E\wedge E) \arrow[r, "id_E\wedge \psi"] & E\wedge E \arrow[d, "\psi"] \\
+E\wedge E \arrow[rr, "\psi"]                                                    &                                                  & E                          
+\end{tikzcd}
+\end{center} and 
+\begin{center}
+\begin{tikzcd}
+S\wedge E \arrow[r, "e\wedge id_E"] \arrow[d, "l_E"] & E\wedge E \arrow[d, "\psi"] & E\wedge S \arrow[l, "id_E\wedge e"'] \arrow[d, "r_E"] \\
+E \arrow[r, no head, Rightarrow]                     & E                           & E \arrow[l, no head, Rightarrow]                     
+\end{tikzcd}
+\end{center}commutes (up to homotopy). Moreover, if 
+\begin{center}\begin{tikzcd}
+E\wedge E \arrow[r, "{\tau _{E,E}}"] \arrow[rd, "\psi "] & E\wedge E \arrow[d, "\psi"] \\
+                                                         & E                          
+\end{tikzcd}
+\end{center}commutes (up to homotopy), then we call it a \textbf{commutative ring spectrum}.
+\end{definition}
+
+\begin{definition}
+    Given a ring spectra $(E,\psi, e)$, a left (resp. right) $E$-module is a tuple $(M, \phi)$, where $\phi: E\wedge M\to M$ (resp. $\phi: M\wedge E\to M$) such that
+    \begin{center}
+\begin{tikzcd}
+(E\wedge E)\wedge M \arrow[d, "\psi \wedge id_M"] \arrow[r, "{\alpha_{E,E,M}}"] & E\wedge (E\wedge M) \arrow[r, "id_E\wedge \phi"] & E\wedge M \arrow[d, "\phi"] &  & (M\wedge E)\wedge E \arrow[d, "\phi\wedge id"] \arrow[r, "{\alpha_{M,E,E}}"] & M\wedge(E\wedge E) \arrow[r, "id\wedge \psi"] & M\wedge E \arrow[d, "\phi"] \\
+E\wedge M \arrow[rr, "\phi"]                                                    &                                                  & M                           &  & M\wedge E \arrow[rr, "\phi"]                                                 &                                               & M                          
+\end{tikzcd}
+    \end{center} the left diagram commute up to homotopy (resp. right diagram commute up to homotopy).
+\end{definition}

@@ -1,2 +1,57 @@
 \section{Complex orientations}\label{sec:chromatichomotopy-complexorientation}
 % Write your notes here. Do not add a documentclass or document environment.
+
+
+\begin{definition}
+    A \textbf{complex orientable} spectrum is a multiplicative spectrum $E$ such that $\tilde E^2(\mathbb{C}P^\infty)\to \tilde E^2(\mathbb{C}P^1)\cong E^0$ is surjective.
+
+    Since $E$ is multiplicative, $E^0$ has a generator $1_E$, which correspond to a generator $t\in E^2(\mathbb{C}P^1)$. A \textbf{complex orientation} is a lift of $t$ in $E^2(\mathbb{C}P^\infty)$. A \textbf{complex oriented cohomology} is a tuple $(E,t_E)$ where $E$ is a complex orientable cohomology with a complex orientation
+\end{definition}
+
+We have a map $E^*[t]/(t^{n+1})\to E^*(\mathbb{C}P^n)$, from the fact that there is a cover of $n+1$ contractible open set of $\mathbb{C}P^n$. As it turns out
+\begin{lemma}
+    \cite{ChrHopkins} The map is an isomorphism.
+\end{lemma}
+\begin{proof}
+    For $E=H\mathbb{Z}$, this is a classic result. We generalize it using the Atiyah-Hirzebruch SS, which is multiplicative, with one generator $t$ that correspond to the element $t\in E^2(\mathbb{C}P^n)$. So the SS collapse on the $E_2$ page and all is done.
+\end{proof}
+We can take one step further, from Milnor's sequence
+\begin{align*}
+    0\to {\lim}^1E^{*-1}(\mathbb{C}P^n)\to E^*(\mathbb{C}P^\infty)\to {\lim}E^*(\mathbb{C}P^n)\to 0
+\end{align*} and the fact $E^{*}(\mathbb{C}P^{n+1})\to E^{*}(\mathbb{C}P^n)$ is surjective, we have 
+\begin{align*}
+    E^*(\mathbb{C}P^\infty)\cong E^*[[t]]
+\end{align*}
+
+The name complex orientation has a geometric meaning. We know complex line bundle is classified by the space $\mathbb{C}P^\infty\simeq BU(1)$. Given a complex oriented cohomology, $t$ is then a characteristic class of universal complex line bundle.
+
+The tensor product of line bundle $\mathbb{C}P^∞\times \mathbb{C}P^∞\to \mathbb{C}P^∞$ then induces a map 
+\begin{align*}
+    \psi_E:E^*(\mathbb{C}P^∞)\cong E^*[[t]]\to  E^*(\mathbb{C}P^∞\times \mathbb{C}P^∞)\cong E^*[[x,y]]
+\end{align*}
+The generator $t$ then correspond to a formal power series in $x,y$, $F_E(x,y):=\psi_E(t)$.
+
+\begin{definition}
+    A formal group law over a ring $R$ is a formal power series $F(x,y)$ such that 
+    \begin{itemize}
+        \item $F(x,0)=F(0,x)=x$
+        \item $F(x,y)=F(y,x)$
+        \item $F(x,F(y,z))=F(F(x,y),z)$
+    \end{itemize}
+For $R$ graded, we require $F(x,y)$ to be homogeneous of degree $2$.
+\end{definition}
+We will write $x+_Fy:=F(x,y)$.
+
+\begin{lemma}
+    \cite[Proposition 6.2 Chapter VII]{Rudyak1998} Let $E$ be a complex oriented cohomology, $F_E(x,y)$ is a graded formal group law.
+\end{lemma}
+\begin{proof}
+   This follows from the properties of tensor product of line bundle being unital, associative and commutative. \end{proof}
+
+\begin{example}
+    Let $E=HR$ for some ring $R$, $f_E(x,y)=x+y$, as it is the only possible graded formal group law.
+   \\ Let $E=K$ be the complex $K$-theory, we choose $t\in K^2(\mathbb{C}P^\infty)$ to be the one that correspond to $[\mathcal{O}(1)]-1$, where $\mathcal{O}(1)$ is the universal line bundle and $1$ is the trivial rank $1$ bundle over $\mathbb{C}P^\infty$, under the bott map $\beta: K^*\to K^{*+2}$. We have that given line bundle
+    \begin{align*}
+[\mathcal{O}(1)]\otimes  [\mathcal{O}(1)]-1= ([\mathcal{O}(1)]-1)\otimes  ([\mathcal{O}(1)]-1)+ ([\mathcal{O}(1)]-1)\otimes 1 +  1\otimes ([\mathcal{O}(1)]-1)
+    \end{align*} So $F_K(x,y)=x+y+\beta^{-1}xy $
+\end{example}

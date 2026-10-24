@@ -1,2 +1,55 @@
 \section{Cohomology}\label{sec:preliminary-cohomology}
 % Write your notes here. Do not add a documentclass or document environment.
+\begin{definition}
+\cite{PreRudyak}
+    A \textbf{reduced generalized cohomology} is a contravariant functor $\H^*: \Spc_*^{op}\to \mathrm{grAb}$ from the homotopy category of spaces to the category of $\Z$-graded abelian groups, such that 
+    \begin{itemize}
+        \item (Additive) For every set of pointed spaces $X_\alpha$ for $\alpha \in A$, the canonical homomorphism $\H^*(\bigvee_{\alpha \in A}X_\alpha)\to \prod_{\alpha \in A} \H^*(X_\alpha)$ is an isomorphism.
+        \item (Mayer-Vietoris) For every homotopy cofiber sequence in pointed space $X\to Y\to Z$, there is long exact sequence
+        \[
+        ...\to \H^{n-1}(X)\xrightarrow{\delta_{n-1}} \H^n(Z)\to \H^n(Y) \to \H^n(X)\xrightarrow{\delta_n} H^{n+1}(Z)\to ...
+        \]
+    \end{itemize}
+
+    A \textbf{reduced generalized homology} is a covariant functor $\H_*: \Spc_*\to \mathrm{grAb}$ from the homotopy category of spaces to the category of $\Z$-graded abelian groups, such that 
+     \begin{itemize}
+        \item (Additive) For every set of pointed spaces $X_\alpha$ for $\alpha \in A$, the canonical homomorphism $\coprod_{\alpha \in A} \H_*(X_\alpha)\to \H_*(\bigvee_{\alpha \in A}X_\alpha)$ is an isomorphism.
+        \item (Mayer-Vietoris) For every homotopy cofiber sequence in pointed space $X\to Y\to Z$, there is long exact sequence
+        \[
+        ...\to \H^{n+1}(Z)\xrightarrow{\delta_{n}} \H_n(X)\to \H_n(Y) \to \H_n(Z)\xrightarrow{\delta_{n-1}} H_{n-1}(X)\to ...
+        \]
+    \end{itemize}
+
+\end{definition}
+
+A morphism of cohomology (resp. homology) are just natural transformations.
+
+\begin{remark}
+    Given a spectrum $E$, the functor $E^n(X):=[\Sigma^{-n}\Sigma^\infty X, E]$ (where $\Sigma^{-n}=\Omega^n$ for $n>0$), is a cohomology. 
+
+    The additive property follows from 
+    \[
+    [\Sigma^{-n}\Sigma^\infty (\bigvee_{\alpha\in A}X_\alpha), E]\cong [\bigvee_{\alpha\in A}\Sigma^{-n}\Sigma^\infty (X_\alpha), E]\cong \prod_{\alpha\in A}[\Sigma^{-n}\Sigma^\infty (X_\alpha), E]]
+    \]
+
+    The Mayer-Vietoris property follows from that a homotopy cofiber sequence is taken to homotopy cofiber sequence 
+    \[
+    ...\to \Sigma^{-(n+1)}\Sigma^infty Z\to \Sigma^{-n}\Sigma^infty X\to  \Sigma^{-n}\Sigma^infty Y\to  \Sigma^{-n}\Sigma^infty Z\to  \Sigma^{-(n-1)}\Sigma^infty X\to ... 
+    \]
+    Then there is long exact sequence
+    \[
+    ...\to E^{n-1}(X)=[\Sigma^{-(n-1)}\Sigma^infty X, E]\to E^n(Z)=[\Sigma^{-n}\Sigma^infty Z, E]\to  E^n(Y)\to  E^n(Z)\to  E^{n-1}(X)\to ... 
+    \]
+
+    Equivalently, the functor $E_n(X):=[\Sigma^n, \Sigma^\infty X \wedge E]$ is a generalized homology.
+\end{remark}
+
+\begin{theorem}(Brown's Representability Theorem)
+\cite{PreSwitzer}
+
+The category of reduced generalized cohomologies is equivalent to the homotopy category of spectra from the construction above.
+\end{theorem}
+
+\begin{remark}
+Warning: the generalized homology is not equivalent to spectra. There exists morphism of homology theories that does not determine a spectra map.
+\end{remark}
