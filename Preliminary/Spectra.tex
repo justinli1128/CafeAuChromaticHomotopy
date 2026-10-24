@@ -49,6 +49,8 @@ Notice, for a $\Omega$-spectrum $E$, the stable homotopy group $\pi_kE$ is just 
 
 If one is familiar with the language of model categories, we can develop a pretty nice model category of spectra with fibrant-cofibrant objects being the $\Omega$-spectra. Of course, everything still works even if we refrain from going into the technical details. Let us denote $\Sp$ the homotopy category of spectra, so the objects are $\Omega$-spectra and morphisms are homotopy class.
 
+The category $\Sp$ is pointed, so it has a zero object $0$.
+
 \begin{definition}
     Define functor $\Sigma^\infty: \Spc_*\to \Sp$ such that $\Sigma^\infty X=\{(X_n,id)\}$, where $X_0=X$, $X_n=\Sigma X_{n-1}$, and $id: \Sigma X_n\to X_{n+1}$ is the identity. We call this the \textbf{suspension spectrum functor} and we refer to $\Sigma^\infty X$ as the \textbf{suspension spectrum of} $X$. 
 
@@ -111,3 +113,16 @@ We denote $S:=\Sigma^\infty S^0$. Since we have $\Sigma \vdash \Omega: \Spc_*\to
     \end{center}
     Notice, that $f_0$ determines $f_n$ uniquely.
 \end{proof}
+
+The details of definitions below require the knowledge of the model structure on the category of spectra, which is not necessary for understanding the note.
+
+\begin{definition}
+    Given $E$ and $F$, define $E\wedge F$ to be the left derived smash product
+\end{definition}
+
+\begin{definition}
+    Let $F: I\to \Sp$ be a homotopy coherent diagram of spectra, we denote $\holim_IF$ the \textbf{homotopy limit} of $F$ in the model category of spectra, and $\hocolim_I F$ the \textbf{homotopy colimit} in the model category of spectra.
+\end{definition}
+
+
+We specifically look at the homotopy cofiber of $f:E\to F$, which is $F\wedge CE$
