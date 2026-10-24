@@ -8,22 +8,24 @@ on:
 permissions:
   contents: read
 
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
 jobs:
   build:
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
 
-      - name: Install LaTeX tools
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y --no-install-recommends \
-            latexmk texlive-latex-extra texlive-fonts-recommended \
-            texlive-science texlive-extra-utils texlive-plain-generic \
-            ghostscript dvisvgm
-
-      - name: Compile website and PDF
-        run: bash scripts/build.sh
+      - name: Compile with preinstalled LaTeX
+        uses: xu-cheng/texlive-action@v3
+        with:
+          os: alpine
+          scheme: full
+          run: |
+            command -v python3 >/dev/null || apk add --no-cache python3
+            bash scripts/build.sh
 
       - uses: actions/upload-pages-artifact@v3
         with:
