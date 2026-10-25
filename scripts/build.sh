@@ -9,7 +9,7 @@ rm -rf build _site
 mkdir -p build/pdf build/html _site
 for target in build/pdf build/html; do
   cp main.tex preamble.tex macros.tex references.bib main.mk4 web.cfg "$target/"
-  cp -R Preliminary ChromaticHomotopy FormalGroups AlgebraicGeometry examples "$target/"
+  cp -R Preliminary ChromaticHomotopy FormalGroups AlgebraicGeometry More Geometry Results examples "$target/"
 done
 # Suppress the bibliography until a topic contains its first citation.
 # Only the private build copies are modified.
