@@ -1,2 +1,75 @@
 \section{Examples}\label{sec:preliminary-examples}
 % Write your notes here. Do not add a documentclass or document environment.
+We will go over some generalized homologies and cohomologies that exists (somewhere in the world).
+
+\begin{definition}
+\cite{PreSwitzer}
+ For every CW complex $X$, given two vector bundle $\eta_1, \eta_2 \to X$ (real or complex), we say $\eta_1$ is stably equivalent to $\eta_2$ if there exists $n_1, n_2\in \mathbb{N}$ such that $\eta_1\oplus \varepsilon ^{n_1}\cong \eta_2\oplus \varepsilon ^{n_2}$. Here, $\varepsilon^k$ is the trivial bundle (real or complex) of rank $k$.
+
+  We define $KO(X)$ the group completion of the stably equivlent class of real vector bundle over $X$ with the monoid structure determined by direct sum, $KU(X)$ for complex vector bundles. We refer to them as the (real or complex) \textbf{topological K-group} of $X$.
+\end{definition}
+
+\begin{definition}
+    There exists group morphism $O(n)\to O(n+1)$ (resp. $U(n)\to U(n+1)$), determined by 
+    \begin{align*}
+    A\mapsto \begin{pmatrix}
+    A & 0
+    \\ 0 & 1
+    \end{pmatrix}
+    \end{align*}
+    This induces map $BO(n)\to BO(n+1)$ (resp. $BU(n)\to BU(n+1)$). We denote $O:=\colim_n O(n)$ and $BO:=\colim _n BO(n)$ (resp. $U:=\colim_n U(n)$ and $BU:=\colim_n BU(n)$).
+\end{definition
+
+\begin{theorem}(Bott's Periodicity Theorem)
+\cite{PreBottPeriodicity}\cite{PreSwitzer}
+  There exists equivalence
+  \begin{align*}
+  \Z\times BU\simeq \Omega^2 BU
+  \\ \Z \times BO \Simeq \Omega^ 8 BO
+  \end{align*}
+\end{theorem}
+The case for $BO$ is more subtle, including the concept of Quaternion vector bundle and $BSp$, which we leave out.
+
+We specifically talk about complex vector bundle. 
+
+\begin{definition}
+Define spectrum $KU$ such that the even numbered spaces in $KU$ are $\Z\times BU$ and the odd numbered ones are $U$. Notice by Bott's periodicity, we have $KU$ is a $\Omega$-spectrum. We refer to the generalized cohomology of $KU$ the \textbf{complex K-theory}.
+\end{definition}
+
+As notation implies, $KU$ should represents the complex topological K theory and indeed it does \cite{PreSwitzer}. We see that $KU^{2n}=[\Sigma^{-2n}S, KU]\cong[S, \Sigma^{2n}KU]\cong[S^0, \Omega^∞\Sigma^{2n}KU]=[S^0, \Z\times BU]_*\cong \Z $ and $KU^{2n+1}=[S^0, U]_*=0$. 
+
+There is multiplicative structure on $KU$ induced from multiplication $BU\wedge BU \to BU$ that classifies tensor products. Moreover, there is element $\beta=[\Ocal(1)]-1\in KU^{-2}=[S^{2}, KU]=KU^0(S^2)$ where $\Ocal(1)$ is the universal complex line bundle over $S^2\cong \mathbb{C}P^1$, 
+\begin{align*}
+KU^{-2}\otimes KU^0(X)=[S^{2}, KU]\otimes [X, KU]\xrightarrow{(\beta, m)\mapsto (\beta \wedge m)} [\Sigma^2 X, KU]\cong [X, \Omega^2 KU]\cong [X, KU]
+\end{align*}is an isomorphism by Bott's periodicity. Therefore, $KU^*\cong \mathbb{Z}[\beta^{\pm}]$ for $\beta \in KU^{-2}$.
+
+\begin{definition}
+
+Let $\eta\to X$ be a real vector bundle of rank $n$, and let $D(\eta) \to X$ be the $n$-disk subbundle of $\eta$ and $S(\eta)\to X$ be the $n-1$-sphere subbundle of $D(\eta)$, the \textbf{Thom space} $Th(\eta)$ is $D(\eta)/S(\eta)$.
+
+Given a multiplicative cohomology $E$, an element $u\in \tilde {E}^{n}(Th(\eta))$ is a $E$-\textbf{Thom Class of }$\eta$ if for every $x\in X$, the restriction $u_X\in \tilde{E}^{n}(D(\eta_x)/S(\eta_x))=\tilde{E}^{n}(S^n)\cong E^0$ is a $E^0$ generator.
+\end{definition}
+When $\eta$ is a complex vector bundle of rank $n$, we understand $Th(\eta)$ as the Thom space of the underlying real bundle of rank $2n$.
+
+\begin{theorem}(Thom's Isomorphism Theorem}
+\cite{PreMilnorStasheff}
+Given a multiplicative cohomology $E$, for every real vector bundle of rank $n$, $\eta\to X$ and a Thom class $u \in \tilde{E}^n(Th(\eta))$, there is isomorphism
+\[
+u\cdot(-): \tilde{E}^*(X)\to \tilde{E}^{*+n}(Th(\eta))
+\]
+\end{theorem}
+
+\begin{lemma}
+  For every real vector bundle $\eta\to X$, there is equivalence $Th(\eta\oplus \varepsilon)\simeq S^1\wedge Th(\eta)\simeq \Sigma Th(\eta)$.
+\end{lemma}
+
+We have $BO(n)$ admits an universal rank $n$ real vector bundle $\gamma_n\to BO(n)$, and there is map $\Sigma Th(\gamma_n)\simeq Th(\gamma_n\otimes \varepsilon)\to Th(\gamma_{n+1})$ induced from the classifying map of $\gamma_n\otimes \varepsilon\to \gamma_{n+1}$. Therefore, there is a spectra $MO$ with the $n$th space $Th(\gamma_n)$, we refer to it as the \textbf{real Thom spectrum}.
+
+For $BU(n)$ there is an universal rank $2n$ vector bundle $\xi_n\to BU(n)$. The construction of the \textbf{complex Thom spectrum} comes from the equivalence $M(\xi_n\oplus \varepsilon_{\C})\simeq \Sigma^2M(\xi_n)\to M(\xi_{n+1})$. The even numbered spaces $2n$ are $M(\xi_n)$ and odd numbered spaces $2n+1$ are $\Sigma M(\xi_n)$, with structure map the identity $\Sigma M(\xi_n)\to \Sigma M(\xi_n)$ and the classifying map $\Sigma^2 M(\xi_n)\to M(\xi_{n+1})$. We denote this spectrum $MU$. 
+
+The complex Thom spectrum $MU$ is the most important spectrum in Chromatic homotopy theory. We don't have to talk about formal groups, chromatic layers, or periodicity, but it is impossible to not talk about $MU$.
+
+
+
+
+
