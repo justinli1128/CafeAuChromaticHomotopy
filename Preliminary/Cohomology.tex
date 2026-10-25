@@ -6,18 +6,20 @@
     \begin{itemize}
         \item (Additive) For every set of pointed spaces $X_\alpha$ for $\alpha \in A$, the canonical homomorphism $\HH^*(\bigvee_{\alpha \in A}X_\alpha)\to \prod_{\alpha \in A} \HH^*(X_\alpha)$ is an isomorphism.
         \item (Mayer-Vietoris) For every homotopy cofiber sequence in pointed space $X\to Y\to Z$, there is long exact sequence
-        \[
-        ...\to \HH^{n-1}(X)\xrightarrow{\delta_{n-1}} \HH^n(Z)\to \HH^n(Y) \to \HH^n(X)\xrightarrow{\delta_n} HH^{n+1}(Z)\to ...
-        \]
+        \begin{align*}
+        ...\to \HH^{n-1}(X)\xrightarrow{\delta_{n-1}} \HH^n(Z)\to \HH^n(Y) 
+        \\ \to \HH^n(X)\xrightarrow{\delta_n} \HH^{n+1}(Z)\to ...
+        \end{align*}
     \end{itemize}
 
     A \textbf{reduced generalized homology} is a covariant functor $\HH_*: \Spc_*\to \mathrm{grAb}$ from the homotopy category of spaces to the category of $\Z$-graded abelian groups, such that 
      \begin{itemize}
         \item (Additive) For every set of pointed spaces $X_\alpha$ for $\alpha \in A$, the canonical homomorphism $\coprod_{\alpha \in A} \HH_*(X_\alpha)\to \HH_*(\bigvee_{\alpha \in A}X_\alpha)$ is an isomorphism.
         \item (Mayer-Vietoris) For every homotopy cofiber sequence in pointed space $X\to Y\to Z$, there is long exact sequence
-        \[
-        ...\to \HH^{n+1}(Z)\xrightarrow{\delta_{n}} \HH_n(X)\to \HH_n(Y) \to \HH_n(Z)\xrightarrow{\delta_{n-1}} HH_{n-1}(X)\to ...
-        \]
+        \begin{align*}
+        ...\to \HH^{n+1}(Z)\xrightarrow{\delta_{n}} \HH_n(X)\to \HH_n(Y) 
+        \\ \to \HH_n(Z)\xrightarrow{\delta_{n-1}} \HH_{n-1}(X)\to ...
+        \end{align*}
     \end{itemize}
 
 \end{definition}
@@ -35,7 +37,7 @@ A morphism of cohomology (resp. homology) are just natural transformations.
     The Mayer-Vietoris property follows from that a homotopy cofiber sequence is taken to homotopy cofiber sequence 
     \begin{align*}
     ...\to \Sigma^{-(n+1)}\Sigma^\infty Z\to \Sigma^{-n}\Sigma^\infty X\to  \Sigma^{-n}\Sigma^\infty Y
-    \\ \to  \Sigma^{-n}\Sigma^infty Z\to  \Sigma^{-(n-1)}\Sigma^infty X\to ... 
+    \\ \to  \Sigma^{-n}\Sigma^\infty Z\to  \Sigma^{-(n-1)}\Sigma^\infty X\to ... 
     \end{align*}
     Then there is long exact sequence
     \begin{align*}
@@ -79,12 +81,14 @@ Given spectra $E$ and $F$, the multiplication of integers on $[E,F]$ is determin
 
     If $E$ is a commutative ring spectra, $E^*$ and $E_*$ are both graded rings, with multiplication determined by 
     \begin{align*}
-        E_{-n}\otimes E_{-m}=E^n\otimes E^m=[S^{-n}, E]\otimes [S^{-m}, E]\xrightarrow{(r, r')\mapsto (r\wedge r')}[S^{-(n+m)}, E\wedge E]\xrightarrow{\psi\circ -} [S^{-(n+m)}, E]=E^{n+m}=E_{(-n)+(-m)}
+        E_{-n}\otimes E_{-m}=E^n\otimes E^m=[S^{-n}, E]\otimes [S^{-m}, E]\xrightarrow{(r, r')\mapsto (r\wedge r')}[S^{-(n+m)}, E\wedge E]
+        \\ \xrightarrow{\psi\circ -} [S^{-(n+m)}, E]=E^{n+m}=E_{(-n)+(-m)}
     \end{align*}
 
     Moreover, $E^*(-)$ (resp. $E_*(-)$) values in graded $E^*$-module (resp. $E_*$-module), determined pointwise on $X$ by
     \begin{align*}
-       E_{-n}\otimes E_{-m}(X)= E^n\otimes E^m(X)=[S^{-n}, E]\otimes [\Sigma^{-m}X, E]\xrightarrow{(r, m)\mapsto (r\wedge m)}[\Sigma^{-(n+m)}X, E]=E^{n+m}(X)=E_{(-n)+(-m)}(X)
+       E_{-n}\otimes E_{-m}(X)= E^n\otimes E^m(X)=[S^{-n}, E]\otimes [\Sigma^{-m}X, E]
+       \\ \xrightarrow{(r, m)\mapsto (r\wedge m)}[\Sigma^{-(n+m)}X, E]=E^{n+m}(X)=E_{(-n)+(-m)}(X)
     \end{align*}
 \end{remark}
 
