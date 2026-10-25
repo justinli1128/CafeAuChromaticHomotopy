@@ -1,11 +1,36 @@
 \section{Operations and cooperations}\label{sec:preliminary-operationscooperation}
 % Write your notes here. Do not add a documentclass or document environment.
 \begin{definition}
-  Given two cohomology $E$ and $F$, a \textbf{stable cohomology operation of degree $k$} is a natural transformation $\varphi: E^*(-) \to F^{*+k}(-)$ such that 
+\cite{PreSwitzer}
+  Given two multiplicative cohomology $E$ and $F$, a \textbf{stable cohomology operation of degree $k$} is a natural transformation $\varphi: E^*(-) \to F^{*+k}(-)$ such that 
   \begin{center}
 \begin{tikzcd}
 E^{*+1}(\Sigma X) \arrow[r, "\varphi"] \arrow[d, "\delta_E"] & F^{*+k+1}(\Sigma X) \arrow[d, "\delta_F"] \\
 E^*(X) \arrow[r, "\varphi"]                                & F^{*+k}(X)                             
 \end{tikzcd}
-  \end{center}commutes, where $\delta_E: E^{*+1}(\Sigma X)\to E^{*}(X)$ is the connecting isomorphism of the Mayer-Vietoris sequence for homotopy cofiber sequence $X\to *\to \Sigma X$.
+  \end{center}commutes, where $\delta_E: E^{*+1}(\Sigma X)\to E^{*}(X)$ is the connecting isomorphism of the Mayer-Vietoris sequence for homotopy cofiber sequence $X\to *\to \Sigma X$. Denote $A^k(E,F)$ the $F^*$-module of stable cohomology operation of degree $k$.
 \end{definition}
+
+There is 
+\begin{align*}
+F^kE\otimes E^nX=[\Sigma^{-k}E, F]\otimes [\Sigma^{-n}X, E]\xrightarrow{id\otimes \Sigma^{-k}}[\Sigma^{-k}E, F]\otimes [\Sigma^{-n-k}X, \Sigma^{-k}E]
+\\\xrightarrow{(\varphi, f)\mapsto \varphi\circ f} [\Sigma^{-n-k}X, F]
+\end{align*}
+This construction obviously commutes with the connection morphism, so elements in $F^kE$ determines degree $k$ stable cohomology operation from $E$ to $F$.
+
+\begin{theorem}
+\cite{PreSwitzer}
+ The morphism $A^*(E,F)\to F^*E$ via $\varphi\mapsto \varphi (id_E)\in F^*E$ for $id_E\in E^0E=[E,E]$ and $F^*E\to A^*(E,F)$ via the construction above are inverses of each other.
+\end{theorem}
+
+Therefore, $F^*E$ determines the stable cohomology entirely. Specifically, $E^*E$ classifies the $E^*$-algebra of self operations. We refer to this algebra the \textbf{operation algebra of $E$}.
+
+\begin{example}
+\cite{PreSwitzer} 
+Fix a prime $p$, we denote $\mathcal{A}_p^*:= H\Z_p^*H\Z_p$ the operation algebra of the mod $p$ cohomology. Calculation in \cite{PreMilnorSteenrod}, in \cite{PreSwitzer}, etc. shows that $\mathcal{A}_p^*$ is a polynomial algebra of infinitely many variable over $\Z_p$ under some relations, see \href{https://ncatlab.org/nlab/show/Steenrod+algebra#presentation_by_generators_and_relations}{nLab: Steenrod Algebra}.
+\end{example}
+
+
+
+
+
