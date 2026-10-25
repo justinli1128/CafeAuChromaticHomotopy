@@ -33,23 +33,79 @@ A morphism of cohomology (resp. homology) are just natural transformations.
     \]
 
     The Mayer-Vietoris property follows from that a homotopy cofiber sequence is taken to homotopy cofiber sequence 
-    \[
-    ...\to \Sigma^{-(n+1)}\Sigma^infty Z\to \Sigma^{-n}\Sigma^infty X\to  \Sigma^{-n}\Sigma^infty Y\to  \Sigma^{-n}\Sigma^infty Z\to  \Sigma^{-(n-1)}\Sigma^infty X\to ... 
-    \]
+    \begin{align*}
+    ...\to \Sigma^{-(n+1)}\Sigma^\infty Z\to \Sigma^{-n}\Sigma^\infty X\to  \Sigma^{-n}\Sigma^\infty Y
+    \\ \to  \Sigma^{-n}\Sigma^infty Z\to  \Sigma^{-(n-1)}\Sigma^infty X\to ... 
+    \end{align*}
     Then there is long exact sequence
-    \[
-    ...\to E^{n-1}(X)=[\Sigma^{-(n-1)}\Sigma^infty X, E]\to E^n(Z)=[\Sigma^{-n}\Sigma^infty Z, E]\to  E^n(Y)\to  E^n(Z)\to  E^{n-1}(X)\to ... 
-    \]
+    \begin{align*}
+    ...\to E^{n-1}(X)=[\Sigma^{-(n-1)}\Sigma^\infty X, E]\to E^n(Z)=[\Sigma^{-n}\Sigma^\infty Z, E]
+    \\ \to  E^n(Y)\to  E^n(Z)\to  E^{n-1}(X)\to ... 
+    \end{align*}
 
     Equivalently, the functor $E_n(X):=[\Sigma^n, \Sigma^\infty X \wedge E]$ is a generalized homology.
 \end{remark}
 
-\begin{theorem}(Brown's Representability Theorem)
+\begin{theorem}(Adams Version of Brown's Representability Theorem)
 \cite{PreSwitzer}
 
-The category of reduced generalized cohomologies is equivalent to the homotopy category of spectra from the construction above.
+Every cohomology $\HH^*$ (resp. homology $\HH_*$) there is a spectra $E$ and a natural isomorphism $\alpha: E^*\to \HH^*$ (resp. $\alpha: E_*\to \HH_*$)
 \end{theorem}
 
 \begin{remark}
-Warning: the generalized homology is not equivalent to spectra. There exists morphism of homology theories that does not determine a spectra map.
+Warning: The natural transformations between cohomologies and homology do not lift to spectra maps. There exists morphisms that is not nullhomotopic between spectra that determine the zero morphism between the homologies, such map is called a \textbf{phantom map} \cite{PreRudyak}. However, under certain conditions \cite{ChrLurie}, the lifting exists uniquely. More on this later.
 \end{remark}
+
+\begin{example}
+Let $A$ be an abelian group, and let $\tilde H^*(X;A)$ the ordinary reduced cohomology with coefficient in $A$. Let $HA$ be the spectra representing $\tilde H^*(X;A)$, then we have the following property
+\begin{align*}
+[\Sigma^{-n} \Sigma ^\infty S^m , HA]=[S^m, \Omega^\infty \Omega^{-n} HA]
+\\=[S^m, HA_n]
+\\= \tilde H^n(S^m;A)
+\\= \begin{cases}
+0, n\neq m
+\\ A, n=m
+\end{cases}
+\end{align*}In other words, $HA_n$ is an eilenberg-maclane space of type $(A, n)$. Notice, $\Omega K(A, n+1)\simeq K(A,n)$, so this indeed determines a $\Omega$-spectrum, which we refer to as the \textbf{Eilenberg-Maclane spectrum of} $A$.
+\end{example}
+
+Given spectra $E$ and $F$, the multiplication of integers on $[E,F]$ is determined by 
+\begin{align*}
+\Z\times [E, F]\cong [S, S]\times [E, F]\xrightarrow{(n, f)\mapsto (n\wedge f)} [S\wedge E,S\wedge F]=[E, F]
+\end{align*}
+
+\begin{remark}
+    From now on, for every spectra $E$, we denote $E_*:=E_*(S^0)=[S^*, E]$ and refer to it as the \textbf{homological coefficient group} of $E$. Notice, we can define $E^*:=E^*(S^0)$ and refer to it as the \textbf{cohomological coefficient group} of $E$, and there is isomorphism of graded abelian $E_*=E^{-*}$.
+
+    If $E$ is a commutative ring spectra, $E^*$ and $E_*$ are both graded rings, with multiplication determined by 
+    \begin{align*}
+        E_{-n}\otimes E_{-m}=E^n\otimes E^m=[S^{-n}, E]\otimes [S^{-m}, E]\xrightarrow{(r, r')\mapsto (r\wedge r')}[S^{-(n+m)}, E\wedge E]\xrightarrow{\psi\circ -} [S^{-(n+m)}, E]=E^{n+m}=E_{(-n)+(-m)}
+    \end{align*}
+
+    Moreover, $E^*(-)$ (resp. $E_*(-)$) values in graded $E^*$-module (resp. $E_*$-module), determined pointwise on $X$ by
+    \begin{align*}
+       E_{-n}\otimes E_{-m}(X)= E^n\otimes E^m(X)=[S^{-n}, E]\otimes [\Sigma^{-m}X, E]\xrightarrow{(r, m)\mapsto (r\wedge m)}[\Sigma^{-(n+m)}X, E]=E^{n+m}(X)=E_{(-n)+(-m)}(X)
+    \end{align*}
+\end{remark}
+
+
+
+\begin{definition}
+For a commutative ring spectrum $E$, the cohomology $E^*(-)$ values in graded commutative ring, with the multiplication pointwise at each CW complex $X$ determined by 
+    \begin{align*}
+E^n(X)\otimes E^m(X)=[\Sigma^{-n}\Sigma^∞ X, E]\otimes[\Sigma^{-m}\Sigma^∞ X, E]\to [\Sigma^{-(n+m)}\Sigma^∞ (X\wedge X), E\wedge E]
+\\ \xrightarrow{-\circ \nabla} [\Sigma^{-(n+m)}\Sigma^∞ X, E\wedge E]\xrightarrow{\psi \circ -}[\Sigma^{-(n+m)}\Sigma^∞ X, E]=E^{n+m}(X)
+    \end{align*}where $\psi$ is the multiplication and $\nabla: X\to X\wedge X$ is the diagonal map.
+\end{definition}
+
+\begin{proposition}
+    The ring structure of $E^*(-)$ determines a graded $E^*$-algebra structure.
+\end{proposition}
+
+If $R$ is a commutative ring, then $H^*(-;R)$ takes value in graded commutative ring, with multiplication determined by the cup product of $R$-coefficient singular cochains. 
+\begin{proposition}
+\cite{PreRudyak} 
+There is commutative ring spectra structure on $HR$, such that the multiplication induces the cup product multiplication on $H^*(-;R)$.
+\end{proposition}
+ 
+
