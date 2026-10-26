@@ -22,6 +22,9 @@ This construction obviously commutes with the connection morphism, so elements i
 \cite{PreSwitzer}
  The morphism $A^*(E,F)\to F^*E$ via $\varphi\mapsto \varphi (id_E)\in F^*E$ for $id_E\in E^0E=[E,E]$ and $F^*E\to A^*(E,F)$ via the construction above are inverses of each other.
 \end{theorem}
+\begin{proof}
+    This is just Yoneda.
+\end{proof}
 
 Therefore, $F^*E$ determines the stable cohomology entirely. Specifically, $E^*E$ classifies the $E^*$-algebra of self operations. We refer to this algebra the \textbf{operation algebra of $E$}.
 
@@ -29,8 +32,59 @@ Therefore, $F^*E$ determines the stable cohomology entirely. Specifically, $E^*E
 \cite{PreSwitzer} 
 Fix a prime $p$, we denote $\mathcal{A}_p^*:= H\Z_p^*H\Z_p$ the operation algebra of the mod $p$ cohomology. Calculation in \cite{PreMilnorSteenrod}, in \cite{PreSwitzer}, etc. shows that $\mathcal{A}_p^*$ is a polynomial algebra of infinitely many variable over $\Z_p$ under some relations, see \href{https://ncatlab.org/nlab/show/Steenrod+algebra#presentation_by_generators_and_relations}{nLab: Steenrod Algebra}.
 \end{example}
+\begin{remark}
+For any commutative ring spectrum $E$, the cohomology $E^*(-)$ therefore values in the category of $E^*E$-module. We know that is we restrict the domain to CW complexes, $E^*(-)$ also values in $E^*$-algebra. Yet, they do not value in $E^*E$-algebra, whether the operations interact differently.
+\end{remark}
 
 
+\begin{proposition}
+    \cite{PreSwitzer} Given a ring spectrum $E$, suppose we have spectrum $Y$ such that $E_*Y$ (resp. $E^*Y$) is a flat right $E_*$(resp. $E^*$)-module, then there exists natural isomorphism
+    \begin{align*}
+            \alpha: E_*(-)\otimes_{E_*}E_*Y\to E_*(-\wedge Y),\ \beta: E^*(-)\otimes_{E^*}E^*Y\to E^*(-\wedge Y)
+    \end{align*}
+\end{proposition}
+\begin{proof}
+    The natural transformation 
+    \begin{align*}
+        \alpha_X:  E_*(X)\otimes_{E_*}E_*Y\to E_*(X\wedge Y)
+        \\ m\otimes r\mapsto   (\psi \circ (m\wedge r): S^*\wedge S^*\to X\wedge Y \wedge E\wedge E\to X\wedge Y\wedge E
+    \end{align*}
+    and 
+    \begin{align*}
+        \beta_X:E^*(X)\otimes_{E^*}E^*Y\to E^*(X\wedge Y)
+        \\ m\otimes r\mapsto (\psi(m\wedge r): \Sigma^*X\wedge \Sigma^*Y\to E\wedge E\to E
+    \end{align*}
+    would lift to spectra maps. Moreover, for $X=S$, this determines an equivalence of the representing spectra and hence an isomorphism of the corresponding (co)homology.
+\end{proof}
 
+In the case of $E$, suppose the ring $E_*E=\pi_*(E\wedge E)$ is flat $E_*$, the above proposition hints interesting facts.
 
+\begin{definition}
+    A \textbf{Hopf algebroid} over a commutative ring $k$ is a pair of commutative $k$-algebra $(A, \Gamma)$ with $k$-algebra maps
+    \begin{itemize}
+    \item Left unit $\eta_L: A\to \Gamma$
+    \item Right unit $\eta_R: A\to \Gamma$
+    \item Coproduct $\Delta: \Gamma\to \Gamma\otimes_A \Gamma$ (the left module structure on $\Gamma$ determined by $\eta_L$, and right module determined by $\eta_R$)
+    \item Counit $\varepsilon: \Gamma\to A$
+    \item Conjugation $s: \Gamma\to \Gamma$
+    \end{itemize}
+Such that the pair $(\spec(A), \spec(\Gamma))$ in $\mathcal{A}\mathrm{ff}$ determines a groupoid object.
+\end{definition} Obviously, $\Gamma$ is a $A$-coalgebra. A $(A, \Gamma)$-comodule is equipped by scalar product $A\otimes M\to M$ and coproduct $M\to \Gamma\otimes_{A}M$ satisfying the corresponding associativity and coassociativity.
 
+Let $(E, \psi, e)$ be a commutative ring spectrum such that $E_*E$ is flat right $E_*$-module, it turns out $(E_*, E_*E)$ determines a Hopf algebroid from the following construction
+\begin{align*}
+    \eta_L:E_*=\pi_*(E\wedge S)\xrightarrow{\pi_*(id_E\wedge e)}E_*E=\pi_*(E\wedge E)
+    \\ \eta_R:\pi_*(E\wedge S)\cong\pi_*(S\wedge E)\xrightarrow{\pi_*(e\wedge id_E)}\pi_*(E\wedge E)
+    \\ \nabla: \pi_*(E\wedge E)\cong \pi_*(E\wedge S\wedge E)\xrightarrow{\pi_*(id_E\wedge e\wedge id_E)}\pi_*(E\wedge E\wedge E)\cong E_*E\otimes_{E_*}E_*E
+    \\ \varepsilon:\pi_*(E\wedge E)\xrightarrow{\pi_*(\psi)}\pi_*(E)
+    \\ c: \pi_*(E\wedge E)\xrightarrow{\pi_*(\tau_{E,E}}\pi_*(E\wedge E)
+\end{align*}(Check the cogroupoid properties are satisfied)
+
+Moreover, $E_*(X)$ values in $(E_*,E_*E)$-comodule from the following construction
+\begin{align*}
+    E_*(X)\cong \pi_*(X\wedge S\wedge E)\xrightarrow{\pi_*(id_X\wedge e\wedge id_E )}\pi_*(X\wedge E\wedge E)\cong \pi_*(X\wedge E)\otimes _{E_*}E_*E
+\end{align*}
+
+\begin{definition}
+    Given commutative ring spectrum $E$ such that $E_*E$ is a flat right $E_*$-module, $E_*E$ is called the \textbf{homology cooperation} of $E$.
+\end{definition}

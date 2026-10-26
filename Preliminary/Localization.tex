@@ -1,2 +1,124 @@
 \section{Localization}\label{sec:preliminary-localization}
 % Write your notes here. Do not add a documentclass or document environment.
+Given a spectra $E$
+\begin{definition}
+    A spectrum $X$ is $E$\textbf{-acyclic }if $E\wedge X\simeq 0$. A spectra map $f:X\to Y$  is a $E$-\textbf{equivalence} if $E\wedge f:E\wedge X\to E\wedge Y$ is an equivalence.
+
+    A spectrum $X$ is $E$-\textbf{local} if the following two equivalent condition are satisfied:
+    \begin{enumerate}
+        \item for $E$-equivalence $f:Y\to Z$, $[f, X]:[Z, X]\to [Y, X]$ is an isomorphism
+        \item for $E$-acyclic $F$, $[F,X]\cong 0$ (this is equivalent to $\F(F, X)\simeq 0$)
+    \end{enumerate}
+\end{definition}
+\begin{lemma}
+    The two conditions are indeed equivalent.
+\end{lemma}
+\begin{proof}
+    $1\implies 2$ We have $0\to F$ is a $E$-equivalence by assumption, so $[F, X]\to [0, X]\cong 0$ is an isomorphism.
+
+    $2\implies 1$ If $f:Y\to Z$ is a $E$-equivalence, then cofiber $cof$ of $f$ will be $E$-acyclic, as $\wedge$ preserve colimit, hence we have $f$ induces isomorphism $[Z, X]\to [Y, X]$
+\end{proof}
+
+The essential full subcategory of $\Spc$ whose objects are the $E$-local spectra will be denoted as $\Spc_E$. 
+
+It is not hard to see that $\Spc_E$ is closed under homotopy limits of spectra, with the homotopy limit computed in $\Spc$.
+
+\begin{lemma}
+    $E$-equivalence satisfies $2$-out-of-$3$ property.
+\end{lemma}
+\begin{proof}
+    This follows from equivalences satisfies $2$-out-of-$3$ property.
+\end{proof}
+\begin{proposition}
+    If $f:X\to Y$ is a $E$-equivalence between $E$-local spectra, then $f$ is an equivalence.
+\end{proposition}
+\begin{proof}
+    Take the fiber of $f$, $F$, which is $E$-acyclic, and it will also be $E$-local. 
+    Suppose $Z$ is a $E$-local and -acyclic spectrum then $[Z,Z]\cong 0$, so $id_Z\simeq 0$. In other word, $Z\simeq0$. Hence $f$ is an equivalence.
+\end{proof}
+
+\begin{definition}
+    For any spectrum $X$, a $E$-equivalence $\varphi:X\to L_{E}X$, where $L_EX$ is $E$-local, is a called a $E$-\textbf{localization.}
+\end{definition}
+\begin{proposition}
+    If exists, $\varphi$ is unique up to equivalence.
+\end{proposition}
+\begin{proof}
+    Suppose $\psi: X\to Y$ is another $E$-localization, then we have $[L_EX, Y]\xrightarrow{\varphi^*} [X,Y]$ is an isomorphism. Therefore, $\psi$ factors through some $\phi:L_E\to Y$ uniquely. Since $E$-equivalence satisfies $2$-out-of-$3$, this implies $\phi $ is a $E$-equivalence.  Then the statement follows from the fact $E$-equivalence is an equivalence between $E$-local spectra.
+\end{proof}
+
+In comparing local type of spectra, we might want to compare the acyclic spectra. 
+\begin{definition}
+    Given spectra $E$ and $F$, $E$ is \textbf{Bousfield equivalent} to $F$ if $E$-acyclic is equivalent to $F$-acyclic, the \textbf{Bousfield class} of $E$, $\langle E\rangle$ is the Bousfield equivalent class of spectra. We define the ordering on Bousfield classes $\langle E\rangle \geq \langle F\rangle$ when $E$-acyclicity implies $F$-acyclicity
+\end{definition}
+\begin{proposition}
+    Given spectra $E$ and $F$, if $\langle E\rangle\geq \langle F\rangle$, then $\Spc_F\subseteq \Spc_E$.
+\end{proposition}
+\begin{proof}
+    Suppose $X$ is $F$-local, since all $E$-acyclic spectra $Y$ are $F$-acyclic, this implies $[Y,X]\cong0$, and hence $X$ is $E$-local.
+\end{proof}
+
+\begin{definition}
+    A \textbf{lattice} $L$ is a poset with operation join $\vee$ and meet $\wedge$ such that 
+    \begin{itemize}
+        \item $\vee$ and $\wedge$ are commutative, and associative
+        \item  for any $x, y,a, b\in L$, $a\leq x$ and $b\leq y$ implies $a\wedge b\leq x\wedge y$ and $a\vee b \leq x\vee y$
+    \end{itemize}
+    The lattice is a \textbf{distributive lattice} if $a\wedge (b\vee c)=(a\wedge b)\vee (a\wedge c)$
+\end{definition}
+
+\begin{proposition}
+    Define $\langle E\rangle\vee \langle F\rangle=\langle E\vee F\rangle$ and $\langle E\rangle\wedge \langle F\rangle=\langle E\wedge F\rangle$ on the Bousfield classes. Then the operations determines a distributive lattice. We refer to it as the \textbf{Bousfield Lattice} $DL$.
+\end{proposition}
+\begin{proof}
+Standard check
+\end{proof}
+
+We have $\langle0\rangle$ is the smallest element, as all spectra are $0$-acyclic, and $\langle S\rangle$ is the largest as $S$-acyclic implies contractibility.
+\begin{theorem}
+    \cite{ChrMehrle} 
+    \begin{itemize}
+    \item A cofiber sequence $W\to X\to Y\xrightarrow{f}\Sigma W$ implies $\langle X\rangle \leq \langle Y\rangle\vee\langle W\rangle $
+    \item If $f$ is \textbf{smash nilpotent}, that is $f^k: Y^{\wedge k}\to \Sigma W^{\wedge k}$ is nullhomotopic for some $k$, then $\langle X\rangle =\langle Y\rangle\vee\langle W\rangle $
+    \item Given a self map $v: \Sigma^{-d}X\to X$, the \textbf{mapping telescope} is
+\begin{align*}
+    v^{-1}X:=\hocolim(X\xrightarrow{v}\Sigma^{d}X\xrightarrow{v}\Sigma^{2d}X\to ...)
+\end{align*} We have $\langle X\rangle = \langle v^{-1}X\rangle\vee\langle Cv\rangle $
+    \end{itemize}
+\end{theorem}
+\begin{proof}
+    If $F$ is $Y\vee W$-acyclic, then $F$ is both $Y$-acyclic and $W$-acyclic, as $(Y\vee W)\wedge F$ splits into $(Y\wedge F)\vee (W\wedge F)$, then there is cofiber sequence
+    \begin{align*}
+        W\wedge F\simeq 0\to X\wedge F\to  Y\wedge F\simeq 0\xrightarrow{f\wedge id_F}\Sigma W\wedge F \simeq 0
+    \end{align*} this implies $X\wedge F\simeq 0$ so $F$ is $X$-acyclic.
+
+    Suppose $F$ is $X$-acyclic, then $X^{\wedge k}\wedge F\simeq 0$, and hence $f^k\wedge id_F: Y^{\wedge k}\wedge F\to \Sigma W^{\wedge k}\wedge F$ is an isomorphism. But $f^k$ is nullhomotopic, so $F$ is both $Y^k$-acyclic and $W^{\wedge k}$-acyclic. So $\langle Y^{\wedge k}\rangle\vee \langle W^{\wedge k}\rangle\leq \langle X\rangle\leq \langle Y\rangle\vee\langle W\rangle$. The lattice property gives $ \langle Y\rangle\vee\langle W\rangle\leq \langle Y^{\wedge k}\rangle\vee \langle W^{\wedge k}\rangle$. Hence the equality holds.
+
+Lastly, suppose we have $X$-acyclic $F$, then $X\wedge Cv\simeq 0$. On the other hand, if $F\wedge Cv\simeq 0$ and $F\wedge v^{-1}X$, the first condition implies
+\begin{align*}
+    \Sigma^{nd}v\wedge id_F: \Sigma^{(n-1)d}X\wedge F\to \Sigma^{d}X\wedge F
+\end{align*}is an equivalence, and the second condition implies that $F\wedge v^{-1}X\simeq ( v\wedge id_F)^{-1}(X\wedge F)\simeq X\wedge F$. So $F$ is $X$-acyclic.
+\end{proof}
+\begin{examples}
+    Let $E=S\Z/p$ be the Moore spectrum, so $\pi_{<0}S\Z/p=0$, $\pi_0S\Z/p= \Z/p$, and $H_*(S\Z/p; \Z)\cong 0$. This is constructed as the cofiber of $p: S\to S$. For any $n: S\to S$, we denote $S/n$ the cofiber.
+
+    We will show that $L_{S\Z/p} X\simeq \holim S/p^n\wedge X$, with connecting morphism induced from 
+    \begin{align*}
+        \begin{tikzcd}
+S \arrow[r, "p^n"] \arrow[d, "p"] & S \arrow[r] \arrow[d, no head, Rightarrow] & S/p^n \arrow[d, "p"] \\
+S \arrow[r, "p^{n-1}"]            & S \arrow[r]                                & S/p^{n-1}           
+\end{tikzcd}
+    \end{align*}
+    First of all, if $Y$ is $S/p$-acyclic, then there is cofiber sequence 
+\[
+Y\xrightarrow{p}Y\to S/p\wedge Y\simeq 0
+\]
+For each $S/p^n\wedge X$, we have a cofiber sequence of mapping spectra,
+\begin{align*}
+    \begin{tikzcd}
+{0\simeq F(Y/p, S\Z/p^n \wedge X))} \arrow[r] & {F(Y, S\Z/p^n \wedge X))} \arrow[r, "p"] & {F(Y, S\Z/p^n \wedge X))}
+\end{tikzcd}
+\end{align*}Therefore, $p:F(Y, S\Z/p^n \wedge X))\to F(Y, S\Z/p^n \wedge X))$ is an equivalence. Therefore, $p^n$ as well. However, $p^n$ is nullhomotopic on $F(Y, S\Z/p^n \wedge X))$, then $F(Y, S\Z/p^n \wedge X))\simeq 0$. Therefore, $S\Z/p^n \wedge X$ are $S\Z/p$-local, hence so is $\holim S/p^n\wedge X$.
+
+    The map $X\to S\Z/p^n\wedge X$ is a $S\Z/p$-equivalence, by examining the cofiber of $p$ on both spectra. Therefore, $L_{S\Z/p} X\simeq \holim S/p^n\wedge X$. We refer to $L_{S\Z/p}$ as the \textbf{$p$-completion} (just as $p$-completion in algebra).
+\end{examples}
