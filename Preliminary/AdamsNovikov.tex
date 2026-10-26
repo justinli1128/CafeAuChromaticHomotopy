@@ -58,21 +58,22 @@ X \arrow[r, "j_0:=f_0"'] \arrow[ru, "f_1"'] \arrow[ruu, "f_2"] & X_0=I_0 \arrow[
 
 The map $X\simeq S\wedge X\xrightarrow{e\wedge id_X} E\wedge X$ is $E$-injective, because smashing by $E$ on left, we have 
 \[
-E\wedge X\xrightarrowid_E\wedge e\wedge id_X}E\wedge E\wedge X\xrightarrow{\psi\wedge id_X}E\wedge X
+E\wedge X\xrightarrow{id_E\wedge e\wedge id_X}E\wedge E\wedge X\xrightarrow{\psi\wedge id_X}E\wedge X
 \]is the identity.
 
-\end{definition}
 
 We see that from a $E$-Adams resolution, we get a $E$-Adams tower from the fiber of the maps $j_{n+1}:I_n\to I_{n+1}$.
 
 \begin{definition}
-The \textbf{bar construction} of $X$ is a cosimplicial spectra $I_\bullet$ where $I_n:=E^{\wedge n+1\wedge X$ determined from the commutative ring spectrum structure on $E$.
+The \textbf{bar construction} of $X$ is a cosimplicial spectra $I_\bullet$ where $I_n:=E^{\wedge n+1}\wedge X$ determined from the commutative ring spectrum structure on $E$.
 
 The \textbf{standard $E$-resolution} of $X$ is 
 \[
     X\to I_0:=E\wedge X\xrightarrow{\delta_1} I_1:=E^{2}\wedge X\to...
 \]determined by $I_\bullet$.
+
 \end{definition}
+
 This has a $E$-Adams tower
 \[
 X\to ... \to \mathrm{Tot}_n I_\bullet \to  \mathrm{Tot}_{n-1} I_\bullet \to ... \to  \mathrm{Tot}_1 I_\bullet \to  \mathrm{Tot}_1 I_\bullet=I_0 
