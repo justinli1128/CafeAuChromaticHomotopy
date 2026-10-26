@@ -112,4 +112,11 @@ If $R$ is a commutative ring, then $H^*(-;R)$ takes value in graded commutative 
 There is commutative ring spectra structure on $HR$, such that the multiplication induces the cup product multiplication on $H^*(-;R)$.
 \end{proposition}
  
+We have some tools that we need
+\begin{theorem}((cohomological) Atiyah-Hirzebruch Spectral Sequence)\cite{PreMcCleary}
+    For a commutative ring spectrum $E$, and a CW complex $X$, there is a conditionally convergent multiplicative spectral sequence
+    \begin{align*}
+        E_2^{p,q}=H^p(X; E^q)\implies E^{p+q}(X)
+    \end{align*}with differential $d_r^{p,q}: E_r^{p,q}\to E_r^{p+r,q-r+1}$, that is functorial in $X$. Moreover, this is strongly convergent for finite CW $X$.
+\end{theorem}
 

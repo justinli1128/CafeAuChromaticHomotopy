@@ -120,5 +120,29 @@ For each $S/p^n\wedge X$, we have a cofiber sequence of mapping spectra,
 \end{tikzcd}
 \end{center}Therefore, $p:F(Y, S\Z/p^n \wedge X))\to F(Y, S\Z/p^n \wedge X))$ is an equivalence. Therefore, $p^n$ as well. However, $p^n$ is nullhomotopic on $F(Y, S\Z/p^n \wedge X))$, then $F(Y, S\Z/p^n \wedge X))\simeq 0$. Therefore, $S\Z/p^n \wedge X$ are $S\Z/p$-local, hence so is $\holim S/p^n\wedge X$.
 
-    The map $X\to S\Z/p^n\wedge X$ is a $S\Z/p$-equivalence, by examining the cofiber of $p$ on both spectra. Therefore, $L_{S\Z/p} X\simeq \holim S/p^n\wedge X$. We refer to $L_{S\Z/p}$ as the \textbf{$p$-completion} (just as $p$-completion in algebra).
+    The map $X\to \holim S/p^n\wedge X$ has fiber $F=\holim(...\to X\xrightarrow{p}X \xrightarrow{p} X)$. Since $p$ on $F$ is an equivalence, $F$ is $S\Z/p$-acyclic. Therefore, $L_{S\Z/p} X\simeq \holim S/p^n\wedge X$. We refer to $L_{S\Z/p}$ as the \textbf{$p$-completion} (just as $p$-completion in algebra).
+
+\end{example}
+\begin{example}
+ Suppose $X$ is $k$-connected for some $k\in \Z$, there is $L_{H\Z/p} X\simeq L_{S\Z/p}$.
+
+    We first show that $X\to L_{S\Z/p} X$ is $H\Z/p$-equivalence, which follows from the fact $p$ is an equivalence on $F$, so it is as well on $H\Z/p\wedge F$, but $p$ is nullhomotopic on $H\Z/p$.
+
+    The spectrum $Y:=S/p^n \wedge X$ is $k$-connected as well. There exists homotopy limit $Y=\holim(...\to \tau_{\leq m}Y\to \tau_{\leq m-1}Y\to ...)$, and there is the Postnikov tower, with fibers Eilenberg-Maclane spectrum of $p$-torsion groups. Since $\tau_{\leq k}Y$ is alsp Eilenberg-Maclane, it is $H\Z/p$-local, it then follows that $\tau_{\leq m}Y$ are all $H\Z/p$-local. Therefore $Y$ is $H\Z/p$-local and hence $L_{S/p}X$ is as well.
+\end{example}
+
+\begin{definition}
+    A localization $L_{E}$ is \textbf{smashing} if $L_E X\simeq (L_E S)\wedge X$.
+\end{definition}
+
+\begin{proposition}
+    A localization $L_E$ is smashing if and only if $L_E \hocolim_I F\simeq \hocolim_i L_E F$.
+\end{proposition}
+\begin{proof}
+    Forward direction is obvious. The opposite follows from $S^n$ compactly generates the entire $\Sp$ and $L_E(S^n)\simeq S^n\wedge L_E(S)$, so the statement follows from the colimit assumption.
+\end{proof}
+\begin{proposition}
+\end{proposition}
+\begin{example}
+    Let $E=S\Z_{(p)}$ where $\Z_{(p)}$ is the integers localized at prime $p$, we refer to this as the \textbf{$p$-localization}. $L_{S\Z_{(p)}}$ is smashing and $L_{S\Z_{(p)}}S \simeq S\Z_{(p)}$.
 \end{example}

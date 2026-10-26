@@ -1,2 +1,82 @@
-\section{Adams--Novikov spectral sequence}\label{sec:preliminary-adamsnovikov}
+\section{Adams spectral sequence}\label{sec:preliminary-adamsnovikov}
 % Write your notes here. Do not add a documentclass or document environment.
+\textbf{From now, we assume $E$ to a commutative ring spectrum such that $E_*E$ is flat over $E_*$}.
+
+\begin{theorem}
+\cite{PreAdams}\cite{PreRavenelGreen} \cite{PreLurie} \cite{ChrHopkins}
+    For any spectrum $X$, there exists a conditionally convergent spectral sequence
+    \begin{align*}
+        E^{s,t}_2=\mathrm{Ext}^{s}_{(E_*, E_*E)}(E_*,\Sigma^tE_*(X))\implies \pi_{t-s}L_E X
+    \end{align*}
+    with differential $d_r^{s,t}: E_r^{s,t}\to E_r^{s+r,t+r-1}$.
+\end{theorem}
+
+To show this, we need some ad hoc concepts
+\begin{definition}
+    \begin{itemize}
+        \item a sequence of spectra maps $A_0\to A_1\to A_2\to ...\to A_n$ is \textbf{exact} if for all spectra $X$, 
+        \[
+        [X,A_0]\to [X,A_1]\to [X,A_2]\to ...\to [X,A_n]
+        \] is exact.
+        \item an \textbf{monomorphism} is a spectra map $f: X\to Y$ such that $0\to X\xrightarrow{f} Y$ is exact
+        \item an \textbf{epimorphism} is a spectra map $f: X\to Y$ such that $ X\xrightarrow{f} Y\to 0$ is exact
+    \end{itemize}
+        A sequence of map is $E$-\textbf{exact} if the $E$ smashed sequence is exact. Similarly for $E$-\textbf{monomorphism} and $E$-\textbf{epimorphism}.
+\end{definition}
+
+\begin{definition}
+    A spectrum $I$ is $E$-injective if for any spectra $A$ and $B$, and for any maps $g: A\to I$ and $E$-monomorphism $f: A\to B$, there exists $h:I\to B$ such that $h\circ g\simeq f$.
+\end{definition}
+
+\begin{definition}
+    For any spectrum $X$, a $E$-\textbf{Adams resolution} of $X$ is a sequence of map
+    \begin{align*}
+        0\to X\xrightarrow{j_0}I_0\xrightarrow{j_1} I_1\to...
+    \end{align*}
+    such that 
+    \begin{itemize}
+        \item $j_{n+1}\circ j_n\simeq 0$
+        \item $I_n$ are $E$-injective
+        \item the sequence is $E$-exact.
+    \end{itemize}
+\end{definition}
+
+\begin{definition}
+ A $E$-\textbf{Adams tower} of $X$ is a tower of spectra $X_n$ such that $I_0:=X_0$ is $E$-injective, with $f_n:X\to X_n$ that fits in a diagram
+ \begin{center}
+    \begin{tikzcd}
+                                                               & ... \arrow[d]           &                 \\
+                                                               & X_2 \arrow[d] \arrow[r] & \Sigma^{-2}I_3  \\
+                                                               & X_1 \arrow[r] \arrow[d] & \Sigma^{-1} I_2 \\
+X \arrow[r, "j_0:=f_0"'] \arrow[ru, "f_1"'] \arrow[ruu, "f_2"] & X_0=I_0 \arrow[r]       & I_1            
+\end{tikzcd}
+\end{center}where $X_{n+1}\to X_n\to \Sigma^{-n}I_{n+1}$ is cofiber, such that the maps $j_{n+1}: I_n\to I_{n+1}$ coming from
+\[
+\Sigma^{-n}j_{n+1}: \Sigma^{-n}I_n\to X_n\to \Sigma^{-n}I_{n+1}
+\]determines a $E$-Adams resolution.
+\end{definition}
+
+The map $X\simeq S\wedge X\xrightarrow{e\wedge id_X} E\wedge X$ is $E$-injective, because smashing by $E$ on left, we have 
+\[
+E\wedge X\xrightarrowid_E\wedge e\wedge id_X}E\wedge E\wedge X\xrightarrow{\psi\wedge id_X}E\wedge X
+\]is the identity.
+
+\end{definition}
+
+We see that from a $E$-Adams resolution, we get a $E$-Adams tower from the fiber of the maps $j_{n+1}:I_n\to I_{n+1}$.
+
+\begin{definition}
+The \textbf{bar construction} of $X$ is a cosimplicial spectra $I_\bullet$ where $I_n:=E^{\wedge n+1\wedge X$ determined from the commutative ring spectrum structure on $E$.
+
+The \textbf{standard $E$-resolution} of $X$ is 
+\[
+    X\to I_0:=E\wedge X\xrightarrow{\delta_1} I_1:=E^{2}\wedge X\to...
+\]determined by $I_\bullet$.
+\end{definition}
+This has a $E$-Adams tower
+\[
+X\to ... \to \mathrm{Tot}_n I_\bullet \to  \mathrm{Tot}_{n-1} I_\bullet \to ... \to  \mathrm{Tot}_1 I_\bullet \to  \mathrm{Tot}_1 I_\bullet=I_0 
+\]
+where $ \mathrm{Tot}_n I_\bullet $ is the homotopy limit of the $n$-truncated cosimplicial diagram. This tower converges to $L_E X$ in many cases, such as $E=MU, BP, E(n), K(n), E_n$ that we will talk about, see \cite{PreBousfieldLocalization} for some sufficient conditions.
+
+Therefore, we will have a spectral sequence with $E_1$ page $\pi_*(I_n)$. Since we have $\pi_*(I_n)=(E_*E)^{\otimes n}\otimes_{E_*}E_*X$ with is the standard resolution of $\mathrm{Ext}$, the $E_1$ page induces a $E_2$-page we wants.
