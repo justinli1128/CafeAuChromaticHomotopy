@@ -103,22 +103,22 @@ Lastly, suppose we have $X$-acyclic $F$, then $X\wedge Cv\simeq 0$. On the other
     Let $E=S\Z/p$ be the Moore spectrum, so $\pi_{<0}S\Z/p=0$, $\pi_0S\Z/p= \Z/p$, and $H_*(S\Z/p; \Z)\cong 0$. This is constructed as the cofiber of $p: S\to S$. For any $n: S\to S$, we denote $S/n$ the cofiber.
 
     We will show that $L_{S\Z/p} X\simeq \holim S/p^n\wedge X$, with connecting morphism induced from 
-    \begin{align*}
+    \begin{center}
         \begin{tikzcd}
 S \arrow[r, "p^n"] \arrow[d, "p"] & S \arrow[r] \arrow[d, no head, Rightarrow] & S/p^n \arrow[d, "p"] \\
 S \arrow[r, "p^{n-1}"]            & S \arrow[r]                                & S/p^{n-1}           
 \end{tikzcd}
-    \end{align*}
+    \end{center}
     First of all, if $Y$ is $S/p$-acyclic, then there is cofiber sequence 
 \[
 Y\xrightarrow{p}Y\to S/p\wedge Y\simeq 0
 \]
 For each $S/p^n\wedge X$, we have a cofiber sequence of mapping spectra,
-\begin{align*}
+\begin{center}
     \begin{tikzcd}
 {0\simeq F(Y/p, S\Z/p^n \wedge X))} \arrow[r] & {F(Y, S\Z/p^n \wedge X))} \arrow[r, "p"] & {F(Y, S\Z/p^n \wedge X))}
 \end{tikzcd}
-\end{align*}Therefore, $p:F(Y, S\Z/p^n \wedge X))\to F(Y, S\Z/p^n \wedge X))$ is an equivalence. Therefore, $p^n$ as well. However, $p^n$ is nullhomotopic on $F(Y, S\Z/p^n \wedge X))$, then $F(Y, S\Z/p^n \wedge X))\simeq 0$. Therefore, $S\Z/p^n \wedge X$ are $S\Z/p$-local, hence so is $\holim S/p^n\wedge X$.
+\end{center}Therefore, $p:F(Y, S\Z/p^n \wedge X))\to F(Y, S\Z/p^n \wedge X))$ is an equivalence. Therefore, $p^n$ as well. However, $p^n$ is nullhomotopic on $F(Y, S\Z/p^n \wedge X))$, then $F(Y, S\Z/p^n \wedge X))\simeq 0$. Therefore, $S\Z/p^n \wedge X$ are $S\Z/p$-local, hence so is $\holim S/p^n\wedge X$.
 
     The map $X\to S\Z/p^n\wedge X$ is a $S\Z/p$-equivalence, by examining the cofiber of $p$ on both spectra. Therefore, $L_{S\Z/p} X\simeq \holim S/p^n\wedge X$. We refer to $L_{S\Z/p}$ as the \textbf{$p$-completion} (just as $p$-completion in algebra).
 \end{example}
