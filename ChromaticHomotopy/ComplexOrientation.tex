@@ -13,12 +13,13 @@
     Let $E=HR$ for some commutative ring $R$, then $HR$ is complex oriented with $t\in H^2(S^2; R)$ with $H^*(\mathbb{C}P^∞;R)\cong R[[t]]$.
 \end{example}
 \begin{theorem}
-    \cite{PreRavenelGreen}\cite{PreAdams} \cite{ChrHopkins}\cite{ChrLurie} 
+    \cite{PreRavenelGreen}\cite{PreAdams} \cite{ChrHopkins}
     Let $(E, t)$ be a complex oriented cohomology, then there exists isomorphism
     \begin{align*}
         E^*(\mathbb{C}P^∞)\cong E^*[[t]]
     \end{align*}and $  E^*(\mathbb{C}P^n)\cong E^*[t]/(t^{n+1})$
 \end{theorem}
+See \cite{ChrLurie} for a more general statement not using Aityah-Hirzebruch spectral sequence.
 \begin{proof}
     We use the Atiyah-Hirzebruch spectral sequence for $\mathbb{C}P^n$, with $E_2$-page $H^p(\mathbb{C}P^n; E^q)$, which is strongly convergent as $\mathbb{C}P^n$ is finite.  
 
@@ -37,16 +38,32 @@ p & 0 & 1 & 2 & 3 & \cdots & 2n
 \]
     The spectral sequence is multiplicative and the differentials are $E^*$. Every element in the $E_2$-page is in the form $et^k$ or $e$ for $e\in E^*$, and $d_2(e)=ed_2(1_E)$ and $d_2(et^k)=ket^{k-1}d_2t$. Therefore, $d_2$ is determined entirely by $d_2(1_E)\in E^{-1}$ and $d_2t\in E^{-1} t^2$.
 
-    Recall that AHSS is functorial, the map $S^2\to \mathbb{C}P^n$ implies a spectral sequence map $\varphi_r:E_r^{*,*}(\mathbb{C}P^n)\to E_r^{*,*}(S^2)$ such that $\varphi_2(t)=t$. $t$ persists to $E^2(S^2)$, hence $t$ persists to $E^2(\mathbb{C}P^n)$. This implies that $d_2=0$. Similar argument implies $E_2$ collapses.
-
-    The filtration on $E_∞$ is determined by the CW structure $\mathbb{C}P^k\subseteq \mathbb{C}P^{k+1}\subseteq \mathbb{C}P^n$. We have that 
-    \begin{align*}
-        0\to F^{q,k-1}=E^q(\mathbb{C}P^{k-1})\to F^{q,k}=E^q(\mathbb{C}P^k)\to E^{q} x^k\to 0
-    \end{align*}
-    There is a section of the right arrow induced from collapsing $\mathbb{C}P^{k}\to \mathbb{C}P^{k}/\mathbb{C}P^{k-1}\simeq S^{2k}$, which implies the splitting of the filtration. 
-
-    Therefore, $E^*(\mathbb{C}P^n)\cong E^*[t]/(t^{n+1})$.
+    Recall that AHSS is functorial, and AHSS for $\mathbb{C}P^n$ can be constructed from filtration determined by the CW structure $\mathbb{C}P^k\subseteq \mathbb{C}P^{k+1}\subseteq \mathbb{C}P^n$. We will use induction to show that the spectral sequence for $\mathbb{C}P^n$ collapses on $E_2$-page, that is $d_r=0$ for all $r$. 
     
+    The assumption for $\mathbb{C}P^1\simeq S^2$ comes from the collapsing map $S^2\to *$. The inclusion and collapsing $*\to S^2\to *$ is obviously the identity and induces isomorphism. Therefore, the trivialness of $d_2$ on $E_2(*)$ implies that of $E_2(S^2)$, because there are no other differentials that are not necessarily trivial besides the one for $p=0$. For $E_n$ page of $S^2$, no differentials has both nontrivial target and domain, so the sequence collapses on $E_2$.
+
+    Suppose $\mathbb{C}P^{n-1}$ has collapsing $E_2$ page. The inclusion map $\mathbb{C}P^{n-1}\to \mathbb{C}P^n$, which by assumption takes $t\in E^2(\mathbb{C}P^{n})$ to $t\in E^2(\mathbb{C}P^{n-1})$ determines an isomorphism on $E^{p,q}_2$ for $p<2n$. Therefore, the only possible nontrivial $d_2$ differentials are the ones 
+    \[
+    d_2:H^{2n-2}(\mathbb{C}P^n, E^q)\to H^{2n}(\mathbb{C}P^n, E^{q-1})
+    \]
+    The collapsing map $\mathbb{C}P^n\to \mathbb{C}P^n/\mathbb{C}P^{n-1}\simeq S^{2n}$ induces $\varphi: E_r(S^{2n})\to E_r^{\mathbb{C}P^n}$. Because it lives on the cofiber sequence 
+    \[
+    \mathbb{C}P^{n-1}\to \mathbb{C}P^n\to S^{2n}
+    \]
+    And $E_r^{2n,q}(\mathbb{C}P^{n-1})=0$. The map $\varphi$ is an isomorphism for all $r$ on $p=2n$. Suppose $d_2(t^{n-1})=et^n$ for $e\neq 0$, then on the $E_3$ page, we have the quotient map $E^*\to E^*/e$ is an isomorphism, which is absurd.
+
+    No more nontrivial differentials exists after $E_2$ so it collapses.
+
+    To show $E^*(\mathbb{C}P^n)\cong E^*[t]/(t^{n+1})$, we once again look at the cofiber sequence
+    \[
+    \mathbb{C}P^{n-1}\to \mathbb{C}P^n\to S^{2n}
+    \]
+    which induces 
+    \[
+        ...\to E^{*-1} \mathbb{C}P^{n-1}\to E^{*} S^{2n}\to E^*\mathbb{C}P^{n}\to E^{*}\mathbb{C}P^{n-1} \to E^{*+1} S^{2n}\to...
+    \]
+    If we assume $E^*(\mathbb{C}P^{n-1})\cong E^*[t]/(t^{n})$, then everything but $E^*\mathbb{C}P^{n}$ in this long exact sequence are $E^*$-free, so they splits, and we have $t^{n}$ is a generator in $E^*\mathbb{C}P^{n}$, this statement then follows.
+
     Taking one step further, from Milnor's sequence
 \begin{align*}
     0\to {\lim}^1E^{*-1}(\mathbb{C}P^n)\to E^*(\mathbb{C}P^\infty)\to {\lim}E^*(\mathbb{C}P^n)\to 0
@@ -99,3 +116,21 @@ We will write $x+_Fy:=F(x,y)$.
 \\=\beta([p_1^*\mathcal{O}(1)]-1)\otimes  ([p_2^*\mathcal{O}(1)]-1)+ \beta([p_1^*\mathcal{O}(1)]-1)\otimes 1 +  \beta1\otimes ([p_2^*\mathcal{O}(1)]-1)
     \end{align*} So $F_K(x,y)=x+y+\beta^{-1}xy $
 \end{example}
+
+There exists map
+\[
+    BU(1)^{\times n}\to BU(n)
+\]determined by the map that classifies the direct sum of $n$ complex line bundles. Since permuting direct summand does not change the vector bundles, this is a $\Sigma_n$-invariant map.
+
+\begin{proposition}
+    \cite{PreSwitzer}\cite{ChrLurie}
+Given a complex oriented cohomology $E$, we have the map $  BU(1)^{\times n}\to BU(n)$ determines an isomorphism 
+\[
+E^*(BU(n))\cong E^*(BU(1)^{\times n})^{\Sigma_n}\cong E^*[[t_1, t_2,...,t_n]]^{\Sigma_n}\cong E^*[[c_1,...,c_n]]
+\]
+and 
+\[
+E^*(BU)\cong E^*[[c_1,c_2,...]]
+\]
+\end{proposition}
+
