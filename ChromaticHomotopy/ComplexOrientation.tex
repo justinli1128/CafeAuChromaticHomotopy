@@ -23,31 +23,18 @@
     We use the Atiyah-Hirzebruch spectral sequence for $\mathbb{C}P^n$, with $E_2$-page $H^p(\mathbb{C}P^n; E^q)$, which is strongly convergent as $\mathbb{C}P^n$ is finite.  
 
     First of all, $H^p(\mathbb{C}P^n; \Z)$ are free, therefore $H^p(\mathbb{C}P^n; A)=H^p(\mathbb{C}P^n; \Z) \otimes A$. Since $H^*(\mathbb{C}P^n; \Z)=\Z[t]/(t^{n+1})$ for $|t|=2$. Therefore, the second page of the AHSS is
-    \begin{center}
-\begin{tikzcd}[column sep=small, row sep=small]
-  & q & & & & & & & \\
-  &   & \vdots & & \vdots & & & \vdots & \\
-
-2 &   & E^{\,2}
-          \arrow[rrd]
-      & * & E^{\,2}t
-      & * & \cdots & E^{\,2}t^n & \\
-
-1 &   & E^{\,1}
-          \arrow[rrd, "d_2"']
-      & * & E^{\,1}t
-      & * & \cdots & E^{\,1}t^n & \\
-
-0 &   & E^{\,0}
-      & * & E^{\,0}t
-      & * & \cdots & E^{\,0}t^n & \\
-
-  &   \arrow[uuuuu] \arrow[rrrrrrr]
-      & & & & & & & p \\
-
-  &   & 0 & 1 & 2 & 3 & \cdots & n &
-\end{tikzcd}
-\end{center}
+     \begin{center}
+\[
+\begin{array}{c|cccccc}
+q & \\
+\vdots & \vdots & & \vdots & & & \vdots \\
+2 & E^{2} & * & E^{2}t & * & \cdots & E^{2}t^n \\
+1 & E^{1} & * & E^{1}t & * & \cdots & E^{1}t^n \\
+0 & E^{0} & * & E^{0}t & * & \cdots & E^{0}t^n \\
+\hline
+p & 0 & 1 & 2 & 3 & \cdots & 2n
+\end{array}
+\]
     The spectral sequence is multiplicative and the differentials are $E^*$. Every element in the $E_2$-page is in the form $et^k$ or $e$ for $e\in E^*$, and $d_2(e)=ed_2(1_E)$ and $d_2(et^k)=ket^{k-1}d_2t$. Therefore, $d_2$ is determined entirely by $d_2(1_E)\in E^{-1}$ and $d_2t\in E^{-1} t^2$.
 
     Recall that AHSS is functorial, the map $S^2\to \mathbb{C}P^n$ implies a spectral sequence map $\varphi_r:E_r^{*,*}(\mathbb{C}P^n)\to E_r^{*,*}(S^2)$ such that $\varphi_2(t)=t$. $t$ persists to $E^2(S^2)$, hence $t$ persists to $E^2(\mathbb{C}P^n)$. This implies that $d_2=0$. Similar argument implies $E_2$ collapses.
@@ -102,10 +89,12 @@ We will write $x+_Fy:=F(x,y)$.
 
 \begin{example}
     Let $E=HR$ for some ring $R$, $f_E(x,y)=x+y$, as it is the only possible graded formal group law.
-   \\ Let $E=KU$ be the complex $K$-theory, we choose $t\in KU^2(\mathbb{C}P^\infty)$ to be the one that correspond to $\beta([\mathcal{O}(1)]-1)$, where $\mathcal{O}(1)$ is the universal line bundle, $1$ is the trivial rank $1$ bundle over $\mathbb{C}P^\infty$, and $\beta$ is the Bott map $\beta: KU^*\to KU^{*+2}$. We have that given line bundle
+   \\ Let $E=KU$ be the complex $K$-theory, we choose $t\in KU^2(\mathbb{C}P^\infty)$ to be the one that correspond to $\beta([\mathcal{O}(1)]-1)$, where $\mathcal{O}(1)$ is the universal line bundle, $1$ is the trivial rank $1$ bundle over $\mathbb{C}P^\infty$, and $\beta$ is the Bott map $\beta: KU^*\to KU^{*+2}$. The pullback of line bundle $\mathcal{L}$ on $\mathbb{C}P^\infty$ pullback to $p_1^*\mathcal{L}\otimes p_2^*\mathcal{L}$ on $\mathbb{C}P^\infty\times \mathbb{C}P^\infty$.
+   
+   We have that given line bundle
     \begin{align*}
 \psi^*(\beta([\mathcal{O}(1)]-1))= \beta(\psi^*([\mathcal{O}(1)])-1)
-\\= \beta([\mathcal{O}(1)]\otimes [\mathcal{O}(1)]-1)
-\\=\beta([\mathcal{O}(1)]-1)\otimes  ([\mathcal{O}(1)]-1)+ \beta([\mathcal{O}(1)]-1)\otimes 1 +  \beta1\otimes ([\mathcal{O}(1)]-1)
+\\= \beta([p_1^*\mathcal{O}(1)]\otimes [p_2^*\mathcal{O}(1)]-1)
+\\=\beta([p_1^*\mathcal{O}(1)]-1)\otimes  ([p_2^*\mathcal{O}(1)]-1)+ \beta([p_1^*\mathcal{O}(1)]-1)\otimes 1 +  \beta1\otimes ([p_2^*\mathcal{O}(1)]-1)
     \end{align*} So $F_K(x,y)=x+y+\beta^{-1}xy $
 \end{example}
