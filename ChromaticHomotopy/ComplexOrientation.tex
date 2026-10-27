@@ -2,30 +2,82 @@
 % Write your notes here. Do not add a documentclass or document environment.
 
 
+
 \begin{definition}
     A \textbf{complex orientable} spectrum is a multiplicative spectrum $E$ such that $\tilde E^2(\mathbb{C}P^\infty)\to \tilde E^2(\mathbb{C}P^1)\cong E^0$ is surjective.
 
     Since $E$ is multiplicative, $E^0$ has a generator $1_E$, which correspond to a generator $t\in E^2(\mathbb{C}P^1)$. A \textbf{complex orientation} is a lift of $t$ in $E^2(\mathbb{C}P^\infty)$. A \textbf{complex oriented cohomology} is a tuple $(E,t_E)$ where $E$ is a complex orientable cohomology with a complex orientation
 \end{definition}
 
-We have a map $E^*[t]/(t^{n+1})\to E^*(\mathbb{C}P^n)$, from the fact that there is a cover of $n+1$ contractible open set of $\mathbb{C}P^n$. As it turns out
-\begin{lemma}
-    \cite{ChrHopkins} The map is an isomorphism.
-\end{lemma}
+\begin{example}
+    Let $E=HR$ for some commutative ring $R$, then $HR$ is complex oriented with $t\in H^2(S^2; R)$ with $H^*(\mathbb{C}P^∞;R)\cong R[[t]]$.
+\end{example}
+\begin{theorem}
+    \cite{PreRavenelGreen}\cite{PreAdams} \cite{ChrHopkins}\cite{ChrLurie} 
+    Let $(E, t)$ be a complex oriented cohomology, then there exists isomorphism
+    \begin{align*}
+        E^*(\mathbb{C}P^∞)\cong E^*[[t]]
+    \end{align*}and $  E^*(\mathbb{C}P^n)\cong E^*[t]/(t^{n+1})$
+\end{theorem}
 \begin{proof}
-    For $E=H\mathbb{Z}$, this is a classic result. We generalize it using the Atiyah-Hirzebruch SS, which is multiplicative, with one generator $t$ that correspond to the element $t\in E^2(\mathbb{C}P^n)$. We have that 
-\end{proof}
-We can take one step further, from Milnor's sequence
+    We use the Atiyah-Hirzebruch spectral sequence for $\mathbb{C}P^n$, with $E_2$-page $H^p(\mathbb{C}P^n; E^q)$, which is strongly convergent as $\mathbb{C}P^n$ is finite.  
+
+    First of all, $H^p(\mathbb{C}P^n; \Z)$ are free, therefore $H^p(\mathbb{C}P^n; A)=H^p(\mathbb{C}P^n; \Z) \otimes A$. Since $H^*(\mathbb{C}P^n; \Z)=\Z[t]/(t^{n+1})$ for $|t|=2$. Therefore, the second page of the AHSS is
+    \begin{center}
+\begin{tikzcd}[column sep=small, row sep=small]
+  & q & & & & & & & \\
+  &   & \vdots & & \vdots & & & \vdots & \\
+
+2 &   & E^{\,2}
+          \arrow[rrd]
+      & * & E^{\,2}t
+      & * & \cdots & E^{\,2}t^n & \\
+
+1 &   & E^{\,1}
+          \arrow[rrd, "d_2"']
+      & * & E^{\,1}t
+      & * & \cdots & E^{\,1}t^n & \\
+
+0 &   & E^{\,0}
+      & * & E^{\,0}t
+      & * & \cdots & E^{\,0}t^n & \\
+
+  &   \arrow[uuuuu] \arrow[rrrrrrr]
+      & & & & & & & p \\
+
+  &   & 0 & 1 & 2 & 3 & \cdots & n &
+\end{tikzcd}
+\end{center}
+    The spectral sequence is multiplicative and the differentials are $E^*$. Every element in the $E_2$-page is in the form $et^k$ or $e$ for $e\in E^*$, and $d_2(e)=ed_2(1_E)$ and $d_2(et^k)=ket^{k-1}d_2t$. Therefore, $d_2$ is determined entirely by $d_2(1_E)\in E^{-1}$ and $d_2t\in E^{-1} t^2$.
+
+    Recall that AHSS is functorial, the map $S^2\to \mathbb{C}P^n$ implies a spectral sequence map $\varphi_r:E_r^{*,*}(\mathbb{C}P^n)\to E_r^{*,*}(S^2)$ such that $\varphi_2(t)=t$. $t$ persists to $E^2(S^2)$, hence $t$ persists to $E^2(\mathbb{C}P^n)$. This implies that $d_2=0$. Similar argument implies $E_2$ collapses.
+
+    The filtration on $E_∞$ is determined by the CW structure $\mathbb{C}P^k\subseteq \mathbb{C}P^{k+1}\subseteq \mathbb{C}P^n$. We have that 
+    \begin{align*}
+        0\to F^{q,k-1}=E^q(\mathbb{C}P^{k-1})\to F^{q,k}=E^q(\mathbb{C}P^k)\to E^{q} x^k\to 0
+    \end{align*}
+    There is a section of the right arrow induced from collapsing $\mathbb{C}P^{k}\to \mathbb{C}P^{k}/\mathbb{C}P^{k-1}\simeq S^{2k}$, which implies the splitting of the filtration. 
+
+    Therefore, $E^*(\mathbb{C}P^n)\cong E^*[t]/(t^{n+1})$.
+    
+    Taking one step further, from Milnor's sequence
 \begin{align*}
     0\to {\lim}^1E^{*-1}(\mathbb{C}P^n)\to E^*(\mathbb{C}P^\infty)\to {\lim}E^*(\mathbb{C}P^n)\to 0
 \end{align*} and the fact $E^{*}(\mathbb{C}P^{n+1})\to E^{*}(\mathbb{C}P^n)$ is surjective, we have 
 \begin{align*}
     E^*(\mathbb{C}P^\infty)\cong E^*[[t]]
 \end{align*}
+\end{proof}
 
 The name complex orientation has a geometric meaning. We know complex line bundle is classified by the space $\mathbb{C}P^\infty\simeq BU(1)$. Given a complex oriented cohomology, $t$ is then a characteristic class of universal complex line bundle.
 
-The tensor product of line bundle $\mathbb{C}P^∞\times \mathbb{C}P^∞\to \mathbb{C}P^∞$ then induces a map 
+\begin{lemma}
+    $E^*(\mathbb{C}P^∞\times \mathbb{C}P^∞)\cong E^*[[x,y]]$
+\end{lemma}
+\begin{proof}
+    This is because $E^*(\mathbb{C}P^∞)$ is $E^*$-free.
+\end{proof}
+The tensor product of line bundle $\psi:\mathbb{C}P^∞\times \mathbb{C}P^∞\to \mathbb{C}P^∞$ then induces a map 
 \begin{align*}
     \psi_E:E^*(\mathbb{C}P^∞)\cong E^*[[t]]\to  E^*(\mathbb{C}P^∞\times \mathbb{C}P^∞)\cong E^*[[x,y]]
 \end{align*}
@@ -50,8 +102,10 @@ We will write $x+_Fy:=F(x,y)$.
 
 \begin{example}
     Let $E=HR$ for some ring $R$, $f_E(x,y)=x+y$, as it is the only possible graded formal group law.
-   \\ Let $E=K$ be the complex $K$-theory, we choose $t\in K^2(\mathbb{C}P^\infty)$ to be the one that correspond to $[\mathcal{O}(1)]-1$, where $\mathcal{O}(1)$ is the universal line bundle and $1$ is the trivial rank $1$ bundle over $\mathbb{C}P^\infty$, under the bott map $\beta: K^*\to K^{*+2}$. We have that given line bundle
+   \\ Let $E=KU$ be the complex $K$-theory, we choose $t\in KU^2(\mathbb{C}P^\infty)$ to be the one that correspond to $\beta([\mathcal{O}(1)]-1)$, where $\mathcal{O}(1)$ is the universal line bundle, $1$ is the trivial rank $1$ bundle over $\mathbb{C}P^\infty$, and $\beta$ is the Bott map $\beta: KU^*\to KU^{*+2}$. We have that given line bundle
     \begin{align*}
-[\mathcal{O}(1)]\otimes  [\mathcal{O}(1)]-1= ([\mathcal{O}(1)]-1)\otimes  ([\mathcal{O}(1)]-1)+ ([\mathcal{O}(1)]-1)\otimes 1 +  1\otimes ([\mathcal{O}(1)]-1)
+\psi^*(\beta([\mathcal{O}(1)]-1))= \beta(\psi^*([\mathcal{O}(1)])-1)
+\\= \beta([\mathcal{O}(1)]\otimes [\mathcal{O}(1)]-1)
+\\=\beta([\mathcal{O}(1)]-1)\otimes  ([\mathcal{O}(1)]-1)+ \beta([\mathcal{O}(1)]-1)\otimes 1 +  \beta1\otimes ([\mathcal{O}(1)]-1)
     \end{align*} So $F_K(x,y)=x+y+\beta^{-1}xy $
 \end{example}
