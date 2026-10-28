@@ -1,18 +1,93 @@
 \section{Universal orientations}\label{sec:chromatichomotopy-universalorientation}
 % Write your notes here. Do not add a documentclass or document environment.
 
-Let $(E,t)$ be a complex oriented cohomology, with ring structure map $\mu:E\wedge E\to E$.
+
+This section, we will look closely at the global theory of Thom classes. Let $(E,t)$ be a complex oriented cohomology, with ring structure map $\mu:E\wedge E\to E$.
+
+Let $\eta\to X$ be a rank $n$ complex vector bundle, classified by map $f: X\to BU(n)$. There is a map 
+\[
+f_\eta:M(\eta)\to M(\xi_n)
+\] From the fact there is a map $\eta\to \xi_n$ such that $D(\eta)\to D(\xi_n)$ and $S(\eta)\to S(\xi_n)$. 
+
+There exists a diagram
+\begin{center}
+    \begin{tikzcd}
+E^*(M(\xi_n)) \arrow[r, "j^*"] \arrow[d, "f_\eta^*"] & E^*(D(\xi_n))\cong E*(BU(n))   \arrow[d, "f^*"] \\
+E^*(M(\eta)) \arrow[r, "j_X^*"]                      & E^*(D(\eta))\cong E^*(X)                       
+\end{tikzcd}
+\end{center}
+where the Thom class of $\xi_n$ is the unique element that corresponds to $c_n \in E^*(D(\xi_n))$.
+
+\begin{proposition}
+    For every complex vector bundle $\eta$ of rank $n$ over a space $X$, with its classifying map $f: X\to BU(n)$, there is a Thom class $u_\eta:=f^*u_n$  for $f^*: E^*(M(\xi_n))\to E^*(M(\eta))$. In particular, the Thom class of $\xi_{n-1}\oplus \varepsilon_\mathbb{C}$ over $BU(n-1)$ is $i^*u_n$ for $i: BU(n-1)\to BU(n)$.\end{proposition}
+\begin{proof}
+    The first statement follows from the fact that $u_n$ is a Thom class, so for any point $x\in X$, the restriction of $f^*u_n$ on $E^*(D(\eta_x)/S(\eta_x))\cong E^*(D((\xi_n)_{f(x)})/S((\xi_n)_{f(x)}))$ is a generator.
+\end{proof}
+
+Let $i_{n,m}: BU(n)\times BU(m)\to BU(n+m)$ be the diagonal inclusion, which classifies direct sum of vector bundle, $i_{n,m}^*\xi_{n+m}=p_1^*\xi_n\oplus p_2^*\xi_m$. The Thom space of the direct sum is $M(p_1^*\xi_n)\wedge M(p_2^*\xi_m)\simeq M(\xi_n)\wedge M(\xi_m)$. 
+
+The Chern class $c_{n+m}(p_1^*\xi_n\oplus p_2^*\xi_m)$ over $BU(n)\times BU(m)$ is $p_1^*c_n \cdot p^*_2c_m$ for $c_n(\xi_n)=c_n$ the Chern class of $\xi_n$ over $BU(n)$. Therefore, we have the Thom class of $p_1^*\xi_n\oplus p_2^*\xi_m$ must be $u_{p^*_1\xi_n}u_{p_2^*\xi_m}$.
+
+Suppose we have two vector bundle $\eta$ and $\eta'$ over $X$, the classifying map of $\eta\oplus \eta'$ factors as
+\begin{align*}
+ X\to BU(n)\times BU(m)\to BU(n+m)
+\end{align*}
+Therefore, we have $u_{\eta\oplus \eta'}=u_{\eta}u_{\eta'}$.
+
+
 Let $\phi_n: \Sigma^{-2n}\Sigma^\infty M(\xi_{n})\to E$ denote the morphism that corresponds to the Thom class $u_n\in E^{2n}(M(\xi_n))$.
 
 \begin{proposition}
 There is homotopy commutative diagram
 \begin{center}
 \begin{tikzcd}
-\Sigma^{-2n}M(\xi_n)\wedge \Sigma^{-2m}M(\xi_m) \arrow[d, "\phi_n\wedge \phi_m"] \arrow[r, "{\psi_{n,m}}"] & \Sigma^{-2n-2m}M(\xi_{n+m}) \arrow[d, "\phi_{n+m}"] \\
+M(\xi_n)\wedge M(\xi_m) \arrow[d, "\phi_n\wedge \phi_m"] \arrow[r, "{\psi_{n,m}}"] & M(\xi_{n+m}) \arrow[d, "\phi_{n+m}"] \\
 E\wedge E \arrow[r, "\mu_E"]                                                                               & E                                                  
 \end{tikzcd}
 \end{center}
 \end{proposition}
 \begin{proof}
+Recall how the Thom class is defined, we have exact sequence
+\[
+    0\to E^{*}(M(\xi_n))\xrightarrow{j^*} E^*(BU(n))\to E^*(BU(n-1))\to 0
+\]and $u_n$ is the element that is map to $c_n\in E^*(BU(n))$.
 
+The statement simplifies to show the Thom class $u_{n+m}$ pullbacks to $u_{n}u_m$ along the inclusion of Thom space
+\begin{align*}
+   M(\xi_n)\wedge M(\xi_m)\to M(\xi_{n+m})
+\end{align*}which we have already shown.
 \end{proof}
+
+Note, $\phi_n:M(\xi_n)\to E$ is determined by the complex orientation. Therefore, if we are given a complex orientation on $E$, the Thom class that we constructed out of the complex orientation determines a ring map $MU\to E$.
+
+\begin{proposition}
+    Given a ring map $\phi:MU\to E$, the map $\phi_1: \Sigma^{-2}\Sigma^\infty M(\xi_1)\to MU\to E$ is a complex orientation.
+\end{proposition}
+\begin{proof}
+    We have $M(\xi_1)\simeq BU(1)$, so $\phi_1$ corresponds to an element in $t\in E^2(BU(1))$. The unit of $MU$ is determined by $\Sigma^\infty S^0\simeq \Sigma^\infty \Omega^\infty MU$ and the inclusion $i:\Sigma^2S^0\to M(\xi_1)\simeq BU(1)$.  The element $i^*t\in E^2(S^2)$ then corresponds to the map 
+    \[
+     S\to \Sigma^{-2}\Sigma^\infty M(\xi_1)\to MU\to E
+    \]which is precisely the unit of $E$ as $\phi$ is a ring map.
+\end{proof}
+
+\begin{theorem}
+    Given two ring map $\phi,\phi': MU\to E$, $\phi\simeq \phi'$ if and only if $\phi_1\simeq \phi'_1$, that is the determines the same complex orientation
+\end{theorem}
+\begin{proof}
+    Recall that $\phi'$ is obtained from the homotopy colimits of $\phi_n':\Sigma^{-2n}\Sigma^\infty M(\xi_n)\to E$. If we have $\phi_n:\Sigma^{-2n}\Sigma^\infty M(\xi_n)\to MU \to E$ is equivalent to $\phi_n'$, then we are done.
+
+   Since $E$ is complex oriented, because $\phi$ exists, then we have $E^*(BU(n))\to E^*(BU(1)^{\times n})$ is an injection, and $E^*(M(\xi_n))\to E^*(BU(n))$ is also an injection. Therefore, $E^*(M(\xi_n))\to E^*(M(\xi_1)^{\wedge n})$ is also an injection,
+   \begin{center}
+       \begin{tikzcd}
+E^*(M(\xi_n))\arrow[r] \arrow[d] & E^*(BU(n)) \arrow[d]  \\
+E^*(M(\xi_1)^{\wedge n}) \arrow[r, "\cong"]               & E^*(BU(1)^{\times n})
+\end{tikzcd}
+   \end{center}
+   Therefore, it suffices to show that $\phi_1^{\wedge n},\phi_1'^{\wedge n}:M(\xi_1)^{\wedge n}\to M(\xi_n)\to E$ are homotopic, which is the assumption.
+\end{proof}
+
+\begin{corollary}
+    There exists an universal complex orientation $t_{MU}$ on $MU$ determined by $id_{MU}:MU\to MU$, such that every complex orientation of $E$ is the pullback of $t_{MU}$  by a ring map $\phi: MU\to E$ unique up to homotopy.
+\end{corollary}
+
+So, without know $MU^*$ explicitly, we have shown that $MU$ is complex oriented, and actually it is the best complex oriented cohomology.

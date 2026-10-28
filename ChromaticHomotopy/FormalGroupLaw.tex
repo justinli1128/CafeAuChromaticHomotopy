@@ -1,2 +1,51 @@
 \section{Universal Formal Group Laws}\label{sec:chromatichomotopy-formalgrouplaw}
 % Write your notes here. Do not add a documentclass or document environment.
+Recall the definition of a formal group law.
+
+\begin{definition}
+    A \textbf{formal group law} over a ring $R$ is a formal power series $F(x,y)$ such that 
+    \begin{itemize}
+        \item $F(x,0)=F(0,x)=x$
+        \item $F(x,y)=F(y,x)$
+        \item $F(x,F(y,z))=F(F(x,y),z)$
+    \end{itemize}
+For $R$ graded, we require $F(x,y)$ to be homogeneous of degree $2$.
+\end{definition}
+\begin{remark}
+    Given an ungraded formal group law $F$ over $R$ determines a continuous ring map $R[[t]]\to R[[x,y]]$, because, $F(x,y)$ has no constant term, so $F(x,y)^n\to 0$. Therefore, there exists a map
+     $\mathrm{Spf}(R[[x]])\times \mathrm{Spf}(R[[y]])\to \mathrm{Spf}(R[[t]])$, which is by the above definition, is a group object in the category of affine formal schemes. More on this later.
+\end{remark}
+
+\begin{definition}
+    Let $F$ be a formal group law over $R$ and $G$ be a formal group law over $S$, a \textbf{morphism of formal group law} $\varphi: F/R\to G/S$ contains a ring map $\psi: R\to S$, and a formal power series $f(t)\in S[[t]]$ such that 
+    \begin{align*}
+        f(\psi^*F(x,y))=G(f(x),f(y))
+    \end{align*}
+    where $\psi^*F$ is the formal group law over $S$ by taking the coefficient of $F$ to $S$ along $\psi$.  
+
+    An \textbf{isomorphism of formal group law} is a morphism of formal group law with an inverse, and a \textbf{strict isomorphism of formal group law} is an isomorphism $\varphi=(\psi, f): F/R\to G/S$, such that $f'(0)=1$.
+\end{definition}
+
+Given formal group law $F$, we denote $x\plus_F y:=F(x,y)$.
+
+\begin{definition}
+    The functor $\mathrm{fgl}: \Ring\to \Sets$ is such that 
+    \[
+    \mathrm{fgl}(R)=\{F\in R[[x,y]]: F \text{ is a formal group law over $R$}\}
+    \]and for $psi: R\to S$, $\mathrm{fgl}(\psi):\mathrm{fgl}(R)\to \mathrm{fgl}(S)$ takes $F$ to $\psi^*F$.
+
+    Given two formal group laws $F/R$ and $G/S$, the functor $\mathrm{iso}(F,G): \Ring\to \Sets$ is such that 
+    \[
+    \mathrm{iso}(F,G)(T):=\{(\psi, \phi, f): \psi: R\to T, \phi: S\to T, f\in T[[t]], \text{ $f$ is an isomorphism $f: \psi^*F\to \phi^*G$ }\}
+    \]and for $\mu: T\to T'$, $\mathrm{iso}(F,G)(\mu)$ takes $(\psi, \phi, f)$ to $(\mu\circ \psi, \mu\circ \phi, \mu^*f)$.
+
+    Lastly, the functor $\mathrm{strict}(F,G)$ is the subfunctor of $\mathrm{iso}(F,G)$ where $f$ is a strict isomorphism (this does define a subfunctor as unit is preserved under ring map).
+\end{definition}
+
+Of course, every definitions here can be generalized for graded ring and graded formalg group law.
+\begin{theorem}
+\cite{ChrHopkins}
+The functor $\mathrm{fgl}$ is corepresentable by $L$.
+\end{theorem}
+
+Recall that given a complex orientation on $E$, there exists a graded formal group law over $E^*$ determined by the complex orientation.
