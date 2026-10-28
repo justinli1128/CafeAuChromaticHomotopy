@@ -45,25 +45,26 @@ KU^{-2}\otimes KU^0(X)=[S^{2}, KU]\otimes [X, KU]\xrightarrow{(\beta, m)\mapsto 
 
 \begin{definition}
 
-Let $\eta\to X$ be a real vector bundle of rank $n$, and let $D(\eta) \to X$ be the $n$-disk subbundle of $\eta$ and $S(\eta)\to X$ be the $n-1$-sphere subbundle of $D(\eta)$, the \textbf{Thom space} $Th(\eta)$ is $D(\eta)/S(\eta)$.
+Let $\eta\to X$ be a real vector bundle of rank $n$, and let $D(\eta) \to X$ be the $n$-disk subbundle of $\eta$ and $S(\eta)\to X$ be the $n-1$-sphere subbundle of $D(\eta)$, the \textbf{Thom space} $M(\eta)$ is $D(\eta)/S(\eta)$.
 
-Given a multiplicative cohomology $E$, an element $u\in \tilde {E}^{n}(Th(\eta))$ is a $E$-\textbf{Thom Class of }$\eta$ if for every $x\in X$, the restriction $u_X\in \tilde{E}^{n}(D(\eta_x)/S(\eta_x))=\tilde{E}^{n}(S^n)\cong E^0$ is a $E^0$ generator.
+Given a multiplicative cohomology $E$, an element $u\in \tilde {E}^{n}(M(\eta))$ is a $E$-\textbf{Thom Class of }$\eta$ if for every $x\in X$, the restriction $u_X\in \tilde{E}^{n}(D(\eta_x)/S(\eta_x))=\tilde{E}^{n}(S^n)\cong E^0$ is a $E^0$ generator.
 \end{definition}
-When $\eta$ is a complex vector bundle of rank $n$, we understand $Th(\eta)$ as the Thom space of the underlying real bundle of rank $2n$.
+When $\eta$ is a complex vector bundle of rank $n$, we understand $M(\eta)$ as the Thom space of the underlying real bundle of rank $2n$.
 
 \begin{theorem}(Thom's Isomorphism Theorem)
-\cite{PreMilnorStasheff}
-Given a multiplicative cohomology $E$, for every real vector bundle of rank $n$, $\eta\to X$ and a Thom class $u \in \tilde{E}^n(Th(\eta))$, there is isomorphism
-\[
-u\cdot(-): \tilde{E}^*(X)\to \tilde{E}^{*+n}(Th(\eta))
-\]
+\cite{PreMilnorStasheff}\cite{PreSwitzer}
+Given a multiplicative ring spectrum $E$, for every real vector bundle of rank $n$, $\eta\to X$ and a Thom class $u \in \tilde{E}^n(M(\eta))$, there is isomorphism
+\begin{align*}
+\Phi_1: {E}^*(X)\to {E}^{*+n}(M(\eta))
+\\ \Phi_2:E_{*+n}(M(\eta))\to E_*(X)
+\end{align*}
 \end{theorem}
 
 \begin{lemma}
-  For every real vector bundle $\eta\to X$, there is equivalence $Th(\eta\oplus \varepsilon)\simeq S^1\wedge Th(\eta)\simeq \Sigma Th(\eta)$.
+  For every real vector bundle $\eta\to X$, there is equivalence $M(\eta\oplus \varepsilon)\simeq S^1\wedge M(\eta)\simeq \Sigma M(\eta)$.
 \end{lemma}
 
-We have $BO(n)$ admits an universal rank $n$ real vector bundle $\gamma_n\to BO(n)$, and there is map $\Sigma Th(\gamma_n)\simeq Th(\gamma_n\otimes \varepsilon)\to Th(\gamma_{n+1})$ induced from the classifying map of $\gamma_n\otimes \varepsilon\to \gamma_{n+1}$. Therefore, there is a spectra $MO$ with the $n$th space $Th(\gamma_n)$, we refer to it as the \textbf{real Thom spectrum}.
+We have $BO(n)$ admits an universal rank $n$ real vector bundle $\gamma_n\to BO(n)$, and there is map $\Sigma M(\gamma_n)\simeq M(\gamma_n\otimes \varepsilon)\to M(\gamma_{n+1})$ induced from the classifying map of $\gamma_n\otimes \varepsilon\to \gamma_{n+1}$. Therefore, there is a spectra $MO$ with the $n$th space $M(\gamma_n)$, we refer to it as the \textbf{real Thom spectrum}.
 
 For $BU(n)$ there is an universal rank $2n$ vector bundle $\xi_n\to BU(n)$. The construction of the \textbf{complex Thom spectrum} comes from the equivalence $M(\xi_n\oplus \varepsilon_{\C})\simeq \Sigma^2M(\xi_n)\to M(\xi_{n+1})$. The even numbered spaces $2n$ are $M(\xi_n)$ and odd numbered spaces $2n+1$ are $\Sigma M(\xi_n)$, with structure map the identity $\Sigma M(\xi_n)\to \Sigma M(\xi_n)$ and the classifying map $\Sigma^2 M(\xi_n)\to M(\xi_{n+1})$. We denote this spectrum $MU$. 
 

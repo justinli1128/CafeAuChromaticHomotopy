@@ -1,7 +1,109 @@
-\section{Computing MU}\label{sec:chromatichomotopy-computingmu}
+\section{Computing Homology of MU}\label{sec:chromatichomotopy-computingmu}
 % Write your notes here. Do not add a documentclass or document environment.
-This section and the next are dedicated towards the coefficient ring $MU^*$.
+The following sections are dedicated towards the spectrum $MU$.
+ 
+We first recall the construction of $MU$. The even numbered spaces $2n$ are $M(\xi_n)$ 
+and odd numbered spaces $2n+1$ are $\Sigma M(\xi_n)$, with structure map the identity 
+$\Sigma M(\xi_n)\to \Sigma M(\xi_n)$ and the classifying map $\Sigma^2 M(\xi_n)\to M(\xi_{n+1})$. 
 
+In computing $MU_*$, we make the following observation
+\begin{lemma}
+ Given a spectrum $E$, there exists an equivalence 
+ \[
+ E\simeq \hocolim_n \Sigma^{-n}\Sigma^{\infty}\Omega^\infty\Omega^{-n}E\simeq  \hocolim_n \Sigma^{-n}\Sigma^{\infty} E_n
+ \]
+\end{lemma}
+\begin{proof}
+    We have a map $\Sigma^{\infty}\Omega^\infty F\to F$ from the adjunction. Therefore, let $F=\Omega^{-n}E$, this gives us the map $\Sigma^{-n}\Sigma^{\infty}\Omega^\infty\Omega^{-n}E\to E$.
+
+    We have the stable homotopy group $\pi_*$ commutes with filtered (homotopy) colimits, therefore 
+    \[
+    \pi_* \hocolim_n \Sigma^{-n}\Sigma^{\infty}\Omega^\infty\Omega^{-n}E=\colim_n \pi_*\Sigma^{-n}\Sigma^{\infty}\Omega^\infty\Omega^{-n}E
+    \\=\colim_n \pi_{*+n}\Sigma^{\infty}E_n
+    \\=  \pi_{*+n+k}E_{n+k}
+    \\= \pi_*E
+    \]for $k>>*$.
+\end{proof}
+The following result needs knowledge on abstract homotopy theory, which is not what we are talking about.
+\begin{lemma}
+    There exists equivalence
+    \[
+    \hocolim_{n}F_{2n}\simeq \hocolim_{n}F_n
+    \]
+\end{lemma}
+
+Therefore, there is equivalence
+
+\[
+MU\simeq  \hocolim_n \Sigma^{-2n}\Sigma^{\infty}M(\xi_n)
+\]
+\begin{lemma}
+    There exists equivalence of homotopy cofiber sequence
+   \begin{center}
+\begin{tikzcd}
+S(\xi_n) \arrow[r] \arrow[d] & D(\xi_n) \arrow[d] \arrow[r] & M(\xi_n) \arrow[d] \\
+BU(n-1) \arrow[r]            & BU(n) \arrow[r]              & BU(n)/BU(n-1)     
+\end{tikzcd}
+   \end{center}
+\end{lemma}\begin{proof}
+Let $EU(n)$ be the universal principal $U(n)$-bundle over $BU(n)$, which is contractible. So there is $EU(n)/U(n)\simeq BU(n)$. Let $D^{2n}$ carry the action of $U(n)$, so $U(n)$ acts on $S^{2n-1}\subseteq D^{2n}$ transitively with stabilizer $U(n-1)$. Therefore, we have identification
+\[
+S(\xi_n)\simeq EU(n)\times _{U(n)}S^{2n-1}\to D(\xi_n)\simeq EU(n)\times_{U(n)}D^{2n}
+\]
+Now $ EU(n)\times _{U(n)}S^{2n-1}\cong  EU(n)\times _{U(n)}(U(n)/U(n-1))\cong EU(n)/U(n-1)\simeq BU(n-1)$, and $EU(n)\times_{U(n)}D^{2n}\simeq BU(n)$. This proves the statement.
+\end{proof}
+\begin{proposition}
+ \cite{ChrLurie}   Given a complex oriented cohomology $E$, there exists a Thom class $u\in E^{2n}(M(\xi_n))$. In particular, there is isomorphism
+    \[
+    u\cdot : E^*(BU(n))\to E^{*+2n}(M(\xi_n))
+    \]
+\end{proposition}
+\begin{proof}
+    We identify $E^*(M(\xi_n))$ with $E^*(BU(n)/BU(n-1))$. Moreover, the inclusion $BU(n-1)\to BU(n)$ takes $c_i$ to $c_i$. Therefore, $E^*(BU(n))\to E^*(BU(n-1))$ is surjective, and there is exact sequence
+    \[
+    0\to E^*(BU(n)/BU(n-1))\xrightarrow{j^*} E^*(BU(n))\to E^*(BU(n-1))\to 0
+    \]so $E^*(BU(n)/BU(n-1))\cong uE^*(BU(n))$ for $j^*u=c_n$.
+
+    Since $BU(n)$ is connected, we can show the Thom class property for a single point $*\in BU(n)$. Therefore, if we pullback along $f:BU(1)^{\times n}\to BU(n)$, which takes the universal bundle $\xi_n$ to $f^*\xi_n= \xi_{1,i}^{\oplus_i n}$, and takes the class $u\in E^{2n}(M(\xi_n))$ to $u_{1,1}\cdot u_{1,2}\cdot ...u_{1,n}\in E^{2n}(M(\xi_{1,i}))^{\times_i n}$. Therefore, we just need to show our "Thom class" candidate is actually a Thom class for $BU(1)$. This is then trivial, because it corresponds to the complex orientation $t\in E^2(BU(1))$.
+\end{proof}
+
+So we have $E_*(\Sigma^{-2n}\Sigma^\infty M(\xi_n))\cong E_*(BU(n))=E_*[b_1,...,b_n]$. Moreover, the inclusion map $\Sigma^{-2n+2}M(\xi_{n-1})\simeq M(\varepsilon)\wedge \Sigma^{-2n}M(\xi_{n-1})\to \Sigma^{-2n}M(\xi_n)$ takes $b_i$ to $b_i$.
+
+Therefore we have isomorphism $E_*(MU)\cong E_*(BU)\cong E_*[b_1,b_2,...]$.
+
+There is a ring structure on $BU$ defined by the following
+\begin{align*}
+    \mu_{n,m}:BU(n)\times   BU(m)\to BU(n+m)
+\end{align*}induced from 
+\begin{align*}
+    U(n)\times U(m)\to U(n+m)
+    \\ (A,B)\mapsto \begin{pmatrix}
+        A &0
+        \\ 0 & B
+    \end{pmatrix}
+\end{align*}which goes to a map $\mu: BU\times BU\to BU$ that determines a ring structure.
+
+The map 
+\[
+\mu_{n,m}: E_*(BU(n))\otimes_{E_*}E_*(BU(m))\cong E_*[b_1,...,b_n,b_1',...,b_m']\to E_*(BU(n+m))=E_*[b_1,...,b_{n+m}]
+\] takes the basis $b_i$ to $b_i$ and $b_i'$ to $b_{n+i}$.
+
+Here we can talk about the multiplicative structure on $MU$. There is 
+\begin{align*}
+    \psi_{n,m}: \Sigma^{2n}\Sigma^\infty M(\xi_n)\wedge  \Sigma^{2m}\Sigma^\infty M(\xi_m)\simeq \Sigma^\infty \Sigma^{2n+2m}M(\xi_n)\wedge M(\xi_m)\to \Sigma^\infty M(\xi_{n+m})
+\end{align*}which assembles to a ring structure $\psi:MU\wedge MU\to MU$.
+
+\begin{proposition}
+  \cite{PreSwitzer}  The Thom isomorphism commutes $\mu_{n,m}$ with $\psi_{n,m}$.
+\end{proposition}
+We did not talk about the Thom isomorphism, so we leave this proof out. See \cite{PreSwitzer} for details.
+
+Let $E$ be a complex oriented cohomology. Since $MU$ is a spectrum, $E^*(MU)$ does not have a natural ring structure, but $E_*(MU)$ is a $E_*$ algebra with the ring structure of $MU$.
 \begin{theorem}
-
+    There is isomorphism of $E_*$-algebra
+    \begin{align*}
+        E_*(MU)\cong E_*[b_1,b_2,...]
+    \end{align*}For $|b_i|=2i$ in the homological degree.
 \end{theorem}
+
+Specifically, the algebra structure on the Hopf algebroid $MU_*MU$ is $MU_*[b_1,b_2,...]$. However, we still do not know what $MU_*$ is (we will).
