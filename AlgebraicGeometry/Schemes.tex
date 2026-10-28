@@ -1,5 +1,6 @@
 \section{Schemes}\label{sec:algebraicgeometry-schemes}
 % Write your notes here. Do not add a documentclass or document environment.
+\textbf{Most, if not all, of the contents in this section are found in Hartshorne's book, for which on my website, I reserved some rooms for my solutions to some of the exericses in the book. Therefore, I might be slacking on the proofs here, but most, if not all, might be in my solutions.}
 
 \begin{definition}
     Let $X$ be a topological space, the \textbf{category of presheaves} over $X$ is denoted as $\pSh(X)$, and the \textbf{category of sheaves} over $X$ is denoted as $\Sh(X)$. 
@@ -89,6 +90,20 @@ There exists adjunction
     \Hom_{\Ring}(A,\Gamma(X,\Ocal_X) )\cong \Hom_{\Sch}(X, \Spec (A))
 \]
 In particular, this induces equivalence $\Aff\to \Ring^{op}$.
+\end{theorem}
+
+Given $f\in \Gamma(X,\Ocal_X)$ and a point $x\in X$, we denote $f(x)$ as the image of $f$ under the localization $ \Gamma(X,\Ocal_X)\to \Ocal_{X,x}/\mathfrak{m}_x=\kappa(x)$, and we let $X_f$ be the subset of $X$ containing points $x$ such that $f(x)\neq 0$
+
+\begin{lemma}
+    $X_f$ is an open set.
+\end{lemma}
+\begin{proof}
+Let $\Spec(A_i)$ be an affine cover of $X$, and denote $f_i$ as $f$ localized onto $\Spec(A_i)$, then we have for $\mathfrak{p}\in \Spec(A_i)$, $f(\mathfrak{p})=f \mod \mathfrak{p}$ as $\Ocal_{\Spec(A_i), \mathfrak{p}}=(A_i)_{(\mathfrak{p})}/\mathfrak{p}$. Therefore $f(\mathfrak{p})\neq 0$ if and only $f\notin \mathfrak{p}$, which implies $X_f\cap \Spec(A_i)=D(f_i)$. Therefore $X_f=\cup_i D(f_i)$, which are open.
+\end{proof}
+
+\begin{theorem}
+    \cite{AGHartshorne}\cite{AGVakil}
+    A scheme $X$ is affine if and only if there exists global sections $f_1,f_2,...,f_n\in \Gamma(X,\Ocal_X)$ such that $1\in \langle f_1,...,f_n\rangle$ and $X_{f_i}$ are affine.
 \end{theorem}
 
 \begin{definition}\cite{AGGoerss}

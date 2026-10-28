@@ -3,6 +3,20 @@
 \begin{definition}
     Let $f:X\to Y$ be a morphism of scheme: we say 
     \begin{itemize}
-
+        \item $f$ is \textbf{quasicompact} if for every quasicompact open set $V$ of $Y$, $f^{-1}(V)$ is quasicompact
+        \item $f$ is \textbf{locally of finite type} if for every point $y \in Y$, there is an affine open $\Spec(A)$ containing $y$ such that $f^{-1}(\Spec(A))$ admits an affine cover $\Spec(R_i)$ such that $A\to R_i$ are finitely generated as $A$-algebra.
+        \item $f$ is \textbf{finite type} if it is locally of finite type and quasicompact
+        \item $f$ is \textbf{finite} if for every point $y \in Y$, there is an affine open $\Spec(A)$ containing $y$ such that $f^{-1}(\Spec(A))$ admits an affine cover $\Spec(R_i)$ such that $A\to R_i$ are finitely generated as $A$-module.
+        \item $f$ is \textbf{flat} if for every point $y \in Y$, there is an affine open $\Spec(A)$ containing $y$ such that $f^{-1}(\Spec(A))$ admits an affine cover $\Spec(R_i)$ such that $A\to R_i$ are flat $A$-algebra.
+        \item $f$ is \textbf{faithful} if the underlying continuous map is surjective.
+        \item $f$ is \textbf{faithfully flat} if it is faithful and flat.
+        \item $f$ is \textbf{locally of finite presentation} if for every point $y \in Y$, there is an affine open $\Spec(A)$ containing $y$ such that $f^{-1}(\Spec(A))$ admits an affine cover $\Spec(R_i)$ such that $A\to R_i$ are finitely presented as $A$-algebra.
+        \item $f$ is \textbf{étale} if it is flat, locally of finite presentation, and for every $y\in Y$, the fiber $f^{-1}(y)$ is a disjoint union of points $x_i$, where the residue field $\kappa(x_i)$ are finite separable extension of $\kappa(y)$.
+        \item $f$ is an \textbf{open immersion} if the underlying continuous map is a homeomorphism onto the image with the image is open, and the map $f^{\shp}: \Ocal_{Y}|_{f(X)}\to f_*\Ocal_{X}|_{f(X)}$ is an isomorphism of sheaves over $f(X)$.
+        \item $f$ is a \textbf{closed immersion}if the underlying continuous map is a homeomorphism onto the image with the image is closed, and the map $f^{\shp}: \Ocal_{Y}|_{f(X)}\to f_*\Ocal_{X}|_{f(X)}$ is  surjection of sheaves over $f(X)$.
     \end{itemize}
 \end{definition}
+
+\begin{proposition}
+    Every morphisms in the definition above are stable under pullback.
+\end{proposition}
