@@ -28,15 +28,6 @@ For $R$ graded, we require $F(x,y)$ to be homogeneous of degree $2$.
 
 Given formal group law $F$, we denote $x+_F y:=F(x,y)$.
 
-\begin{definition}
-    The functor $\mathrm{fgl}: \Ring\to \Sets$ is such that 
-    \[
-    \mathrm{fgl}(R)=\{F\in R[[x,y]]: F \text{ is a formal group law over $R$}\}
-    \]and for $psi: R\to S$, $\mathrm{fgl}(\psi):\mathrm{fgl}(R)\to \mathrm{fgl}(S)$ takes $F$ to $\psi^*F$.
-
-    
-Given formal group law $F$, we denote $x+_F y:=F(x,y)$.
-
 
 \begin{definition}
     Let $F$ be a formal group law over $R$ and $G$ be a formal group law over $S$, a \textbf{morphism of formal group law} $\varphi: F/R\to G/S$ contains a ring map $\psi: R\to S$, and a formal power series $f(t)\in S[[t]]$ such that 
@@ -60,7 +51,8 @@ Of course, every definitions here can be generalized for graded ring and graded 
 \begin{proposition}
 \cite{ChrHopkins}
 The functor $\mathbf{fgl}$ is corepresentable by a ring $L$, that is $\fgl=\Hom_{\Ring}(L,-)$.
-\end{proposition}\begin{proof}
+\end{proposition}
+\begin{proof}
     First of all, $\mathbf{fgl}$ is a subfunctor of the formal power series functor $\mathbf{pf}$ that takes a ring $R$ to the set of two variable formal power series over $R$. We have that $\mathbf{pf}$ is corepresented by ring $\Z[c_{00},c_{01},c_{10}, c_{11}...]$ with the universal power series
     \[
     F(x,y)=\sum_{i,j\in \mathbb{N}^2}c_{ij}x^iy^j
