@@ -1,0 +1,10 @@
+\section{Morphisms and Isomorphisms of Formal Group Laws}\label{sec:chromatichomotopy-morphismsformalgrouplaw}
+
+\begin{definition}
+        Given two formal group laws $F/R$ and $G/S$, the functor $\mathbf{iso}(F,G): \Ring\to \Sets$ is such that 
+    \[
+    \mathbf{iso}(F,G)(T):=\{(\psi, \phi, f): \psi: R\to T, \phi: S\to T, f\in T[[t]], \text{ $f$ is an isomorphism $f: \psi^*F\to \phi^*G$ }\}
+    \]and for $\mu: T\to T'$, $\mathbf{iso}(F,G)(\mu)$ takes $(\psi, \phi, f)$ to $(\mu\circ \psi, \mu\circ \phi, \mu^*f)$.
+
+    Lastly, the functor $\mathbf{strict}(F,G)$ is the subfunctor of $\mathbf{iso}(F,G)$ where $f$ is a strict isomorphism (this does define a subfunctor as unit is preserved under ring map).
+\end{definition}

@@ -34,18 +34,239 @@ Given formal group law $F$, we denote $x\plus_F y:=F(x,y)$.
     \mathrm{fgl}(R)=\{F\in R[[x,y]]: F \text{ is a formal group law over $R$}\}
     \]and for $psi: R\to S$, $\mathrm{fgl}(\psi):\mathrm{fgl}(R)\to \mathrm{fgl}(S)$ takes $F$ to $\psi^*F$.
 
-    Given two formal group laws $F/R$ and $G/S$, the functor $\mathrm{iso}(F,G): \Ring\to \Sets$ is such that 
-    \[
-    \mathrm{iso}(F,G)(T):=\{(\psi, \phi, f): \psi: R\to T, \phi: S\to T, f\in T[[t]], \text{ $f$ is an isomorphism $f: \psi^*F\to \phi^*G$ }\}
-    \]and for $\mu: T\to T'$, $\mathrm{iso}(F,G)(\mu)$ takes $(\psi, \phi, f)$ to $(\mu\circ \psi, \mu\circ \phi, \mu^*f)$.
+    
+Given formal group law $F$, we denote $x+_F y:=F(x,y)$.
 
-    Lastly, the functor $\mathrm{strict}(F,G)$ is the subfunctor of $\mathrm{iso}(F,G)$ where $f$ is a strict isomorphism (this does define a subfunctor as unit is preserved under ring map).
+
+\begin{definition}
+    Let $F$ be a formal group law over $R$ and $G$ be a formal group law over $S$, a \textbf{morphism of formal group law} $\varphi: F/R\to G/S$ contains a ring map $\psi: R\to S$, and a formal power series $f(t)\in S[[t]]$ such that 
+    \begin{align*}
+        f(\psi^*F(x,y))=G(f(x),f(y))
+    \end{align*}
+    where $\psi^*F$ is the formal group law over $S$ by taking the coefficient of $F$ to $S$ along $\psi$.  
+
+    An \textbf{isomorphism of formal group law} is a morphism of formal group law with an inverse, and a \textbf{strict isomorphism of formal group law} is an isomorphism $\varphi=(\psi, f): F/R\to G/S$, such that $f'(0)=1$.
 \end{definition}
 
-Of course, every definitions here can be generalized for graded ring and graded formalg group law.
-\begin{theorem}
+
+\begin{definition}
+    The functor $\mathbf{fgl}: \Ring\to \Sets$ is such that 
+    \[
+    \mathbf{fgl}(R)=\{F\in R[[x,y]]: F \text{ is a formal group law over $R$}\}
+    \]and for $\psi: R\to S$, $\mathbf{fgl}(\psi):\mathbf{fgl}(R)\to \mathbf{fgl}(S)$ takes $F$ to $\psi^*F$.
+
+\end{definition}
+Of course, every definitions here can be generalized for graded ring and graded forma group law by adding the condition that every formal power series are homogeneous of the same degree.
+\begin{proposition}
 \cite{ChrHopkins}
-The functor $\mathrm{fgl}$ is corepresentable by $L$.
+The functor $\mathbf{fgl}$ is corepresentable by a ring $L$, that is $\fgl=\Hom_{\Ring}(L,-)$.
+\end{proposition}\begin{proof}
+    First of all, $\mathbf{fgl}$ is a subfunctor of the formal power series functor $\mathbf{pf}$ that takes a ring $R$ to the set of two variable formal power series over $R$. We have that $\mathbf{pf}$ is corepresented by ring $\Z[c_{00},c_{01},c_{10}, c_{11}...]$ with the universal power series
+    \[
+    F(x,y)=\sum_{i,j\in \mathbb{N}^2}c_{ij}x^iy^j
+    \] Now, $F$ is a formal group law if and only if its coefficients satisfy the defining relations. Denote the ideal of the relations as $I$, then $L=\Z[c_{01},c_{10}, c_{11}...]/I$ then the universal formal power series becomes the universal formal group law $F_{Univ}$ over $L$.
+\end{proof}
+
+
+With the universal complex orientation, there is a graded formal group law $F_{MU}$ over $MU^*$ of degree $2$, or equivalently $MU_*$ of degree $-2$. Equip $\Z[c_{01},c_{10}, c_{11}...]$ with the grading $|c_{ij}|=2(i+j-1)$, which induces a grading on $L$, denotes $L_*$. There exists a map of graded ring 
+\[
+L_*\to \pi_*MU=MU_*
+\]determined by the formal group law $F_{MU}$. Moreover, suppose we have a ring map $\phi:MU\to E$ determining a complex orientation on $E$, then there is identification $\phi^*F_{MU}=F_E$.
+
+\begin{theorem}
+    \cite{ChrQuillen}\cite{PreRavenelGreen}
+    The graded ring map $L_*\to \pi_*MU$ that takes the universal formal group law $F_{Univ}$ to $F_{MU}$ is an isomorphism of graded ring. In particular, the ring $\pi_*MU$ classifies graded formal group laws of degree $-2$.
+\end{theorem}
+The earliest references for the ring structure of $\pi_*MU$ is given by Milnor \cite{ChrMilnorCobordism} and Novikov \cite{ChrNovikov2} \cite{ChrNovikov3}. However, we earliest identification of the ring structure through the universal formal group law perspective was given by Quillen \cite{ChrQuillen}.
+
+The proof of this theorem requires a few steps, and several external inputs that are just too long to include. 
+\begin{definition}
+    Given a formal group law $F$ over $R$, a \textbf{logarithm} of $F$ is an invertible formal group law $g\in R[[t]]$ such that
+    \[
+    F(x,y)=g^{-1}(g(x)+g(y))
+    \]
+\end{definition}
+\begin{lemma}
+    Let $R$ be an $\mathbb{Q}$-algebra. Suppose $g_1$ and $g_2$ are strict logarithm of $F$ over $R$, then 
+    \[
+    g_1=g_2
+    \]
+\end{lemma}
+\begin{proof}
+    Denote $h=g_1\circ g_2^{-1}$, then we have 
+    \begin{align*}
+        h(x+y)=h(x)+h(y)
+    \end{align*}Differentiating respect to $y$ and let $y=0$, we have 
+    \[
+    h'(x)=h'(0)=1
+    \]so $h(x)=x$ as it is an invertible power series.
+\end{proof}
+\begin{lemma}
+   \cite{PreRavenelGreen}
+    Let $R$ be an $\mathbb{Q}$-algebra, and let $F$ be a formal group law over $R$. Then there exists an isomorphism of formal group law $g: F\to G_{add}$, where $G_{add}(x,y)=x+y$ over $R$.
+\end{lemma}
+\begin{proof}
+    Define logarithm of $F$,
+    \[
+    g(x):=\int_{0}^x \frac{dt}{F_1(t, 0)}
+    \]where $F_1(x,y)=\partial F(x,y)/\partial y$. Notice 
+    \[
+    F_1(t,0)=1+a_{11}t+a_{21}t^2+a_{31}t^3+...
+    \]and since the constant term is $1$, the multiplicative inverse exists. Moreover, $g(0)=0$, and $g'(0)=F_1(0,0)^{-1}=1$, so it is an invertible formal power series. Let $w=g(F(x,y))-g(x)-g(y)$, we want to show that this is zero.
+
+    By associativity, $F(F(x,y),z)=F(x,F(y,z))$, we differentiate respect to $z$, we get 
+    \[
+    F_1(F(x,y), 0)=F_1(x, y) F_1(y,0)
+    \]On the other hand,
+    \[
+    \frac{\partial w}{\partial y}= g'(F(x,y))F_1(x,y)-g'(y)
+    \\=\frac{F_1(x,y)}{F_1(F(x,y), 0)}-\frac{1}{F_1(y, 0)}
+    \\=\frac{F_1(x,y)F_1(y, 0)-F_1(F(x,y), 0)}{F_1(F(x,y), 0)F_1(y, 0)}
+    \\=0
+    \]so $w$ is constant. Take $x=y=0$, $w=0$.
+\end{proof}
+
+The algebra $L_*\otimes \mathbb{Q}$ classifies the graded formal group laws over $\mathbb{Q}$-algebra
+\begin{lemma}
+    \cite{PreRavenelGreen}
+    Let $R_*=\mathbb{Q}[m_1,m_2,...]$ for $|m_i|=2i$ and let $f(x)=x+\sum _i m_ix^{i+1}$. There is $L_*\otimes \mathbb{Q}=R_*$ with $F_{Univ}\otimes \mathbb{Q}=f^{-1}(f(x)+f(y))$.
+\end{lemma}
+\begin{proof}
+    For every formal group law $F$ over an $\mathbb{Q}$-algebra $T$, there is the logarithm $g$, which is classifies by an unique map
+    \[
+    \phi: R_*\to T
+    \]such that $\phi^*f(x)=g(x)$. In particular, let $T=L_*\otimes \mathbb{Q}$ with the logarithm $g_{Univ}$ classified by $\phi_{Univ}: R_*\to L_*\otimes\mathbb{Q}$. 
+
+    On the other hand, there is a formal group law over $R_*$ $f^{-1}(f(x)+f(y))$, so there is a map 
+    \[
+  \theta:  L_*\otimes \mathbb{Q}\to R_*
+    \]
+    Since $\phi^*_{Univ}f(x)=g_{Univ}(x)$, then $\phi^*_{Univ}f^{-1}(f(x)+f(y))=g_{Univ}^{-1}(g_{Univ}(x)+g_{Univ}(y))=F_{Univ}$. Therefore, $\theta$ and $\phi$ are inverses of each other.
+
+\end{proof}
+
+Let $I\subseteq L_*\otimes \mathbb{Q}=\mathbb{Q}[m_1,m_2,...]$ be the ideal of elements of positive degrees, which is just $(m_1,m_2,...)$
+\begin{theorem}
+    \cite{ChrLazard1}
+    There is $L_*=\Z[a_1,a_2,...]\subset L_*\otimes \mathbb{Q}$ where $|a_i|=2i$ such that the image of $a_i$ in $I/I^2$ is
+    \begin{align*}
+        \begin{cases}
+            pm_i, \text{ if $i=p^k-1$ for some prime $p$}
+            \\ m_i, \text{ otherwise}
+        \end{cases}
+    \end{align*}
 \end{theorem}
 
-Recall that given a complex orientation on $E$, there exists a graded formal group law over $E^*$ determined by the complex orientation.
+
+Recall we have isomorphism $E_*MU=E_*[b_1,b_2,...]$ where $|b_i|=2i$ for complex oriented cohomology $E$ with orientation $t_E$. Notice the ring spectrum $E\wedge MU$ then has two orientation, one from $t_E$ determined by $MU\wedge S\to E\wedge MU$, and the other $t_{MU}$ determined by the universal complex orientation $S\wedge MU\to E\wedge MU$. Therefore, we have isomorphism
+\[
+(E\wedge MU)_*(BU(1))=E_*[b_1,b_2,...][[t_E]]=E_*[b_1,b_2,...][[t_{MU}]]
+\]
+\begin{lemma}
+  \cite{ChrLurie}  $t_{MU}=t_E+b_1t_E^2+b_2t_E^3+...$
+\end{lemma}
+\begin{proof}
+    First we denote $\phi_{MU}, \phi_E:\Sigma^{-2}BU(1)\to E\wedge MU$  the maps that determines the complex orientation, which are equivalent to $E$-module map $\phi_{MU}, \phi_E: E\wedge \Sigma^{-2}BU(1)\to E\wedge MU$.
+
+    We notice that the generators $\beta_i\in E_{2i}(\Sigma^{-2}BU(1))\cong \mathrm{Sym}^{2i+2}_{\leq 1}E_*\{b_1,....\}$ are $E_*$-basis such that $\beta_i$ corresponds to $b_{i+1}$, and $E_{*}(\Sigma^{-2}BU)$ is free, there is equivalence
+    \begin{align*}
+     \bigvee_{i\geq 0}E\wedge \beta_i:\bigvee_{i\geq 0} \Sigma^{2i}E \xrightarrow{\simeq}:E\wedge  \Sigma^{-2}BU(1)
+    \end{align*}
+
+    Therefore, we may look at every $E$-module map, specifically $\phi_{MU}$ and $\phi_E$, as a wedge sum of $E$-module maps $\Sigma^{2i}E\to E\wedge MU$.
+
+    Now the $E$-module map $\phi_E$ is determined by composition
+    \[
+    E\wedge \Sigma^{-2}BU(1)\xrightarrow{\psi_E}E\xrightarrow{id\wedge e_{MU}}E\wedge MU
+    \]where $\psi_E$ is the $E$-module map that classifies $t_E$ over $E$. The basis $b_{i+1}$, and hence $\beta_i$ are the dual basis of $t_E^{i+1}$
+    
+    Now for $\phi_{MU}$, which is obtained as the $E$ smashing of the inclusion $\Sigma^{-2}BU(1)\to MU$. We know that $t_{MU}=f(t_E)$ for some power series in $E_*[b_1,...][[t_E]]$ without the constant term, since $t_{MU}$ comes from a reduced class in $\tilde{E\wedge MU}^2(BU(1))$.
+    
+    The dual basis of $t_E^{i+1}$ in $(E\wedge MU)_*(BU(1))$ are the ones that originally exists in $E_*(BU(1))$, because $t_E$ originate from $E^*BU(1)$, which are $b_{i+1}$. Therefore, we can extract the coefficients of $f(t_E)$ through the pairing
+\[
+\langle f(t_E), b_{i+1}\rangle=c_{i}
+\]
+    Recall the definition of pairing, we are essentially looking at the map
+    \[
+    \Sigma^{2i}E\xrightarrow{\beta_{i}} E\wedge \Sigma^{-2}BU(1)\xrightarrow{\phi_{MU}}E\wedge MU
+    \]
+    Recall that the structure map $\Sigma^{-2}BU(1)\to MU$ takes $\beta_i$ in $E_*\Sigma^{-2}BU(1)$ to $b_i$ in $E_*MU$ and we are done.
+\end{proof}
+
+An immediate consequence of the above is that we have isomorphism $g(t)=t+b_1t^2+b_2t^3+...$ of formal group law over $E_*[b_1,...]$
+\[
+F_{MU}(x,y)=g(F_E(g^{-1}(x),g^{-1}(y)))
+\]
+Since $x_{MU}=g(x_E)$ and $y_{MU}=g(y_E)$ in $E_*[b_1,...][[t_E]]$.
+
+We looks specifically at $E=H\Z$. There is a map $h:L_*\to \pi_*MU\to H_*(MU;\Z)$, where the first is the classifying map of formal group law $F_{MU}$, and the second one is the Hurewicz map induced from $S\to H\Z$. This map takes $F_{MU}$ over $\pi_*MU$ to $F_{MU}$ over $\pi_*MU\wedge H\Z$.
+\begin{lemma}
+    The map $h: L_*\to H_*(MU;\Z)$ classifies the formal group law $g(g^{-1}(x)+g^{-1}(y))$. 
+\end{lemma}
+\begin{proof}
+    This follows from the fact that the formal group law of $H\Z$ is $x+y$.
+\end{proof}
+
+\begin{corollary}
+    $L\otimes \mathbb{Q}\cong H_*(MU;\Z)\otimes \mathbb{Q}\cong \pi_*MU\otimes \mathbb{Q}$
+\end{corollary}
+\begin{proof}
+    The map $L\otimes \mathbb{Q}\to  H_*(MU;\Z)\otimes \mathbb{Q}$ takes the logarithm of $F_{Univ}\otimes \mathbb{Q}$ to the logarithm of $F_{MU}\otimes \mathbb{Q}$ over $H\Z\wedge MU$. We have $H_*(MU;\Z)\cong \Z[b_1,...]$, and $L\otimes \mathbb{Q}=\mathbb{Q}[m_1,...]$, and logarithm are unique. The map then takes $m_i$ to $b_i$.
+
+    The second isomorphism is a fundamental result in rational homotopy theory.
+\end{proof}
+We also have 
+\begin{lemma}
+    Let $K\subset H_*(MU;\Z)$ be the ideal of elements in positive degrees, the image of $a_i$ along the map $L\to H_*(MU;\Z)$ is 
+    \begin{align*}
+        \begin{cases}
+            pb_i, \text{ if $i=p^k-1$ for some prime $p$}
+            \\ b_i, \text{ otherwise}
+        \end{cases}
+    \end{align*}
+\end{lemma}
+\begin{proof}
+    This follows from the fact the inclusion $L\to L\otimes \mathbb{Q}=\mathbb{Q}[m_1,...]$ after modulo $I^2$ for $I\subset \mathbb{Q}[m_1,...]$ the positive degrees are 
+      \begin{align*}
+        \begin{cases}
+            pm_i, \text{ if $i=p^k-1$ for some prime $p$}
+            \\ m_i, \text{ otherwise}
+        \end{cases}
+    \end{align*}and $m_i$ are taken to $b_i$ along the map $L_*\to H_*(MU;\Z)$.
+\end{proof}
+Since $L_*\cong \Z[a_1,a_2,...]$ this implies $L\to H_*(MU;\Z)$ is injective. If we can show that $L_*\to \pi_*MU$ is surjective, then all is done.
+
+\begin{theorem}
+    \cite{ChrMilnorCobordism}\cite{ChrNovikov2} \cite{ChrNovikov3}
+    \begin{itemize}
+        \item $\pi_*MU\cong \Z[t_1,...]$ for $|t_i|=2i$
+        \item Let $K\subset H_*(MU;\Z)$ be the ideal of elements in positive degrees, then the image of $t_i$ in $K/K^2$ along the Hurewicz map is
+\begin{align*}
+     \begin{cases}
+            pb_i, \text{ if $i=p^k-1$ for some prime $p$}
+            \\ b_i, \text{ otherwise}
+        \end{cases}
+\end{align*}
+    \end{itemize}
+\end{theorem}
+
+Now we are ready for Quillen's Theorem.
+\begin{proof}
+    The surjectivity of the map $\theta: L_*\to \pi_*MU$ would follow if we are able to show that the map $I/I^2\to J/J^2$ is surjective, where $I\subset L_*$ and $J\subset \pi_*MU$ are the ideal of elements in positive degree. Moreover, everything are finitely generated over $\Z$, we just need to show the surjectivity on the $p$ completion for all prime $p$.
+
+    We have $(I/I^2)_{2i}\cong \Z_p\{a_i\}$, $(J/J^2)_{2n}=\Z_p\{t_i\}$, and $(K/K^2)_{2i}= \Z_p\{b_i\}$. The image of the map $\theta(a_i)= \lambda t_i +O(t_\alpha)$ for $O(t_\alpha)\in J^2$. Therefore, we just need to show $\lambda$ is invertible in $\Z_p$.  
+
+    We know mod $K^2$
+    \begin{align*}
+     h\theta(a_i)=
+            \begin{cases}
+            pb_i, \text{ if $i=p^k-1$ for some prime $p$}
+            \\ b_i, \text{ otherwise}
+        \end{cases}
+       \\ =  \lambda h(t_i)
+       \\=  \begin{cases}
+            \lambda pb_i, \text{ if $i=p^k-1$ for some prime $p$}
+            \\ \lambda b_i, \text{ otherwise}
+        \end{cases}
+    \end{align*}And we are done.
+\end{proof}

@@ -136,14 +136,17 @@ E^*(BU)\cong E^*[[c_1,c_2,...]]
 
 These $c_i$ are the $i$th Chern class of complex vector bundle.
 
-\begin{proposition}\cite{PreSwitzer}
+\begin{proposition}
     Given a complex oriented cohomology $E$, we have 
     \begin{align*}
-        E_*(BU(n))= E_*[b_1,...,b_n]
+        E_*(BU(n))=\mathrm{Sym}_{\leq n}E_*\{b_1,...\}
+    \end{align*}the degree less or equal $n$ part of the symmetric algebra with generator $b_i$, and
+    \begin{align*}
+        E_*(BU)= E_*[b_1,...]
     \end{align*} 
-    as $E_*$-module, where $b_i$ corresponds to the dual basis of $c_i$.
+    as $E_*$-module.
 \end{proposition}
 \begin{proof}
 This follows from the fact that everything are free.
 \end{proof}
-Note, there is no (at least no natural ring structure on $E_*(BU(n))$), but we write the isomorphism like this for a good reason (more on this later).
+There is indeed an algebra structure on $E_*BU$ which justifies this notation (more on this later)

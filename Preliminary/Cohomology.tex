@@ -112,6 +112,27 @@ If $R$ is a commutative ring, then $H^*(-;R)$ takes value in graded commutative 
 There is commutative ring spectra structure on $HR$, such that the multiplication induces the cup product multiplication on $H^*(-;R)$.
 \end{proposition}
  
+\begin{definition}
+    Let $(E,\psi)$ be a ring spectrum, there exists \textbf{pairing} between $E^*(-)$ and $E_*(-)$ defined as
+    \begin{align*}
+    E^n(X)\otimes E_m(X)=[\Sigma^{-n}X, E]\otimes\pi_m(X\wedge E)\to E_{m-n}
+        \\ f\otimes r\mapsto \psi \circ (f\wedge id_E)\circ r
+    \end{align*}
+\end{definition}
+
+The pairing is actually $E_*$-bilinear.
+
+\begin{lemma}
+    Given a ring spectrum $(E,\psi)$, if $E_*(X)$ is $E_*$-free. Then $E\wedge X\simeq \bigvee_i \Sigma^{k_i}E$ and hence $E^*(X)\cong \Hom_{E_*}^*(E_*(X),E_*)$.
+\end{lemma}
+\begin{proof}
+   Choose a basis $u_i$ of $E_*(X)$, each corresponds to a $E$-module map $\Sigma^{|u_i|}E\to E\wedge X$, taking the wedge sum of all of them, we see that
+   \[
+   \bigvee_{i}\Sigma^{|u_i|}E\to E\wedge X
+   \]is an equivalence as it induces isomorphism on the homotopy group.
+
+\end{proof}
+
 We have some tools that we need
 \begin{theorem}((cohomological) Atiyah-Hirzebruch Spectral Sequence)\cite{PreMcCleary}
     For a commutative ring spectrum $E$, and a CW complex $X$, there is a conditionally convergent multiplicative spectral sequence

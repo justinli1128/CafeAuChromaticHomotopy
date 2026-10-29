@@ -67,7 +67,7 @@ Now $ EU(n)\times _{U(n)}S^{2n-1}\cong  EU(n)\times _{U(n)}(U(n)/U(n-1))\cong EU
     Since $BU(n)$ is connected, we can show the Thom class property for a single point $*\in BU(n)$. Therefore, if we pullback along $f:BU(1)^{\times n}\to BU(n)$, which takes the universal bundle $\xi_n$ to $f^*\xi_n= \xi_{1,i}^{\oplus_i n}$, and takes the class $u\in E^{2n}(M(\xi_n))$ to $u_{1,1}\cdot u_{1,2}\cdot ...u_{1,n}\in E^{2n}(M(\xi_{1,i}))^{\times_i n}$. Therefore, we just need to show our "Thom class" candidate is actually a Thom class for $BU(1)$. This is then trivial, because it corresponds to the complex orientation $t\in E^2(BU(1))$.
 \end{proof}
 
-So we have $E_*(\Sigma^{-2n}\Sigma^\infty M(\xi_n))\cong E_*(BU(n))=E_*[b_1,...,b_n]$. Moreover, the inclusion map $\Sigma^{-2n+2}M(\xi_{n-1})\simeq M(\varepsilon)\wedge \Sigma^{-2n}M(\xi_{n-1})\to \Sigma^{-2n}M(\xi_n)$ takes $b_i$ to $b_i$.
+So we have $E_*(\Sigma^{-2n}\Sigma^\infty M(\xi_n))\cong E_*(BU(n))=\mathrm{Sym}_{\leq n}(E_*\{b_1,...\})$. Moreover, the inclusion map $\Sigma^{-2n+2}M(\xi_{n-1})\simeq M(\varepsilon)\wedge \Sigma^{-2n}M(\xi_{n-1})\to \Sigma^{-2n}M(\xi_n)$ takes $b_i$ to $b_i$.
 
 Therefore we have isomorphism $E_*(MU)\cong E_*(BU)\cong E_*[b_1,b_2,...]$.
 
@@ -85,8 +85,8 @@ There is a ring structure on $BU$ defined by the following
 
 The map 
 \[
-\mu_{n,m}: E_*(BU(n))\otimes_{E_*}E_*(BU(m))\cong E_*[b_1,...,b_n,b_1',...,b_m']\to E_*(BU(n+m))=E_*[b_1,...,b_{n+m}]
-\] takes the basis $b_i$ to $b_i$ and $b_i'$ to $b_{n+i}$.
+\mu_{n,m}: E_*(BU(n))\otimes_{E_*}E_*(BU(m))\cong \mathrm{Sym}_{\leq n}(E_*\{b_1,...\})\otimes_{E_*}\mathrm{Sym}_{\leq m}\{b_1',...\}\to E_*(BU(n+m))=\mathrm{Sym}_{\leq n+m}E_*\{b_1,...\}
+\]is determined by simple multiplication.
 
 Here we can talk about the multiplicative structure on $MU$. There is 
 \begin{align*}
