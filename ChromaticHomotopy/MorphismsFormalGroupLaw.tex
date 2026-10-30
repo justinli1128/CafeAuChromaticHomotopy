@@ -1,10 +1,110 @@
 \section{Morphisms and Isomorphisms of Formal Group Laws}\label{sec:chromatichomotopy-morphismsformalgrouplaw}
 
-\begin{definition}
-        Given two formal group laws $F/R$ and $G/S$, the functor $\mathbf{iso}(F,G): \Ring\to \Sets$ is such that 
-    \[
-    \mathbf{iso}(F,G)(T):=\{(\psi, \phi, f): \psi: R\to T, \phi: S\to T, f\in T[[t]], \text{ $f$ is an isomorphism $f: \psi^*F\to \phi^*G$ }\}
-    \]and for $\mu: T\to T'$, $\mathbf{iso}(F,G)(\mu)$ takes $(\psi, \phi, f)$ to $(\mu\circ \psi, \mu\circ \phi, \mu^*f)$.
 
-    Lastly, the functor $\mathbf{strict}(F,G)$ is the subfunctor of $\mathbf{iso}(F,G)$ where $f$ is a strict isomorphism (this does define a subfunctor as unit is preserved under ring map).
+\begin{definition}
+        Define functor $\mathbf{iso}: \Ring\to \Sets$ is such that 
+    \[
+    \mathbf{iso}(R):=\{(F, G, f): F, G\in \fgl(R), f\in R[[t]], \text{ $f$ is an isomorphism $f: F\to G$ }\}
+    \]and for $\psi: R\to S$, $\mathbf{iso}(\mu)$ takes $(F, G, f)$ to $(\psi^*F, \psi^*G, \psi^*f)$.
+
+    Define $d_1=\mathrm{dom}, d_0=\mathrm{tgt}:\iso\implies \fgl: s_0=\mathrm{id}$ such that 
+    \begin{itemize}
+        \item $\mathrm{dom}(F,G,f)= F$,
+        \item  $\mathrm{tgt}(F,G,f)=G$, 
+        \item $\mathrm{id}(F)=(F,F,t)$.
+    \end{itemize}
+    
+    Let $\iso^2$ denote the pullback
+    \begin{center}
+        \begin{tikzcd}
+\iso^2 \arrow[d] \arrow[r]     & \iso \arrow[d, "\mathrm{tgt}"] \\
+\iso \arrow[r, "\mathrm{dom}"] & \fgl                          
+\end{tikzcd}
+    \end{center}
+    Define $d_2, d_1=\circ, d_0: \iso^2\implies \iso: s_0, s_1$, such that
+    \begin{itemize}
+        \item $d_2((F, G, f), (G, H, g))=(F,G,f)$
+        \item $\circ ((F,G,f),(G,H,g))=(F,H,g\circ f)$
+        \item $d_0((F,G,f),(G,H,g))=(G,H, g)$
+        \item $s_1(F,G,f)=((F,G,f),(G,G,t))$
+        \item $s_0(F,G,f)=((F,F,t),(F,G,f))$
+    \end{itemize}
 \end{definition}
+
+    The above defined a (strict $1$-) functor of groupoids over $\Ring$ that takes a ring $R$ to the groupoids of formal group laws over $R$ and the isomorphisms between the formal group law. We denote this functor of groupoids as 
+    \[
+    \mathrm{fg}: \Ring\to \Grpd
+    \]
+   
+   Let the functor $\mathbf{strict}$ is the subfunctor of $\mathbf{iso}$ where $f$ is a strict isomorphism (this does define a subfunctor as unit is preserved under ring map). Notice, with the groupoid structure defined for $(\fgl, \iso)$, the structure is inherited by $\strict$, and we refer to the functor of groupoids defined as
+   \[
+   \mathrm{sfg}: \Ring \to \Grpd
+   \]
+\begin{lemma}
+    Suppose $(A,\Gamma)$ is a Hopf algebroid over $\Z$, then the functor pair $(\Hom_{\Ring}(A,-),\Hom_{\Ring}(\Gamma, -))$ is a functor of groupoids over $\Ring$
+\end{lemma}
+
+\begin{proposition}
+    There exists Hopf algebroid $(A, \Gamma)$ and $(A', \Gamma')$ that corepresents $\mathrm{fg}$ and $\mathrm{sfg}$.
+\end{proposition}
+We ignore the grading issues at this moment, but everything translates nicely.
+\begin{proof}
+    First of all, we know $A=A'=L$ from last section. 
+
+    We now look at $\mathrm{sfg}$.  Suppose we are given a strict isomorphism $f: F\to G$ over $R$, $f$ can be any $t+b_1t^2+b_2t^3+...$ for arbitrary $b_i\in R$. Therefore, define $\Gamma'=L[b_1,b_2,...]$ and let $f_{Univ,s}(t):=t+b_1t^2+b_2t^3+...$. Notice that $f_{Univ,s}$ is an invertible formal power series. An element $\phi \in \Hom_{\Ring}(LB, R)$  then determines such a strict isomorphism $f$.
+    
+    Define $\eta_L, \eta_R: L\to L[b_1,b_2,...]:=LB$ to be the classifying map of $F_{Univ}$ and $G:=f_{Univ,s}^{-1}(F_{Univ}(f_{Univ,s}(x), f_{Univ,s}(y)))$ (terrible notations!). It is not hard to see $\eta_L$ determines the domain map and $\eta_R$ determines the range map
+    
+    Define $\varepsilon:LB\to L$ by taking $b_i=0$, which determines the identity of formal group laws.
+
+    The characterization above shows that a map $LB\to R$ is equivalent to a $(F,G,f)\in \iso(R)$. Define $s: LB\to LB$ such that is classifies $(G, F_{Univ}, f^{-1}_{Univ,s})$.
+
+    Lastly, suppose we have strict isomorphisms $f=t+b_1t^2+b_2t^3+...$ and $g=t+c_1t^2+c_2t^3+...$. Their composition is 
+    \begin{align*}
+        g(f(t))=f(t)+c_1f(t)^2+c_2f(t)^3+...
+        \\=t+b_1t^2+b_2t^3+...
+        \\+c_1(t+b_1t^2+b_2t^3+...)^2
+        \\+ c_2(t+b_1t^2+b_2t^3+...)^3
+        \\+...
+        \\=t+ (b_1+c_1)t^2+(b_2+2b_1c_1+c_2)t^3+ ...
+        \\=t+\sum_{i=1}^\infty P_i t^{i+1}
+    \end{align*}for $P_i \in \Z[b_1,...,c_1,...]$. Define $\Delta: LB\to LB\otimes_{L}LB=L[b_1,...,c_1...]$, by sending $b_i$ to $P_i$.
+
+    Now, it is then trivial to show $(L, LB)$ corepresents $\mathrm{sfg}$.
+
+    Now for $\mathrm{fg}$, we notice that a general isomorphism of formal group law is just a strict isomorphism with a factor of unit. Therefore, $(L,LB[b_0^{\pm}])$ with the action induced from the universal isomorphism $f_{Univ}=b_0t+b_1t^2+...$, with the actions defined similarly as above.
+\end{proof}
+Of course, everything here are homogeneous, so the grading can be imposed, so there is graded Hopf algebroid $(L_*,L B_*)$  with $|b_i|=2i$.
+
+For this section, we look at $\mathrm{sfg}$ specifically, for a very good reason. There is an obvious isomorphism $LB_*\to MU_*MU\cong MU_*[b_1,...]$. 
+\begin{theorem}
+    \cite{PreRavenelGreen} \cite{ChrLandweberCobordism} \cite{ChrNovikov1}
+
+    There is isomorphism of graded Hopf algebroid $(L_*, LB_*)\cong (MU_*,MU_*MU)$.
+\end{theorem}
+\begin{proof}
+    Recall $\eta_L^{MU}:MU_*\to MU_*MU$ is the Boardman morphism, which classifies the formal group law $F_{MU}$. Recall $L_*\to MU_*$ takes the universal formal group law to $F_{MU}$, so this is preserved. 
+
+    $\eta_R^{MU}: MU_*\to MU_*MU$ classifies the formal group law respect to the second complex orientation. Recall that we have over $E_*MU$, the complex orientation $t_{MU}=t_E+b_1t_E^2+...$. Therefore, $\eta_R^{MU}$ takes $F_{MU}$ to $f_{Univ,s}^{-1}F_{MU}(f_{Univ,s}^{-1}(x),f_{Univ,s}^{-1}(y))$. So this is preserved as well.
+
+    The morphism $\varepsilon^{MU}:MU_*MU\to MU_*$ is induced from the composition $\psi:MU\wedge MU \to MU$, which takes the two complex orientation to the same. So $\varepsilon(b_i)=0$, and the counit is preserved.
+
+    The inversion changes the complex orientation, which implies they are correlated by the inverse isomorphism, so this is preserved.
+
+    Lastly, for the coproduct. The maps
+    \begin{align*}
+          \mu_{2}:S\wedge S\wedge MU\xrightarrow{e\wedge e\wedge id} MU\wedge MU \wedge MU
+        \\ \mu_1:S\wedge MU\wedge S\xrightarrow{e\wedge id\wedge e} MU\wedge MU \wedge MU
+        \\ \mu_0:MU\wedge S\wedge S\xrightarrow{id\wedge e\wedge e} MU\wedge MU \wedge MU
+    \end{align*}determines the complex orientation $x_2$, $x_1$, $x_0$ over $MU\wedge MU\wedge MU$. 
+
+    Suppose we denote $\pi_*MU\wedge MU\wedge MU=MU_*[b_1,...]\otimes_{MU_*}MU_*[c_1,...]$, we know that 
+    \begin{align*}
+        x_1=f(x_0)=x_0+b_1x_0^2+...
+        \\ x_2=g(x_1)=x_1 +c_1x_1^2+...
+    \end{align*}
+    Let $E$ be a ring spectrum, then a ring map $MU\wedge MU \to E$ determines two orientation (one from left and one from right), and determines a strict isomophism from the formal group law of the left to the right.
+    Then the map $\mu:MU\wedge S\wedge MU\to MU\wedge MU\wedge MU$ then classifies both the complex orientations on the left and right, also the isomorphism from the left complex orientation to the right, which is precisely the composition $g\circ f$. 
+\end{proof}
+
+Now, we see the deep connection between formal group laws (actually formal groups) with complex oriented cohomologies. Formal groups originate from geometry, specifically on the infinitesimal approximation of multiplication around the identity of a Lie group. Therefore, we will take a break from homotopy theory and talk about some basic algebraic geometry that we need to really understand the theory of formal groups. 
