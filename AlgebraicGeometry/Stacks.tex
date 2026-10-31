@@ -1,2 +1,145 @@
 \section{Stacks}\label{sec:algebraicgeometry-stacks}
 % Write your notes here. Do not add a documentclass or document environment.
+
+\begin{definition}
+    \cite{AGStacksProject}
+    Fix a category $C$, a \textbf{category fibered in groupoids} over $C$ is a functor $p:P\to C$ such that 
+    \begin{itemize}
+        \item For every $f:V\to U$ in $C$ and a $x\in P$ such that $p(x)=U$, there exists $\tilde f:y\to x$ such that $p(\tilde f)=f$
+\begin{center}
+            \begin{tikzcd}
+\tilde f: y \arrow[r, dotted] \arrow[d, "p", Rightarrow] & x\in P \arrow[d, "p", Rightarrow] \\
+f:V \arrow[r]                                            & U\in C                           
+\end{tikzcd}
+        \end{center}
+        \item For any $\tilde f: y\to x$ and $\tilde g: z\to x$, if there is $h: p(y)\to p(z)$ such that $p(\tilde g)\circ h=p(\tilde f)$, then $h$ has an unique lift $\tilde h: y\to z$ in $P$ such that $\tilde g\circ \tilde h=\tilde f$. 
+\begin{center}
+    \begin{tikzcd}
+                               &                                                         & z \arrow[rd, "\tilde g"]       &      \\
+{} \arrow[dd, "p", Rightarrow] & y \arrow[rr, "\tilde f"] \arrow[ru, "\tilde h", dotted] &                                & x    \\
+                               &                                                         & p(z) \arrow[rd, "p(\tilde g)"] &      \\
+{}                             & p(y) \arrow[rr, "p(\tilde f)"] \arrow[ru, "h"]          &                                & p(x)
+\end{tikzcd}
+\end{center}
+    \end{itemize}
+\end{definition}
+The reason for such name is because if we take the fiber at say $U\in C$ of $p$. Morphisms in $P_U$ all maps to $id_U$, so $P_U$ satisfies the property that outer horns $\Lambda^{2}_0$ and $\Lambda^2_2$ admits filler. This describes a groupoid (all isomorphisms).
+
+The second property of the definition implies that the lifting of $V$ given a lifting of $U$, $x$, along $f:V\to U$ exists, then it is unique up to isomorphism. Since suppose we have two lifting $y\to x$ and $y'\to x$, the outer horn they map to is filled with $id_V$, therefore, there exists an unique morphism $y\to y'$ and vice versa. Therefore, we may denote $y=f^*x$ and it is unique up to isomorphisms.
+
+It seems like that given a category fibered in groupoid $p:P\to C$ determines a functor $\tilde P: C^{op}\to \Grpd$ such that $U\mapsto P_U$ and $(f:V\to U)\mapsto f^*:P_U\to P_V$ (when this makes sense). 
+
+This is not necessarily true. (Well first of all $f^*$ might not be a well defined functor, but let's assume it is) The composition $(f^*\circ g^*)\circ h^*$ is only necessarily isomorphic to $f^*\circ (g^*\circ h^*)$. This tells us that $\tilde{P}$ is not a functor but a $2$-functor. The study of category fibered in groupoids then is more difficult than the study of contravariant functors in groupoids.
+
+Nevertheless, it is convenient to think of category fibered in groupoids as contravariant functors for us to see it as a generalization of presheaves of sets to presheaves of groupoids.
+
+\begin{definition}
+    Given a presheaf of groupoid $F:C^{op}\to \Grpd$, we call the Grothendieck construction of the presheaf to be the category fibered in groupoids associated to $F$.
+\end{definition}
+
+\begin{example}
+    The forgetful functor $f:C_{/U}=P\to C$ is fibered in groupoids, actually it is fibered in sets. The fiber at $V\in C$, $P_V=\Hom_C(V,U)$. This tells us that representable presheaves are just overcategories. We call a category fibered in groupoids equivalent to $C_{/U}$ for some $U\in C$ representable.
+\end{example}
+
+\begin{definition}
+Given two category fibered in groupoid $\mathcal{X}$ and $\mathcal{Y}$ over $C$, a morphism $f:\mathcal{X\to Y}$ is \textbf{representable} if the for every $U\in C$ and $U\to \mathcal{Y}$, $U\times _\mathcal{Y}\mathcal{X}$ is again a representable.
+\end{definition}
+
+Before we introduce what a stack is, we need some technicalities.
+
+\begin{definition}
+
+    Given $p:P\to C$ fibered in groupoids, for any $U\in C$, and any $x,y\in P_U$, define functor 
+    \begin{align*}
+        \Mor(x,y):(C_{/U})^{op}\to \Sets
+    \end{align*}by 
+\begin{align*}
+    \Mor(x,y)(f:V\to U)=\Hom_{P_V}(f^*x, f^*y)
+\end{align*}
+And for $h:(f:V\to U)\implies  (g:W\to U)$ over $U$, 
+\begin{align*}
+    \Mor(x,y)(h):\Hom_{P_W}(g^*x, g^*y)\to \Hom_{P_V}(f^*x, f^*y)
+\end{align*} such that 
+\begin{align*}
+      \phi\big|_V:=[\Mor(x,y)(h)](\phi)
+      \\=\alpha^{-1}\circ h^*\phi \circ \alpha
+\end{align*}
+Here $\alpha$ is the isomorphism between $f^*$ and $h^*g^*$.
+So we are pulling a morphism $g^*x\to g^*y$ over $P_W$ to a morphism $h^*g^*x\cong f^*x\to h^*g^*y\cong f^*y$ over $P_V$. 
+\end{definition}
+
+So information of the morphisms between $x, y$ translate to a presheaf over $U$. 
+For pullback, we denote $\pi_0:X\times_Z Y\to X$ and $\pi_1:X\times _ZY\to Y$.
+\begin{definition}
+      Let $p:P\to C$ be fibered in groupoid, for $U\in C$ let $\mathcal{U}:=\{f_i:U_i\to U\}$ be a set of morphisms over $U$. A \textbf{descent datum} $(X_i,\varphi_{ij})$ is a collection of object $X_i\in P_{U_i}$ and morphism $\varphi_{ij}:\pi_1^*X_i\to \pi_2^*X_j$ in $P_{U_i\times _UU_j} $ such that 
+     \begin{center}
+         \begin{tikzcd}
+\pi_0^* X_i \arrow[rd, "\pi^*_{01} \varphi_{ij}"'] \arrow[rr, "\pi_{02}^*\varphi_{ik}"] &                                                    & \pi_2^*X_k \\
+                                                                                        & \pi_1^* X_j \arrow[ru, "\pi^*_{12} \varphi_{jk}"'] &           
+\end{tikzcd}
+     \end{center}
+ commute in $P_{U_i\times_U U_j \times _U U_k}$
+ \end{definition}
+The meaning of this definition is a descent datum contains the information that we can glue together over $\mathcal{U}$. $\varphi_{ij}$ identifies the information over the intersection $U_i\times _UU_j$ together (we cant ask for equality as it is unnatural for category theory), such that the overall identification on the intersection $U_i\times_U U_j\times _UU_k$.
+
+A morphism of descent datum $\psi: (X_i,\varphi_{ij})\to (X_i',\varphi_{ij}')$ over $\mathcal{U}$ contains morphisms $\psi_i: X_i\to X_i'$ such that their pullback onto $U_i \times _UU_j$ is natural with $\varphi_{ij}$ and $\varphi_{ij}'$. 
+
+This determines a category of descent datum of $\mathcal{U}$, $DD(\mathcal{U})$.
+
+\begin{definition}
+    Given $\mathcal{U}$, and $X\in P_U$, the \textbf{canonical descent datum} of $X$ respect to $\mathcal{U}$ is the $(f^*_iX, can_{ij})$, here $can_{ij}$ is the canonical isomorphism between $\pi_0^*f_i^*X$ with $\pi_1^*f_j^*X$, because $f_i\circ \pi_0=f_j\circ \pi_1$.
+
+    A descent datum $(X_i,\varphi_{ij})$ is \textbf{effective} if there is $X\in P_U$ such that $(X_i,\varphi_{ij})$ is isomorphic to the canonical descent datum of $X$.
+\end{definition}
+
+\begin{definition}
+    Let $C$ be a site, $p:P\to C$ fibered in groupoid is a \textbf{stack} over $C$ if
+    \begin{itemize}
+        \item For any $U\in C$, and $x,y \in P_U$, the presheaf $\Mor(x,y):(C_{/U})^{op}\to \Sets$ is a sheaf over $C_{/U}$.
+        \item For every covering $\mathcal{U}$ of $C$, every descent datum of $P$ respect to $\mathcal{U}$ is effective.
+    \end{itemize}
+\end{definition}
+
+Both requirement tells us that for a stack, we can glue big groupoid over big object from a collection of small groupoids over a covering of small objects.
+
+From now on, when we say stack over a scheme $S$, we mean a stack over $\Sch_{/S}$ for some $S$, with the fpqc-topology (which is equivalent to say it is a stack over the smaller site $\Aff_{/S}$). If unspecified, assume $S=\spec(\mathbb{Z})$
+
+\begin{definition}
+    Given a representable morphism of stack over $S$, $f:\M\to \M'$, we say that $f$ has property $P$, for some property of morphism between schemes, when for any affine $g:\spec(R)\to \M'$, $g^*\M\cong \spec(A)\to \spec(R)$ has the property $P$ (for instance, surjective, flat, faithfully flat, quasicompact, open immersion, ...).
+\end{definition}
+
+\begin{definition}
+    Given a scheme $S$, define its \textbf{structure sheaf} $\Ocal_S$ to be the fpqc-sheaf of ring over the site $\Sch_{/S}$ defined on the affines as
+    \[
+    \Ocal_{S}(\Spec(A)\to S)=A
+    \]
+\end{definition}
+
+\begin{lemma}
+    $\Ocal_S$ is indeed a fpqc-sheaf.
+\end{lemma}
+
+\begin{proof}
+    Let $\{\Spec(A_i)\to \Spec(A)\}$ be a fpqc-cover of $\Spec(A)$ over $S$, which corresponds to flat $A$ algebra $A_i$ such that for any $A$-module $M$, $M\otimes_A A_i=0$ for all $i$ if and only if $M=0$. 
+
+    Denote $B=\prod_i A_i$ which is faithfully flat over $A$, hence it detects flatness, it then suffices to show 
+    \[
+    0 \to B\to B\otimes_A B\to B\otimes_A B\otimes_AB
+    \]is exact, where the first map takes $b$ to $b\otimes 1$ and the second one takes $b\otimes c$ to $b\otimes c\otimes 1- b\otimes 1\otimes c$. This is then trivial.
+    
+    Since every elements in $\Sch_{/S}$ admits a fpqc-cover, the extension to the general schemes is possible and well defined.
+\end{proof}
+
+\begin{theorem}
+\cite{AGStacksProject}
+
+Let $p:P\to C$ be a category fibered in groupoids over a site, there is a topology over $P$ where $\{x_i\to x\}_{i\in I}$ is a covering if and only if $\{p(x_i)\to p(x)\}_{i \in I}$ is a covering.
+\end{theorem}
+
+\begin{lemma}
+    Let $x \in P$ where $P$ is as above, there is an equivalence of site $P_{/x}\to C_{/p(x)}$.
+\end{lemma}
+
+\begin{definition}
+    Let $p:\M\to \Sch_{/S}$ be a fpqc-stack, define the \textbf{structure sheaf} $\Ocal_{\M}$ of $\M$ as a sheaf of ring over the site $\M^{fpqc}$ as $\Ocal_{\M}=p^{-1}\Ocal_{S}:=\Ocal_S\circ p$.
+\end{definition}

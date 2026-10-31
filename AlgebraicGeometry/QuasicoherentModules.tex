@@ -1,2 +1,40 @@
 \section{Quasicoherent modules}\label{sec:algebraicgeometry-quasicoherentmodules}
 % Write your notes here. Do not add a documentclass or document environment.
+
+\begin{definition}
+    Let $(C, \Ocal_C)$ be a ringed site, a $\Ocal_C$-module is a sheaf of abelian group $\F$ with map $\varphi:\Ocal_C \otimes \F \to \F$ such that given  $U \in C$,
+    \[
+   \varphi_U: \Ocal_C(U)\otimes \F(U)\to \F(U)
+    \]determines a $\Ocal_C(U)$-module, and given $V\to U$ 
+    \begin{center}
+\begin{tikzcd}
+ \Ocal_C(U)\otimes \F(U) \arrow[d, "\varphi_U"] \arrow[r] &  \Ocal_C(V)\otimes \F(V) \arrow[d, "\varphi_V"] \\
+\F(U) \arrow[r]                                           & \F(V)                                          
+\end{tikzcd}
+    \end{center}commutes. Denote $\Module_C$ the category of $\Ocal_C$-modules. 
+\end{definition}
+
+\begin{definition}
+    Let $A$ be a ring, and $M$ be an $A$-module, denote $\tilde{M}$ the $\Ocal_{\Spec(A)}$-module such that 
+    \[
+    \tilde{M}(D(f))=M_f=M\otimes A_f
+    \]with the induced $\Ocal_{\Spec(A)}(D(f))=A_f$-module structure.
+\end{definition}
+
+\begin{definition}
+    Let $X$ be a scheme, a $\mathcal{O}_X$-module $\F$ is called a \textbf{quasicoherent module over $X$} if there is an affine open cover $\Spec(A_i)$, and $A_i$-modules $M_i$, such that 
+    \[
+    \F|_{\Spec(A_i)}\cong \tilde{M_i}
+    \]
+\end{definition}
+
+We denote the category of quasicoherent modules over $X$ as $\Qcoh_X$. 
+
+We make a similar definition that would make the generalization over stack easier.
+
+\begin{definition}
+    Let $(C, \Ocal_C)$ be a ringed site, a \textbf{globally presented module} over $C$ is a $\Ocal_C$-module $\F$ such that there is exact sequence
+    \[
+    \Ocal_C^{\oplus i}\to \Ocal_{C}^{\oplus j}\to \F\to 0
+    \]and a $\Ocal_C$-module is \textbf{quasicoherent} if for every $U\in C$ there is a covering $U_i\to U$ such that $\F|_{C_{/U_i}}$ are globally presented $\Ocal_{C_{/U_i}}$-module. 
+\end{definition}

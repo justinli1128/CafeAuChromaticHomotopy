@@ -134,3 +134,40 @@ Let $\Spec(A_i)$ be an affine open cover of an integral scheme $X$, therefore $A
 Define $K(X):=\mathrm{Frac}(A_i)$ to be the quotient ring of one of the $A_i$, and we refer to it as the \textbf{function field}. Notice $K(X)$ is independent of $A_i$.
 \end{definition}
 
+\begin{definition}
+    Let $f:X\to Y$ be a morphism of scheme: we say 
+    \begin{itemize}
+        \item $f$ is \textbf{quasicompact} if for every quasicompact open set $V$ of $Y$, $f^{-1}(V)$ is quasicompact
+        \item $f$ is \textbf{locally of finite type} if for every point $y \in Y$, there is an affine open $\Spec(A)$ containing $y$ such that $f^{-1}(\Spec(A))$ admits an affine cover $\Spec(R_i)$ such that $A\to R_i$ are finitely generated as $A$-algebra.
+        \item $f$ is \textbf{finite type} if it is locally of finite type and quasicompact
+        \item $f$ is \textbf{finite} if for every point $y \in Y$, there is an affine open $\Spec(A)$ containing $y$ such that $f^{-1}(\Spec(A))$ admits an affine cover $\Spec(R_i)$ such that $A\to R_i$ are finitely generated as $A$-module.
+        \item $f$ is \textbf{flat} if for every point $y \in Y$, there is an affine open $\Spec(A)$ containing $y$ such that $f^{-1}(\Spec(A))$ admits an affine cover $\Spec(R_i)$ such that $A\to R_i$ are flat $A$-algebra.
+        \item $f$ is \textbf{faithful} if the underlying continuous map is surjective.
+        \item $f$ is \textbf{faithfully flat} if it is faithful and flat.
+        \item $f$ is \textbf{locally of finite presentation} if for every point $y \in Y$, there is an affine open $\Spec(A)$ containing $y$ such that $f^{-1}(\Spec(A))$ admits an affine cover $\Spec(R_i)$ such that $A\to R_i$ are finitely presented as $A$-algebra.
+        \item $f$ is \textbf{étale} if it is flat, locally of finite presentation, and for every $y\in Y$, the fiber $f^{-1}(y)$ is a disjoint union of points $x_i$, where the residue field $\kappa(x_i)$ are finite separable extension of $\kappa(y)$.
+        \item $f$ is an \textbf{open immersion} if the underlying continuous map is a homeomorphism onto the image with the image is open, and the map $f^{\shp}: \Ocal_{Y}|_{f(X)}\to f_*\Ocal_{X}|_{f(X)}$ is an isomorphism of sheaves over $f(X)$.
+        \item $f$ is a \textbf{closed immersion}if the underlying continuous map is a homeomorphism onto the image with the image is closed, and the map $f^{\shp}: \Ocal_{Y}|_{f(X)}\to f_*\Ocal_{X}|_{f(X)}$ is  surjection of sheaves over $f(X)$.
+        \item $f$ is \textbf{quasiseparated} if the relative diagonal $\Delta_{X/Y}:X\to X\times _Y X$ determined by $f$ is a closed immersion.
+    \end{itemize}
+\end{definition}
+
+\begin{definition}
+    Let $S$ be a scheme, let $P$ be a class of morphism in $\Sch_{/S}$ containing open immersions, and our stable under pullback and composition. 
+    There is a site $\Sch_{/S}^P$ with the topology with finitely many morphism $\{f_i: U_i\to U\}_{i\in I}$ in $P$, such that $\cup_i f_i(U_i)=U$, as basis. 
+
+    Let $P$ be the class of open immersions, we have the \textbf{Zariski topology}. Let $P$ be the class of étale morphism, we have the \textbf{Étale topology}. 
+    Let $P$ be the class of flat and quasicompact morphism, we have the \textbf{fpqc topology}.
+\end{definition}
+
+\begin{proposition}
+For any $P$ contained in fpqc, the topology is subcanonical, i.e. the representables are $P$-sheaves.
+\end{proposition}
+
+\begin{lemma}
+    All maps $\Spec(B)\to \Spec(A)$ are quasicompact.
+\end{lemma}
+
+\begin{lemma}
+    Let $\Spec(B)\to \Spec(A)$ be faithfully flat, then $B$ is a flat $A$-algebra, such that $M\otimes_AB=0$ if and only if $M=0$.
+\end{lemma}
