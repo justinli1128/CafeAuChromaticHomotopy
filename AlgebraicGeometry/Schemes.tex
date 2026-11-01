@@ -169,5 +169,31 @@ For any $P$ contained in fpqc, the topology is subcanonical, i.e. the representa
 \end{lemma}
 
 \begin{lemma}
-    Let $\Spec(B)\to \Spec(A)$ be faithfully flat, then $B$ is a flat $A$-algebra, such that $M\otimes_AB=0$ if and only if $M=0$.
+    Let $\Spec(B)\to \Spec(A)$ be flat, then $B$ is a faithfully flat $A$-algebra if and only if $M\otimes_A B=0$ implies $M=0$.
 \end{lemma}
+\begin{proof}
+    Suppose the zero module condition is satisfied, then for every prime ideal $\mathfrak{p}\subseteq A$, $B\otimes_A \kappa(\mathfrak{q})\neq 0$, this describes the fiber of the map $\Spec(B)\to \Spec(A)$ at the point $\mathfrak{p}$. Hence the map is faithful.
+
+    On the other hand, given $m\neq 0 \in M$, there is map $A\to M$ determined by mapping the generator to $m$, which has the kernel $I$ that is the annihilator of $m$, so there is injection
+    \[
+    0 \to A/I\to M
+    \]Which by flatness of $B$ translate to exact sequence
+    \[
+    0 \to B/I \to B\otimes _A M
+    \]
+    Every annihilator ideal of a nonzero element is contained in some prime ideal $\mathfrak{p}\subseteq A$. The faithfulness implies there exists a prime ideal $\mathfrak{q}\subseteq B$ so $I \subseteq \mathfrak{q}$. Therefore, there is injection into $B\otimes_AM$ from a nonzero module, so it is not nonzero.
+\end{proof}
+
+\begin{lemma}
+    Let $A\to B$ be a faithfully flat algebra, then a sequence of $A$-module is exact if and only if the $B$-module sequence is exact.
+\end{lemma}
+
+\begin{proof}
+    If we have exact sequence
+    \[
+    0 \to B\otimes_A M'\to B\otimes_A M\to B\otimes_A M''
+    \]Suppose $0\to M' \to M\to M'' $ is not exact, then there is exact sequence 
+    \[
+    0\to K \to M' \to M\to M''
+    \]where $K\neq 0$, but then $B\otimes_A K\neq 0$ so $B\otimes_A M' \to B\otimes_AM$ is not injective.
+\end{proof}

@@ -48,13 +48,25 @@ Let $(\M, \Ocal_{\M})$ be the ringed site determined by the fpqc-stack over a sc
     \]Denote $\Module^{cart}_{\M}$ the category of cartesian module over $\M$.
 \end{definition}
 
+Notice, just requiring the tensor product property would already implies the fpqc-sheaf property. Take a faithfully flat algebra $A\to B$, the sheaf condition is then equivalent to exactness of 
+\[
+0 \to M(\Spec(A)) \to B\otimes_A M(\Spec(A)) \to B\otimes_AB\otimes _A M(\Spec(A))
+\]which is implied.
+
 \begin{proposition}
-Let $(\M, \Ocal_{\M})$ be the ringes site determined by the fpqc-stack over a scheme $S$, there exists adjunction
-\begin{align*}
-    \varepsilon_*\dashv \varepsilon^*: \Qcoh_{\M}\to \Module_{\M}^{cart}
-\end{align*}
-where $
+Let $(\M, \Ocal_{\M})$ be the ringes site determined by the fpqc-stack over a scheme $S$, a $\Ocal_{\M}$-module $\F$ is quasicoherent if and only if it is cartesian.
+
+\end{proposition}
 \begin{proof}
+    First suppose it is cartesian, for every $x\in \M$ living over $\Spec(A)$, there is a $A$-module exact sequence
+    \[
+    A^{\oplus I}\to A^{\oplus J}\to M(x)\to 0
+    \]
+    For $y\to x$ living over $\Spec(B)\to \Spec(A)$, there is then exact sequence
+    \[
+    B^{\oplus I}\to B^{\oplus J}\to B\otimes_AM(x)\cong M(y)\to 0
+    \]
+    which implies the quasicoherentness.
 
-
+    On the other hand, suppose we have quasicoherent module, let $U \in \M$ and let $\{U_i\to U\}$ be an cover, 
 \end{proof}
