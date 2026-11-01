@@ -68,5 +68,24 @@ Let $(\M, \Ocal_{\M})$ be the ringes site determined by the fpqc-stack over a sc
     \]
     which implies the quasicoherentness.
 
-    On the other hand, suppose we have quasicoherent module, let $U \in \M$ and let $\{U_i\to U\}$ be an cover, 
+    On the other hand, suppose we have quasicoherent module $\F$, let $x \in \M$ living over $\Spec(A)$ and let $\{x_i\to x\}$ over $\{\Spec(A_i)\to \Spec(A)\}$ be an cover, for which $\Spec(A_i)$ determines a cover of $\Spec(A)$, and exact sequences
+    \[
+     \Ocal_{x_i}^{\oplus I_i}\to \Ocal_{x_i}^{\oplus J_i}\to \F|_{x_i}}\to 0
+    \]
+    Suppose we have $y\to x$ over $\Spec(B)\to \Spec(A)$, then $\{y_i:=y\times_{x}x_i\to y\}$ over $B_i:=B\otimes_A A_i$ is a cover of $y$, and there is exact sequence
+    \[
+     \Ocal_{y_i}^{\oplus I_i}\to \Ocal_{y_i}^{\oplus J_i}\to \F|_{y_i}}\to 0
+    \]determined by restriction on $y_i$.
+
+    Since $\Ocal_{x_i}$ are cartesian, there exists isomorphism of exact sequences
+   \begin{center}
+
+    \begin{tikzcd}
+B_i\otimes_{A_i}\Ocal_{x_i}^{\oplus I_i}(x_i) \arrow[d, "\cong"] \arrow[r] & B_i\otimes_{A_i}\Ocal_{x_i}^{\oplus J_i}(x_i) \arrow[d, "\cong"] \arrow[r] & B_i\otimes_{A_i} \F(x_i) \arrow[r] \arrow[d, dotted] & 0 \\
+B_i^{\oplus I_i} \arrow[r]                                                 & B_i^{\oplus J_i} \arrow[r]                                                 & \F(y_i) \arrow[r]                                    & 0
+\end{tikzcd}
+
+\end{center}which implies isomorphism $ B_i\otimes_{A_i}\F(x_i)\to \F(y_i)$. Hence we have isomorphism $B\otimes_{A}\F(x)\to \F(y)$ from the sheaf property.
 \end{proof}
+
+

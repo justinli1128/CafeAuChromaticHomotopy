@@ -1,1 +1,56 @@
 \section{Groupoid Representation of Stack}\label{sec:algebraicgeometry-groupoid}
+
+   Recall that given a presheaf of groupoid $F:C^{op}\to \Grpd$, the Grothendieck construction of the presheaf determines the category fibered in groupoids associated to $F$.
+   Let $F_0$ denote the object presheaf and $F_1$ the morphism presheaf,
+   \begin{proposition}
+    There is pullback diagram of category of fibered groupoids
+    \begin{center}
+        \begin{tikzcd}
+F_1 \arrow[d] \arrow[r] & F_0 \arrow[d] \\
+F_0 \arrow[r]           & F            
+\end{tikzcd}
+    \end{center}
+   \end{proposition}
+   \begin{proof}
+        This can be done in the presheaf of groupoids, which simplifies down to the $2$-pullback pointwise at each object $c\in C$.
+   \end{proof}
+   \begin{corollary}
+    The property descends to stacks, if we denote $F_i$ to be the stackification of the corresponding category fibered in groupoids.
+   \end{corollary}
+
+   Let $(c_0, c_1)$ be a groupoid object in $C$, then $(c_0,c_1)$ determines a category fibered in groupoids determined by $(\Hom(-,c_0), \Hom(-,c_1))$, hence a stack. I like to denote it as $[c_0/c_1]$. Suppose we have a stack $\M$, then a \textbf{groupoid representation} of $\M$ is a groupoid object in $C$ and equivalence of stack
+   \[
+   [c_0/c_1]\simeq \M
+   \]
+   We refer to $c_\bullet:=c_1\times_{c_0}c_1\times_{c_0}...\times_{c_0}c_1$ to be the \textbf{Cêch nerve} of $\M$.
+
+   If the topology of $C$ is subcanonical, then the stackification process is unnecessary.
+
+   \begin{lemma}
+    Let $c_0 \in C$, $\M$ a stack over $C$, and there is representable morphism $c_0\to \M$, denote $c_1:=c_0\times_{\M}c_0$ the object representing the pullback. Then there is a groupoid structure on $(c_0,c_1)$. Moreover, if $c_0\to \M$ is essentially surjective that is a covering, that is for every $x\in C$ and $u\to \M$, the pullback $x\times_{\M}c_0 \to x$ determines a cover in $C$, then there is equivalence
+    \[
+    [c_0/c_1]\simeq \M
+    \]
+   \end{lemma}
+   \begin{proof}
+    We recall that given a morphism $a\to b$, there is a simplicial object $a_\bullet$ determined by $a_n:=a\times_ba\times_b ...\times_b$. The stack properties implies the groupoid property.
+
+    The argument for the representation is quite abstract and in my opinion technical and not too important for our concern, which is chromatic homotopy. I refer to \cite[Lemma 8.4.8, Lemma 94.16.1]{AGStacksProject}, which latter even though assume specifically the stack over fppf-topology, but works in more general setting.
+   \end{proof}
+   
+   Suppose $\M$ is a fpqc-stack over a scheme. Let $U$ be a $S$-scheme with $U\to \M$ a representable faithfully flat morphism. Then the essential surjectiveness assumption is redundant (easy check that requires both representability and faithfulness).
+
+   \begin{proposition}
+    Let $\M$ be a fpqc-stack, with an affine (sense representable) faithfully flat morphism $\Spec(A)\to \M$ such that $\Spec(\Gamma)\cong \Spec(A)\times_{\M}\Spec(A)$, then there is equivalence
+    \[
+        \Qcoh_{\M}\simeq co\Module_{(A,\Gamma)}
+    \]where $co\Module_{(A,\Gamma)}$ is the category of $(A,\Gamma)$-comodule.
+   \end{proposition}
+   \begin{proof}
+    We use the cartesian module characterization of quasicoherent module.
+    Notice the equivalence $\M\simeq [\Spec(A)/\Spec(\Gamma)]$. Let $\F$ be a quasicoherent module, denote $M:=\F(\Spec(A))$, the Cêch nerve 
+    \[
+    ...\to \Spec(\Gamma\otimes_A\Gamma)\to \Spec(\Gamma)\to \Spec(A)\to \M
+    \]determines a $(A,\Gamma)$-comodule structure on $M$, since $\F(\Spec(\Gamma))\cong \Gamma\otimes_A M$.
+   \end{proof}
+
