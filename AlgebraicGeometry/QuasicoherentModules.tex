@@ -38,3 +38,23 @@ We make a similar definition that would make the generalization over stack easie
     \Ocal_C^{\oplus i}\to \Ocal_{C}^{\oplus j}\to \F\to 0
     \]and a $\Ocal_C$-module is \textbf{quasicoherent} if for every $U\in C$ there is a covering $U_i\to U$ such that $\F|_{C_{/U_i}}$ are globally presented $\Ocal_{C_{/U_i}}$-module. 
 \end{definition}
+
+Let $(\M, \Ocal_{\M})$ be the ringed site determined by the fpqc-stack over a scheme $S$, we can make a similar construction.
+\begin{definition}
+    Let $(\M, \Ocal_{\M})$ be the ringes site determined by the fpqc-stack over a scheme $S$, a \textbf{cartesian module} over $\M$ is a $\Ocal_{\M}$-module $\F$
+    such that for $f: x\to y$ in $\M$ living over $\Spec(B)\to \Spec(A)$, there is isomorphism
+    \[
+        \F(y)\otimes_A B \to \F(x)
+    \]Denote $\Module^{cart}_{\M}$ the category of cartesian module over $\M$.
+\end{definition}
+
+\begin{proposition}
+Let $(\M, \Ocal_{\M})$ be the ringes site determined by the fpqc-stack over a scheme $S$, there exists adjunction
+\begin{align*}
+    \varepsilon_*\dashv \varepsilon^*: \Qcoh_{\M}\to \Module_{\M}^{cart}
+\end{align*}
+where $
+\begin{proof}
+
+
+\end{proof}
