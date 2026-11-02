@@ -1,1 +1,13 @@
 \section{Formal Lie Variety}\label{sec:formalgroups-formalLie}
+
+\begin{definition}
+    Given a morphism of scheme $f: X\to Y$ and a quasicoherent $\Ocal_X$-module $\F$, a $f^{-1}\Ocal_Y$-derivation from $\Ocal_X$ to $\F$ is a $f^{-1}\Ocal_Y$-module morphism $d$ such that
+    \[
+    d(fg)=fdg+gdf
+    \]for local section $f, g\in \Ocal_X$.
+
+    Given a morphism of scheme $f: X\to Y$, the \textbf{Kahler differential} is the quasicoherent $\Ocal_X$-module $\Omega_{X/Y}$ such that for any $\Ocal_X$-module
+    \[
+    \Hom_{\Ocal_X}(\Omega_{X/Y}, \F)\cong \mathrm{Der}_{f^{-1}\Ocal_Y}(\Ocal_X, \F)
+    \]in other words, $\Omega_{X/Y}$ classifies $f^{-1}\Ocal_Y$-derivations.
+\end{definition}

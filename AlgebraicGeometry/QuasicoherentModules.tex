@@ -88,4 +88,21 @@ B_i^{\oplus I_i} \arrow[r]                                                 & B_i
 \end{center}which implies isomorphism $ B_i\otimes_{A_i}\F(x_i)\to \F(y_i)$. Hence we have isomorphism $B\otimes_{A}\F(x)\to \F(y)$ from the sheaf property.
 \end{proof}
 
+\begin{definition}
+    Let $f: X\to Y$ be a closed immersion, there is a quasicoherent $\Ocal_Y$-module $\mathcal{I}_X$ defined as the kernel 
+    \[
+    0\to  \mathcal{I}_X\to \Ocal_Y \xrightarrow{f^{\shp}} f_*\Ocal_X
+    \]which is an ideal sheaf of $\Ocal_Y$.
+\end{definition}
+\begin{proposition}
+    There exists equivalence between ideal sheaf of $\Ocal_Y$ and closed immersion into $Y$.
+\end{proposition}
 
+Similarly, for fpqc-stack, a closed immersion $f: \X\to \Y$ (which recall is a morphism with pullback along schemes to be a closed immersion), then the morphism $f^{\shp}: \Ocal_{\Y}\to f_*\Ocal_{\X}$, with ideal sheaf $\mathcal{I}_{\X}$.
+
+\begin{definition}
+    Given a closed immersion $i: X\to Y$, with defining ideal $\mathcal{I}_X$, the \textbf{conormal sheaf of $X$ in $Y$} is the quasicoherent $\Ocal_X$-module 
+    \[
+    \omega_i:=i_*(\mathcal{I}_X/\mathcal{I}_X^2)
+    \]
+\end{definition}

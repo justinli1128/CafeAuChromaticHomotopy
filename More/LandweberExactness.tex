@@ -10,3 +10,45 @@
 \begin{proposition}
     There does not exists phantom maps between Landweber homology.
 \end{proposition}
+\begin{proof}
+
+\end{proof}
+
+\begin{definition}
+    The \textbf{periodic Thom spectrum} $MP$ is defined as
+    \[
+    MP:=\bigvee_{n \in \Z} \Sigma^{2n}MU
+    \]which ring structure
+    \[
+    \psi: MP\wedge MP \bigvee_{n,m \in \Z} \Sigma^{2n+2m}MU\wedge MU \xrightarrow{\bigvee \psi_{MU}} \bigvee_{n \in \Z} \Sigma^{2n}MU=MP
+    \]
+    Therefore, the coefficient ring $\pi_*MP\cong L_*[u^{\pm}]$ for $|u|=2$.
+\end{definition}
+
+\begin{proposition}
+    $MP_0\cong L$ and $MP_0MP\cong LB[u^{\pm}]$ as ungraded ring. Hence $[\Spec(MP_0)/\Spec(MP_0MP)]\simeq \Mfg$
+\end{proposition}
+\begin{proof}
+
+\end{proof}
+\begin{proposition}
+    \cite{AGGoerss}
+    For $i=1,2$, let $G_i$ be formal group laws over $\Spec(A_i)$, then 
+    \[
+    \Spec(A_1)\times_{\Mfg}\Spec(A_2)\simeq \Spec(A_1\otimes_L LB[u^{\pm}]\otimes_L A_2)
+    \]
+\end{proposition}
+\begin{proof}
+
+\end{proof}
+\begin{definition}
+    A \textbf{even periodic cohomology} is a ring spectrum $E$, such that $\pi_1 E=0$ and there exists $u\in \pi_2 E$ that is invertible. 
+\end{definition}
+Clearly, an even periodic cohomology $E$ is complex orientable (look at the AHSS of $BU(1)$ of $E$, there is no nontrivial differential).
+
+\begin{corollary}
+    Given an even periodic complex oriented cohomology $E$, with formal group law $F_E$ over $\Spec(E_0)$, then
+    \begin{align*}
+        \Spec(E_0)\times_{\Mfg}\Spec(MP_0)\simeq \Spec(MP_0E)
+    \end{align*}
+\end{corollary}

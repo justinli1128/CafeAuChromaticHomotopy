@@ -62,6 +62,27 @@ Let $adic\Ring$ denote the category of adic rings with continuous ring maps.
     \]that determines the equivalence $adic\Ring^{op}\simeq f\Aff$.
 \end{theorem}
 
+\begin{remark}
+    Given an adic ring $A$ complete respect to ideal $I$, there exists closed immersion
+    \[
+    \Spec(A/I^n)\to \Spec(A)
+    \]which induces
+    \[
+    \Spf(A)\to \Spec(A)
+    \]at the open ideal $I$. If we look at specifically $A=k[x_1,x_2,...,x_n]$ and $I=(x_1-a_1,x_2-a_2,..., x_n-a_n)$, we can imagine
+    \[
+    \Spec(A/I^n)\to \Spec(A)
+    \]to be the $n$th thickening of the inclusion of the point $(a_1,a_2,...,a_n)$. And we should think $\Spf(A)$ with the ideal of definition $I$, to be the infinitesimla thickening of the closed subscheme corresponding to $I$.
+\end{remark}
+
 \begin{definition}
-    A \textbf{ind-scheme} is a filtered colimit of ordinary schemes in locally topological ringed space.
+    Let $i: X\to Y$ be a closed immersion with ideal $\mathcal{I}_X$, then we define the \textbf{$n$th thickening of $X$ in $Y$} to be the closed subscheme
+    \[
+    X\subseteq \mathrm{Inf}^n_X(Y)\subseteq Y
+    \]defined by ideal $\mathcal{I}_X^{n+1}$. The \textbf{infinitesimal thickening of $X$ in $Y$} is the colimit of the inclusion $\mathrm{Inf}^n_X(Y)\subseteq \mathrm{Inf}^{n+1}_X(Y)$, which is a formal scheme.
+
+    Of course, this definition extends to fpqc-sheaves and stacks easily.
+
+    We say a fpqc-sheaf $X$ over a scheme $S$, with a section $e:S\to X$ that is a closed immersion to be \textbf{ind-infinitesimal} if $\colim_n\mathrm{Inf}^n_S(X)\cong X$.
 \end{definition}
+
