@@ -41,7 +41,7 @@ F_0 \arrow[r]           & F
    Suppose $\M$ is a fpqc-stack over a scheme. Let $U$ be a $S$-scheme with $U\to \M$ a representable faithfully flat morphism. Then the essential surjectiveness assumption is redundant (easy check that requires both representability and faithfulness).
 
    \begin{proposition}
-    Let $\M$ be a fpqc-stack, with an affine (sense representable) faithfully flat morphism $\Spec(A)\to \M$ such that $\Spec(\Gamma)\cong \Spec(A)\times_{\M}\Spec(A)$, then there is equivalence
+    Let $\M$ be a fpqc-stack, with an affine (hense representable) faithfully flat morphism $\Spec(A)\to \M$ such that $\Spec(\Gamma)\cong \Spec(A)\times_{\M}\Spec(A)$, then there is equivalence
     \[
         \Qcoh_{\M}\simeq co\Module_{(A,\Gamma)}
     \]where $co\Module_{(A,\Gamma)}$ is the category of $(A,\Gamma)$-comodule.
@@ -52,5 +52,14 @@ F_0 \arrow[r]           & F
     \[
     ...\to \Spec(\Gamma\otimes_A\Gamma)\to \Spec(\Gamma)\to \Spec(A)\to \M
     \]determines a $(A,\Gamma)$-comodule structure on $M$, since $\F(\Spec(\Gamma))\cong \Gamma\otimes_A M$.
+
+    Therefore, there is a functor $ \Qcoh_{\M}\to co\Module_{(A,\Gamma)}$. 
+
+    On the other hand, an object $x\in [\Spec(A)/ \Spec(\Gamma)]$ living over object $\Spec(B)$ corresponds to a morphism $\Spec(B)\to \Spec(A)$. Therefore, for a $(A,\Gamma)$-comodule $M$, we define
+    \[
+    \tilde{M}(\Spec(B)\to \Spec(A))=B\otimes_A M
+    \]
+
+    Check that these constructions are inverses of each other.
    \end{proof}
 

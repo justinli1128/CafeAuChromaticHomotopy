@@ -1,12 +1,67 @@
 \section{Formal schemes}\label{sec:algebraicgeometry-formalschemes}
-% Write your notes here. Do not add a documentclass or document environment.
+% Write your notes here. Do not add a documentclass or document environment
+
 \begin{definition}
-    Let $(A, \mathfrak{m}_A)$ be a complete local ring, that is a local ring, with maximal ideal $\mathfrak{m}_A$ such that 
+    \cite{PGScholzeWeinstein}
+    Let $A$ be an \textbf{adic ring}, that is a topological ring that carries the $I$-topology for some \textbf{ideal of definition} of A, i.e. the topology with basis
+    \begin{align*}
+        \{r + I^n: r\in A, n \in \mathbb{N}\}
+    \end{align*}
+    Note, the ideal of definition is not part of the information. Two ideals $I$ and $J$ defines the same adic topology if and only for every $n$, $J^t\subseteq I^n$ and $I^s\subseteq J^n$.
+
+    We denote $\Spf(A)$ the set of open prime ideals (notice there is identification with the $\Spec(A/I^n)$ for any $n$). For $f\in A$, we define $\hat{V}(f)$ and $\hat{D}(f)$ to be
+    \begin{align*}
+        \hat{V}(f):=\{\mathfrak{p}\in \Spf(A): f\in \mathfrak{p}\}
+        \hat{D}(f):=\{\mathfrak{p}\in \Spf(A): f\not \in \mathfrak{p}\}
+    \end{align*}
+    There is \textbf{structure sheaf} on $\Spf(A)$, $\hat{\Ocal}_{\Spc(A)}$, valued in topological rings, defined over $\hat{D}(f)$ to be
+    \[
+    \hat{\Ocal}_{\Spc(A)}(\hat{D}(f)):=\hat{A_f}=\lim_n A_f/I_f^n
+    \]
+    Notice, $I$ is irrelevant to this construction.
+\end{definition}
+
+\begin{remark}
+    Let $(A, \mathfrak{m}_A)$ be a \textbf{complete local ring}, that is a local ring, with maximal ideal $\mathfrak{m}_A$ such that 
     \[
     A\cong \lim_{n}A/\mathfrak{m}^n
     \]We equip $A$ with the pro-topology, induced by the discrete topology on $A/\mathfrak{m}^n$.
 
-    We denote $\Spf(A)$ the set of open prime ideals (notice there is identification with the $\Spec(A/\mathfrak{m}^n)$ for any $n$). For $f\in A$, we define $hat{V}(f)$ and $hat{D}(f)$ to be
-    \begin{align*}
-    \end{align*}
+    We notice that given any adic ring $A$, for every point $\mathfrak{p}\in\Spf(A)$, the stalk over $\mathfrak{p}$ is $A_{\mathfrak{p}}$ is a complete local ring.
+\end{remark}
+
+\begin{definition}
+    A \textbf{locally topological ringed space} $(X, \Ocal_X)$ is a topological space $X$ with a sheaf of topological ring $\Ocal_X$ over $X$.
+    
+    A \textbf{morphism between locally topological ringed space} is a map $\varphi=(f, f^{\shp}): (X, \Ocal_X)\to (Y, \Ocal_Y)$ with $f:X\to Y$ continuous and $f^{\shp}: \Ocal_Y\to f_*\Ocal_X$ is a morphism of sheaf of topological rings, such that for every point $x\in X$,
+    \[
+    f^{\shp}: \Ocal_{Y, f(x)}\to \Ocal_{X,x}
+    \]is a local ring morphism (not considering the topology).
+\end{definition}
+
+\begin{definition}
+    An \textbf{affine formal scheme} is a locally topological ringed space isomorphic to $\Spf(A)$ for some adic ring $A$, and a \textbf{formal scheme} is a locally topological ringed space $(X, \Ocal_X)$ with a covering $U_i$ such that $(U_i, \Ocal_X|_{U_i})$ are affine formal.
+
+    Denote $f\Aff$ the category of affine formal schemes and $f\Sch$ the category of formal schemes.
+\end{definition}
+
+If we let every ring $A$ to be adic with the zero ideal, so the ring is discrete, then $\Spc(A)\cong\Spec(A)$ as locally topological ringed space. Therefore, there is fully faithful embedding 
+\begin{align*}
+    i: \Aff \to f\Aff
+    \\ i: \Sch \to f\Sch
+\end{align*}
+
+Let $adic\Ring$ denote the category of adic rings with continuous ring maps.
+\begin{theorem}
+    There is adjunction
+    \[
+       \hat{\Gamma}\dashv \Spf: f\Sch\to adic\Ring^{op}
+    \]i.e.
+    \[
+    \Hom_{\mathrm{cts}}(A, \hat{\Gamma}(X, \Ocal_X))\cong \Hom_{f\Sch}(X, \Spf(A))
+    \]that determines the equivalence $adic\Ring^{op}\simeq f\Aff$.
+\end{theorem}
+
+\begin{definition}
+    A \textbf{ind-scheme} is a filtered colimit of ordinary schemes in locally topological ringed space.
 \end{definition}
