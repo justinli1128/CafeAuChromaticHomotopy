@@ -4,10 +4,69 @@
     Given a morphism of scheme $f: X\to Y$ and a quasicoherent $\Ocal_X$-module $\F$, a $f^{-1}\Ocal_Y$-derivation from $\Ocal_X$ to $\F$ is a $f^{-1}\Ocal_Y$-module morphism $d$ such that
     \[
     d(fg)=fdg+gdf
-    \]for local section $f, g\in \Ocal_X$.
+    \]for local section $f, g\in \Ocal_X(U)$ over $U\subseteq X$.
 
     Given a morphism of scheme $f: X\to Y$, the \textbf{Kahler differential} is the quasicoherent $\Ocal_X$-module $\Omega_{X/Y}$ such that for any $\Ocal_X$-module
     \[
     \Hom_{\Ocal_X}(\Omega_{X/Y}, \F)\cong \mathrm{Der}_{f^{-1}\Ocal_Y}(\Ocal_X, \F)
     \]in other words, $\Omega_{X/Y}$ classifies $f^{-1}\Ocal_Y$-derivations.
 \end{definition}
+
+For $S$-scheme closed immersion $i:X\to Y$ with ideal $\mathcal{I}_X$, there is an exact sequence 
+\begin{align*}
+   \omega_i=i^*\mathcal{I}_X\mathcal{I}_X^2\to i^*\Omega_{Y/S}\to \Omega_{X/S}\to 0
+\end{align*}that comes from comparing differentials.
+
+Suppose we have a closed immersion $i: X\to Y$ with defining ideal $\mathcal{I}_X$, there is a chain of closed subschemes
+\[
+Y_0=\mathrm{Inf}_X^0(Y)=X\subseteq Y_1=\mathrm{Inf}_X^1(Y)\subseteq Y_2=\mathrm{Inf}_X^2(Y)\subseteq ... \subseteq Y
+\]
+For each inclusion $i_n: X\to Y_n$ $n>0$, the conormal sheaf $\omega_{i_n}=i_n^*(\mathcal{I}_{i_n}/\mathcal{I}_{i_n}^2)\cong i_n^*(\mathcal{I}_{X}/\mathcal{I}_{X}^2)=\omega_i$.
+Therefore, knowing $\omega_{i_1}$ tells us everything. In order for us to have information on the chain of closed subschemes, we define graded $\Ocal_{Y}/\mathcal{I}$-algebra $\mathrm{gr}_*(Y)$, such that
+\begin{align*}
+    \mathrm{gr}_k(Y):=i^*(\mathcal{I}_X^k/\mathcal{I}_X^{k+1})
+\end{align*}
+and the algebra structure comes from
+\begin{align*}
+ \mathrm{gr}_k(Y)\otimes_{\mathcal{O}_Y/\mathcal{I}}    \mathrm{gr}_{k'}(X)=i^*(\mathcal{I}_X^k/\mathcal{I}_X^{k+1})\otimes _{\Ocal_Y/\mathcal{I}_X}i^*(\mathcal{I}_X^{k'}/\mathcal{I}_X^{k'+1})
+    \\\to i^*(\mathcal{I}_X^k/\mathcal{I}_X^{k+1}\otimes _{\Ocal_X}\mathcal{I}_X^{k'}/\mathcal{I}_X^{k'+1})
+    \\ \to i^*(\mathcal{I}_X^{k+k'}/\mathcal{I}_X^{k+k'+1})
+\end{align*}
+
+Notice, $\mathrm{gr}_1(Y)= \omega_i$.
+
+Suppose we have a closed immersion $i: S\to X$ over $S$ itself, with defining ideal $\mathcal{I}_S$, then the morphism 
+\begin{align*}
+    \omega_i\to i^*\Omega_{X/S}
+\end{align*}becomes an isomorphism.
+
+\begin{definition}
+    A \textbf{formal Lie variety} is fpqc-sheaf $X$ over $S$, with section $e: S\to X$, such that 
+    \begin{itemize}
+        \item $X$ is ind-infinitesimal, with $\mathrm{Inf}_S^n(X)$ are representables are affines over $S$.
+        \item $\omega_e$ is locally free of finite rank over $S$.
+        \item The canonical map $\mathrm{Sym}_*\omega_e\to \mathrm{gr}_*(X)$ is an isomorphism.
+    \end{itemize}
+    A morphism of formal Lie variety is a morphism of fpqc-sheaves that preserves the section.
+\end{definition}
+
+\begin{definition}
+    Suppose we have a formal Lie variety $(X,e)$ over $S$, and we have $f:T\to S$ is a scheme morphism. The pullback formal Lie variety is $(f^*X, f^*e)$.
+\end{definition}
+
+\begin{remark}
+    Let $S=\Spec(A)$, the section $(0):\Spec(A)\to X=\Spf(A[x_1,...,x_n])$ of inclusion of the origin determines a formal Lie variety. We check each criteria one by one.
+
+    First, $\mathrm{Inf}_S^n(X)=\Spec(A[x_1,...,x_n]/(x_1,...,x_n)^{n+1})$ and $\colim_n \mathrm{Inf}_S^n(X)=X$. Check.
+
+    The module $(x_1,...,x_n)/(x_1,...,x_n)^{2}$ has generator $x_i$, so $\omega$ is a $A$-module of rank $n$.
+
+    The multiplication of $\mathrm{gr}_k(X)$ is precisely the multiplication of $x_i$'s, so the third isomorphism is checked.
+\end{remark}
+\begin{proposition}
+    Let $(X,e)$ be a formal Lie variety over $S=\Spec(A)$. There exists an isomorphism $(\Spf(A[x_1,...,x_n]), (0))\cong (X,e)$ where $n=\mathrm{rk}\omega_e$.
+\end{proposition}
+
+\begin{proof}
+    By assumption, $\omega_e$ is a free $A$-module of rank $n$. Choose basis $x_i$ in $\omega_e$
+\end{proof}

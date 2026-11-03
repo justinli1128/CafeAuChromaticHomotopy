@@ -75,6 +75,8 @@ Let $adic\Ring$ denote the category of adic rings with continuous ring maps.
     \]to be the $n$th thickening of the inclusion of the point $(a_1,a_2,...,a_n)$. And we should think $\Spf(A)$ with the ideal of definition $I$, to be the infinitesimla thickening of the closed subscheme corresponding to $I$.
 \end{remark}
 
+The functor of point for a formal scheme over $\Aff$ defines a fpqc-sheaf.
+
 \begin{definition}
     Let $i: X\to Y$ be a closed immersion with ideal $\mathcal{I}_X$, then we define the \textbf{$n$th thickening of $X$ in $Y$} to be the closed subscheme
     \[
@@ -82,7 +84,14 @@ Let $adic\Ring$ denote the category of adic rings with continuous ring maps.
     \]defined by ideal $\mathcal{I}_X^{n+1}$. The \textbf{infinitesimal thickening of $X$ in $Y$} is the colimit of the inclusion $\mathrm{Inf}^n_X(Y)\subseteq \mathrm{Inf}^{n+1}_X(Y)$, which is a formal scheme.
 
     Of course, this definition extends to fpqc-sheaves and stacks easily.
+\end{definition}
 
+The theory generalizes beyond closed immersions. Given injection of fpqc-sheaves $i:X\to Y$, let $\mathrm{Inf}_X^n(Y)\subseteq Y$ to be the subsheaf such that on quasicompact $U\to S$, $[\mathrm{Inf}_X^n(Y)](U)$ is the set of sections $a$ in $Y(U)$, such that there is a fpqc-cover $V\to U$ and a closed subscheme of $V'\subseteq V$ with ideal of definition vanishing at $n+1$ power, and 
+\begin{align*}
+   a|_{V'}\in  Y(V') 
+\end{align*}belongs to $X(V')$. (Let's ignore how it generalizes and just take it for granted)
+
+\begin{definition}
     We say a fpqc-sheaf $X$ over a scheme $S$, with a section $e:S\to X$ that is a closed immersion to be \textbf{ind-infinitesimal} if $\colim_n\mathrm{Inf}^n_S(X)\cong X$.
 \end{definition}
 
