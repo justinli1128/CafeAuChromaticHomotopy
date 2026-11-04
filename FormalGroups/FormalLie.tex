@@ -1,4 +1,4 @@
-\section{Formal Lie Variety}\label{sec:formalgroups-formalLie}
+\section{Formal Lie Variety and Formal Group}\label{sec:formalgroups-formalLie}
 
 \begin{definition}
     Given a morphism of scheme $f: X\to Y$ and a quasicoherent $\Ocal_X$-module $\F$, a $f^{-1}\Ocal_Y$-derivation from $\Ocal_X$ to $\F$ is a $f^{-1}\Ocal_Y$-module morphism $d$ such that
@@ -97,3 +97,11 @@ Suppose we have a closed immersion $i: S\to X$ over $S$ itself, with defining id
 Moreover, the affine assumption implies that for every general scheme $S$, the formal Lie variety over $S$ are glued together by formal infinitesimal neighbourhood.
 
 However, the isomorphism of the identification is very noncanonical, so there is some ambiguity in the theory.
+
+\begin{definition}
+    Given a scheme $S$, a \textbf{formal group} over $S$ is a group object in the category of formal Lie varieties such that $\omega_e$ is locally free of rank $1$, and a \textbf{morphism of formal group} is a formal Lie variety morphism that preserves the group structure.
+\end{definition}
+
+\begin{remark}
+    Recall our identification of formal Lie varieties over affines implies a formal group over $\Spec(A)$ can be identified with a group structure on $\Spec(A[t])$, or equivalently a formal group law over $A$.
+\end{remark}

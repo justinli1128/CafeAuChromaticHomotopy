@@ -1,4 +1,4 @@
-\section{Moduli of formal groups}\label{sec:formalgroups-moduliformalgroup}
+\section{Moduli of formal Lie variety and formal groups}\label{sec:formalgroups-moduliformalgroup}
 % Write your notes here. Do not add a documentclass or document environment.
 \begin{definition}
     The category fibered in groupoids $\Mfg$ over $\Sch$ contains objects $(S, G)$ where $S$ is a scheme and $G$ is a formal group over $S$, and a morphism $\varphi=(f, \psi): (S, G)\to (T, H)$ contains a scheme morphism $f: S\to T$, and a formal group scheme morphism $\psi: G\to f^*H$.
@@ -6,27 +6,56 @@
 
 
 \begin{lemma}
-    The functor $\iso(F,G)$ of two formal groups $F$ and $G$ over $S$ that takes $f:U\to S$ to to the set of isomorphisms from $f^*F\to f^*G$ is a fpqc-sheaf.
+    The functor $\iso(F,G)$ of two formal Lie varieties $X$ and $Y$ over $S$ that takes $f:U\to S$ to to the set of isomorphisms from $f^*X\to f^*Y$ is a fpqc-sheaf.
 \end{lemma}
 \begin{proof}
+    Suppose $f:T\to S$ is faithfully flat and quasicompact over the scheme $S$, we need to show the diagram
+    \begin{center}
+\begin{tikzcd}
+{\iso(X,Y)(S)} \arrow[r, "f^*"] & {\iso(f^*X,f^*Y)(T)} \arrow[r, "d_1^*", shift left] \arrow[r, "d_0^*"', shift right] & {\iso(\psi^*X,\psi^*Y)(T)}
+\end{tikzcd}
+    \end{center}where $\psi=f\circ d_1=f\circ d_0$, is an equalizer diagram.
 
+    Given a formal Lie variety morphism $\phi: X\to Y$, there exists unique morphisms $\phi_n: X_n\to Y_n$ between the formal neighbourhood. If we have $\phi: f^*X\to f^*Y$ that satisfies the equalizer condition, then $\phi_n: f^*X_n\to f^*Y_n$ satisfies the equalizer condition. Since $X_n$ and $Y_n$ are affines over $S$, there is an unique
+    \[
+    \varphi_n: X_n\to Y_n
+    \]This then induces the unique map $\varphi: X\to Y$ that satisfies the equalizer property.
 \end{proof}
+
+\begin{corollary}
+The functor $\iso(F,G)$ of two formal group $F$ and $G$ over $S$ that takes $f:U\to S$ to to the set of isomorphisms from $f^*F\to f^*G$ is a fpqc-sheaf.
+\end{corollary}
 
 \begin{proposition}
     $\Mfg$ is a fpqc-stack.
 \end{proposition}
 \begin{proof}
+    The lemma above implies the first criterion of stack, we just need to show the descent property. 
 
+    Suppose we have fpqc $f:T\to S$ and a descent problem $(X, \phi)$ over $T$. First of all, $X_n$ extends to an unique up to isomorphism a scheme $Y_n$ affine over $S$, which put together to $Y:=\colim_n Y_n$. 
+
+    The quasicoherent module $f^*\omega_X=\omega_Y$ is clearly locally free of rank $1$, and the isomorphism $\mathrm{Sym}\omega_Y\to \mathrm{gr}_*(Y)$ follows as well.
 \end{proof}
 
-Let $(L, LB[u^{\pm}])$ be the Hopf algebroid classifying formal group laws and isomorphisms. There is the universal formal group $F_{Univ}$ over $\Spec(L)$, which determines a map $\Spec(L)\to \Mfg$.
+Let $(L, LB[u^{\pm}])$ be the Hopf algebroid classifying formal group laws and isomorphisms. There is the universal formal group $F_{Univ}$ over $\Spec(L)$, which determines a map $\Spec(L)\to \Mfg$
+
 \begin{lemma}
-    The map $\Spec(L)\to \Mfg$ is faithfully flat.
+    $\Spec(LB[u^{\pm}])\simeq \Spec(L)\times_{\Mfg} \Spec(L)$
 \end{lemma}
+\begin{proof}
+    The pullback in category fibered in groupoids is presheaf such that it takes scheme $S$ to
+     \[
+    \iso(F_{Univ}, F_{Univ})(S)=\{(\phi, \psi, f): \phi: S\to \Spec(L), \psi: S\to \Spec(L), f:\phi^*F_{Univ}\to \psi^*F_{Univ}\}
+    \]
+    Note this functor is just $\iso$ presheaf for formal group laws, which is the $fpqc$-sheaf $\Spec(LB[u^{\pm}])$.
+\end{proof}
+\begin{lemma}
+    The map $\Spec(L)\to \Mfg$ is faithfully flat and quasicompact.
+\end{lemma}
+\begin{proof}
+    Let $\Spec(A)\to \Mfg$ be an $A$-point, which is equivalent to a formal group law $G$ over $A$, hence it factors through $\Spec(L)$. Therefore, the pullback is just $\Spec(A \otimes_L LB[u^{\pm}])$. Moreover, $LB[u^{\pm}]$ is faithful and flat over $L$, so faithfully flat is done. Quasicompact is trivial for affine schemes.
+\end{proof}
 
 \begin{proposition}
     $\Spec(L)/\Spec(LB[u^{\pm}])\to \Mfg$ is an equivalence of fpqc-stack.
 \end{proposition}
-\begin{proof}
-
-\end{proof}

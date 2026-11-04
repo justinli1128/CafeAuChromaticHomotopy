@@ -1,7 +1,7 @@
 \section{A Flatness Condition on Tensor Product of Quasicoherent Modules}\label{sec:formalgroups-flatness}
 
 \begin{theorem}
-
+    \cite{PreLandweber}
     Let $M$ be a $L$-module, or equivalently a quasicoherent $\Spec(L)$-module $\tilde {M}$, then the functor
     \begin{align*}
         \Qcoh_{\Mfg}\xrightarrow{q^*}\Qcoh_{\Spec(L)}\xrightarrow{ -\otimes \tilde {M}}\Qcoh_{\Spec(L)}
@@ -9,5 +9,13 @@
 \end{theorem}
 
 \begin{proof}
+    Since $\Mfg\simeq [\Spec(L)/\Spec(LB[u^{\pm}])]$, the statement is equivalent to showing that for any exact sequence of $(L, LB[u^{\pm}])$-comodule 
+    \[
+    0\to N' \to N\to N''\to 0
+    \]the sequence
+    \[
+    0\to N'\otimes_L M\to N\otimes_L M\to  N''\otimes_L M\to 0
+    \]is exact.
 
+    Of course, this is just equivalent to show $\mathrm{Tor}^1(N, M)=0$ for all comodules $N$.
 \end{proof}
