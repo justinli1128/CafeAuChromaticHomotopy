@@ -4,6 +4,14 @@
     The category fibered in groupoids $\Mfg$ over $\Sch$ contains objects $(S, G)$ where $S$ is a scheme and $G$ is a formal group over $S$, and a morphism $\varphi=(f, \psi): (S, G)\to (T, H)$ contains a scheme morphism $f: S\to T$, and a formal group scheme morphism $\psi: G\to f^*H$.
 \end{definition}
 
+
+\begin{lemma}
+    The functor $\iso(F,G)$ of two formal groups $F$ and $G$ over $S$ that takes $f:U\to S$ to to the set of isomorphisms from $f^*F\to f^*G$ is a fpqc-sheaf.
+\end{lemma}
+\begin{proof}
+
+\end{proof}
+
 \begin{proposition}
     $\Mfg$ is a fpqc-stack.
 \end{proposition}
@@ -11,7 +19,11 @@
 
 \end{proof}
 
-Let $(L, LB[u^{\pm}])$ be the Hopf algebroid classifying formal group laws and isomorphisms,
+Let $(L, LB[u^{\pm}])$ be the Hopf algebroid classifying formal group laws and isomorphisms. There is the universal formal group $F_{Univ}$ over $\Spec(L)$, which determines a map $\Spec(L)\to \Mfg$.
+\begin{lemma}
+    The map $\Spec(L)\to \Mfg$ is faithfully flat.
+\end{lemma}
+
 \begin{proposition}
     $\Spec(L)/\Spec(LB[u^{\pm}])\to \Mfg$ is an equivalence of fpqc-stack.
 \end{proposition}

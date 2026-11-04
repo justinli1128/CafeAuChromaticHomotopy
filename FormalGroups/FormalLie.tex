@@ -68,5 +68,32 @@ Suppose we have a closed immersion $i: S\to X$ over $S$ itself, with defining id
 \end{proposition}
 
 \begin{proof}
-    By assumption, $\omega_e$ is a free $A$-module of rank $n$. Choose basis $x_i$ in $\omega_e$
+    Since $X_n$ are affines, they are completely described by their global sections $R_n$, i.e. $\Spec(R_n)\cong X_n$.
+
+    We know there is exact sequence
+    \begin{align*}
+        0\to I_n\to R_n\to A\to 0
+    \end{align*}
+
+    The map $R_n\to R_{n-1}$ is surjective, as it is modulo some ideal in $R_n$, which implies $I_n\to I_{n-1}$ is surjective. 
+
+    The module $I_1$ is the kernel of $R_1\to A$, which implies $I_1\cong \omega_e$. There exists splitting $\omega_e\to I_n\to \omega_e$ due to the surjection, which induces an algebra morphism
+    \[
+    \mathrm{Sym}\omega_e\to R_n
+    \]
+    Choose generator $x_i$ in $\omega_e$, the freeness implies $\omega_e\cong A\{x_i\}$ and $\mathrm{Sym}(\omega_e)\cong A[x_1,...,x_n]$. Notices, $I_n^{n+1}=0$ in $R_n$, so this factors through
+    \[
+     A[x_1,...,x_n]/I_n^{n+1}\to R_n
+    \]
+    
+    The augmentation $R_n\to A$ has kernel $I_n$, which implies that the map above is surjective, because every elements in $R_n$ splits into $r+a$ for $r\in R_n- I_n$ and $a\in A$. Moreover, this is an isomorphism, because $\mathrm{Sym}_k \omega_e\cong \mathcal{I}_n^{k}/\mathcal{I}_n^{k+1}$.
+
+    The ideal $I$ is $(x_1,...,x_n)$ by looking at the $n=1$ case, so we have 
+    \[
+    A[x_1,...,x_n]/(x_1,...,x_n)^{n+1}\to R_n
+    \]is an isomorphism.
 \end{proof}
+
+Moreover, the affine assumption implies that for every general scheme $S$, the formal Lie variety over $S$ are glued together by formal infinitesimal neighbourhood.
+
+However, the isomorphism of the identification is very noncanonical, so there is some ambiguity in the theory.

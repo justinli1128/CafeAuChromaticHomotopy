@@ -24,7 +24,17 @@ F_0 \arrow[r]           & F
    \]
    We refer to $c_\bullet:=c_1\times_{c_0}c_1\times_{c_0}...\times_{c_0}c_1$ to be the \textbf{Cêch nerve} of $\M$.
 
-   If the topology of $C$ is subcanonical, then the stackification process is unnecessary.
+  \begin{remark}
+    Even if $c_0$ and $c_1$ are sheaves in $C$, it is not necessarily true that the category fibered in groupoid corresponding to $(c_0, c_1)$ is a stack. Here is an example.
+
+    Let $c_0=\Spec(\Z)$ be the terminal object in $\Sch$, and $c_1=\mathbb{G}_m$, which is a group scheme that classifies the units in the global sections. In fpqc-topology, representables are sheaves, so in particular $c_0$ and $c_1$. 
+    Let $T=\Proj_{\Z}^1$, covered by $U_0=\Spec\Z[t]$ and $U_1=\Spec\Z[s]$ and $s=t^{-1}$. The groupoid over $T$ is $B\Z_2$, specifically it is one object. The descent datum category, however, has following objects
+    \begin{align*}
+        (*_0, *_1, \varphi_{01})
+    \end{align*}where $*_i \in \Hom(U_i, c_0)$, and $\varphi_{01}\in \Hom(U_{01}, c_1)=\Z[t^{pm}]^{\times}\cong \{\pm 1\}\oplus \{t^{\pm}\}$. The object $(*,*,t)$ is not isomorphic to $(*,*,1)$ because this requires there to exists isomorphism $\psi_i \in \Hom(U_i, c_1)\cong \{\pm 1\}$, such that $\psi_1\circ t=\psi_0$, which is impossible. So the descent datum category for this covering of $T$ contains at least two objects.
+
+    Therefore, we have $(c_0,c_1)$ is not a stack.
+  \end{remark}
 
    \begin{lemma}
     Let $c_0 \in C$, $\M$ a stack over $C$, and there is representable morphism $c_0\to \M$, denote $c_1:=c_0\times_{\M}c_0$ the object representing the pullback. Then there is a groupoid structure on $(c_0,c_1)$. Moreover, if $c_0\to \M$ is essentially surjective that is a covering, that is for every $x\in C$ and $u\to \M$, the pullback $x\times_{\M}c_0 \to x$ determines a cover in $C$, then there is equivalence
