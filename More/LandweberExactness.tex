@@ -1,19 +1,10 @@
-\section{Landweber Exactness}\label{sec:chromatic-more-landweberexactness}
+\section{Even Periodic Cohomology}\label{sec:chromatic-more-landweberexactness}
 % Write your notes here.
-\begin{theorem}\cite{PreLandweber}
-    A $MU_*$-module $M_*$ satisfying the following condition: there exists a prime $p$ and sequence of elements $v_i$ such that $(p,v_1,...)$ is a regular sequence in $M$. Then 
-    \begin{align*}
-        M_*(-)=MU_*(-)\otimes_{MU_*} M_*
-    \end{align*}is a homology
-\end{theorem}
-    Any homology that comes from a Landweber module is called a Landweber homology
-\begin{proposition}
-    There does not exists phantom maps between Landweber homology.
-\end{proposition}
-\begin{proof}
 
-\end{proof}
-
+\begin{definition}
+    A \textbf{even periodic cohomology} is a ring spectrum $E$, such that $\pi_1 E=0$ and there exists $u\in \pi_2 E$ that is invertible. 
+\end{definition}
+Clearly, an even periodic cohomology $E$ is complex orientable (look at the AHSS of $BU(1)$ of $E$, there is no nontrivial differential).
 \begin{definition}
     The \textbf{periodic Thom spectrum} $MP$ is defined as
     \[
@@ -31,6 +22,33 @@
 \begin{proof}
 
 \end{proof}
+
+\begin{theorem}\cite{PreLandweber}
+    A $MU_*$-module $M_*$ satisfying the following condition: there exists a prime $p$ and sequence of elements $v_i$ such that $(p,v_1,...)$ is a regular sequence in $M$. Then 
+    \begin{align*}
+        M_*(-)=MU_*(-)\otimes_{MU_*} M_*
+    \end{align*}is a homology
+\end{theorem}
+    Any homology that comes from a Landweber module is called a Landweber homology. Recall this comes from the criterion of flatness over $\Mfg$.
+
+
+\begin{proposition}
+    There does not exists phantom maps between Landweber homology.
+\end{proposition}
+\begin{proof}
+
+\end{proof}
+
+\begin{lemma}
+    Let $E$ be an even periodic cohomology, such that $F_E$ is flat over $\Mfg$, then 
+    \[
+        E_*(-)\cong MP_*(-)\otimes_{MP_0}E_0
+    \]
+\end{lemma}
+\begin{proof}
+
+\end{proof}
+
 \begin{proposition}
     \cite{AGGoerss}
     For $i=1,2$, let $G_i$ be formal group laws over $\Spec(A_i)$, then 
@@ -41,13 +59,9 @@
 \begin{proof}
 
 \end{proof}
-\begin{definition}
-    A \textbf{even periodic cohomology} is a ring spectrum $E$, such that $\pi_1 E=0$ and there exists $u\in \pi_2 E$ that is invertible. 
-\end{definition}
-Clearly, an even periodic cohomology $E$ is complex orientable (look at the AHSS of $BU(1)$ of $E$, there is no nontrivial differential).
 
 \begin{corollary}
-    Given an even periodic complex oriented cohomology $E$, with formal group law $F_E$ over $\Spec(E_0)$, then
+    Given an even periodic complex oriented cohomology $E$, with formal group law $F_E$ flat over $\Mfg$, then
     \begin{align*}
         \Spec(E_0)\times_{\Mfg}\Spec(MP_0)\simeq \Spec(MP_0E)
     \end{align*}
