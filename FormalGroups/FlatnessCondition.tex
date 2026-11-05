@@ -1,11 +1,13 @@
 \section{A Flatness Condition on Tensor Product of Quasicoherent Modules}\label{sec:formalgroups-flatness}
 
+Fix a prime $p$, let $v_i\in L$ where $v_0=p$ to be the coefficient of the $p$-series of universal formal group over $L$.
+
 \begin{theorem}
     \cite{PreLandweber}
     Let $M$ be a $L$-module, or equivalently a quasicoherent $\Spec(L)$-module $\tilde {M}$, then the functor
     \begin{align*}
         \Qcoh_{\Mfg}\xrightarrow{q^*}\Qcoh_{\Spec(L)}\xrightarrow{ -\otimes \tilde {M}}\Qcoh_{\Spec(L)}
-    \end{align*}is exact if the following condition is satisfied: there exists a prime $p$, and a sequence of element $v_i\in M$ such that $(p,v_1,v_2,...)$ is a regular sequence in $M$.
+    \end{align*}is exact if the following condition is satisfied: there exists a prime $p$, such that the sequence of element $(p,v_1,v_2,...)$ is a regular sequence of $M$.
 \end{theorem}
 
 \begin{proof}
@@ -17,5 +19,28 @@
     0\to N'\otimes_L M\to N\otimes_L M\to  N''\otimes_L M\to 0
     \]is exact.
 
-    Of course, this is just equivalent to show $\mathrm{Tor}^1(N, M)=0$ for all comodules $N$.
+    This is equivalent to saying $\mathrm{Tor}^i_L(N, M)=0$ for any comodule $N$.
+
+    We denote $I_n:=(p,v_1,...,v_{n-1})$ the invariant ideal of $L$.
+    \begin{lemma}
+        Let $N$ be a finitely presented comodule, then there exists a filtration of comodule
+        \[
+        0=N_0\subset N_1\subset N_2...\subset N_r=N
+        \]such that $N_{j}/N_{j-1}\cong L/I_{n_j}$.
+    \end{lemma}
+    \begin{proof}
+
+    \end{proof}
+    We have $\mathrm{Tor}^1_L(L/I_n, M)\cong \mathrm{ker}(M/I_{n-1}\xrightarrow{v_{n-1}} M/I_{n-1})$, where the injectivity implies the triviality of $\mathrm{Tor}^1$.
+
+    Therefore, if $N$ is finitely presented, we have $\mathrm{Tor}^1_L(N,M)\cong 0$.
+
+    \begin{lemma}
+        Every comodule $N$ is a filtered colimit of finitely presented comodule.
+    \end{lemma}
+    \begin{proof}
+
+    \end{proof}
+
+    Therefore, $\mathrm{Tor}^i_L(\colim_{\alpha}{N_{\alpha}}, M)\cong \colim_{\alpha}\mathrm{Tor}^i_L({N_{\alpha}}, M)\cong 0$ as $\mathrm{Tor}$ commutes with filtered colimits.
 \end{proof}
