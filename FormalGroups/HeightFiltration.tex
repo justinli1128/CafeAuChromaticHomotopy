@@ -1,2 +1,47 @@
 \section{Height Filtration of Moduli of Formal Groups}\label{sec:formalgroups-filtration}
 
+\begin{definition}
+    The \textbf{invariant differential over $\Mfg$} is defined as the quasicoherent module $\omega_{\Mfg}$ over $\Mfg$, such that over formal group $G$ over a scheme $S$,
+    \begin{align*}
+        \omega_{\Mfg}(G)=\Gamma(S, \omega_G)
+    \end{align*}and the morphism $f: (F,T)\to (G,S)$, $\Gamma(S,\omega_{{G}})\to \Gamma(T,\omega_{f^*{G}})\to \Gamma(T,\omega_F)$.
+
+    Note give a morphism $\Spec(B)\to \Spec(A)$, and formal group $G$ over $\Spec(A)$, then $\omega_{f^*G}=f^*\omega_{G}$ which implies the cartesian property.
+\end{definition}
+
+Given a formal group law $F$ over a ring $A$, then $\omega_F=A\cdot dt$ for some generator $dt$. Let $f:F\to G$ be an isomorphism of formal group laws over $A$, the morphism between the invariant differential is given by
+\begin{align*}
+    f^*: A\cdot dt' \to A \cdot dt
+\end{align*}taking $dt'$ to $f'(0) \cdot dt$.
+
+The moduli stack $\Mfg$ over $\Spec(\Z)$ can be taken the the moduli stack of formal groups $\Mfg\otimes\Spec(\Fp)$ over $\Spec(\Fp)$. 
+
+\begin{definition}
+    Given a scheme $S$ over $\Spec(\Fp)$, the \textbf{absolute Frobenius map} $f: S \to S$ is the scheme morphism that is the identity on the topological space, and $f: \Ocal_S\to \Ocal_S$ is the Frobenius map of $\Fp$ algebra.
+
+    Given a formal scheme $X$ over $S$, the formal scheme $X^{(p)}$ is the pullback of $X$ along $f:S\to S$. The \textbf{relative Frobenius map} is $F: X\to X^{(p)}$ induced from the absolute Frobenius $f:X\to X$.
+\end{definition}
+
+Given a formal group $G$ over a $\Fp$-scheme $S$, then there is morphism
+\[
+\omega_{G^{(p)}}\to \mathrm{Sym}_*\omega_G
+\]which induces isomorphism on $\omega_{G^{(p)}}\cong \omega_{G}^{\otimes p}$.
+
+\begin{definition}
+    Let $G$ be a formal group over a $\Fp$-scheme $S$, denote $[p]:G\to G$ the $p$th power operation (i.e. $G\xrightarrow{\Delta} G^{\times p}\to G$). We say $G$ has \textbf{height at least $n$} if there is factoring
+    \begin{center}
+        \begin{tikzcd}
+G \arrow[r, "F"] \arrow[rrrrd, "{[p]}"] & G^{(p)} \arrow[r, "F^{(p)}"] & G^{(p^2)} \arrow[r] & ... \arrow[r] & G^{(p^n)} \arrow[d, "V_n"] \\
+                                        &                              &                     &               & G                         
+\end{tikzcd}
+    \end{center}we refer to $V_n$ as the \textbf{$n$th Verschiebung}.
+\end{definition}
+
+Here we notice that $n$ can be $\infty$
+\begin{remark}
+    Let $\mathbb{G}_a$ denote the formal group over $\Spec(\Fp)$ defined by formal group law $F(x,y)=x+y$, then $[p]=0 :\mathbb{G}_a\to \mathbb{G}_a$. Then the factoring exists for any $n$.
+\end{remark}
+
+\begin{definition}
+    Let $\Mfg\otimes \Spec(\Z_{(p)})$ denote the moduli stack of formal groups over $p$-local schemes, (we see $\Mfg\otimes \Spec(\Fp)$ is a closed substack).
+\end{definition}

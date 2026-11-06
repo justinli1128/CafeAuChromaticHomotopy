@@ -23,24 +23,20 @@ Fix a prime $p$, let $v_i\in L$ where $v_0=p$ to be the coefficient of the $p$-s
 
     We denote $I_n:=(p,v_1,...,v_{n-1})$ the invariant ideal of $L$.
     \begin{lemma}
+        \cite{PreLandweber}
         Let $N$ be a finitely presented comodule, then there exists a filtration of comodule
         \[
         0=N_0\subset N_1\subset N_2...\subset N_r=N
         \]such that $N_{j}/N_{j-1}\cong L/I_{n_j}$.
     \end{lemma}
-    \begin{proof}
-
-    \end{proof}
     We have $\mathrm{Tor}^1_L(L/I_n, M)\cong \mathrm{ker}(M/I_{n-1}\xrightarrow{v_{n-1}} M/I_{n-1})$, where the injectivity implies the triviality of $\mathrm{Tor}^1$.
 
     Therefore, if $N$ is finitely presented, we have $\mathrm{Tor}^1_L(N,M)\cong 0$.
 
     \begin{lemma}
+        \cite{PreHoveyComodule}
         Every comodule $N$ is a filtered colimit of finitely presented comodule.
     \end{lemma}
-    \begin{proof}
-
-    \end{proof}
-
+   
     Therefore, $\mathrm{Tor}^i_L(\colim_{\alpha}{N_{\alpha}}, M)\cong \colim_{\alpha}\mathrm{Tor}^i_L({N_{\alpha}}, M)\cong 0$ as $\mathrm{Tor}$ commutes with filtered colimits.
 \end{proof}
