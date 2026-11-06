@@ -22,10 +22,37 @@ The moduli stack $\Mfg$ over $\Spec(\Z)$ can be taken the the moduli stack of fo
     Given a formal scheme $X$ over $S$, the formal scheme $X^{(p)}$ is the pullback of $X$ along $f:S\to S$. The \textbf{relative Frobenius map} is $F: X\to X^{(p)}$ induced from the absolute Frobenius $f:X\to X$.
 \end{definition}
 
-Given a formal group $G$ over a $\Fp$-scheme $S$, then there is morphism
+\begin{remark}
+    Here is some local characterization of the absolute and relative Frobenius map. Over the affines, the absolute map $\Spec(A)\to \Spec(A)$ is induced from $f(a)=a^p$. 
+    Suppose we have $\Spec(B)\to \Spec(A)$, then the relative Frobenius $\Spec(B)\to \Spec(B)^{(p)}\cong \Spec(B\otimes _{A, f}A)$ is induced from $b\otimes a\mapsto ab^p$ (note, this is well defined as $a'b\otimes a=b\otimes a (a')^p\mapsto a(a'b)^p=a(a')^pb^p$), where $f$ stands for the Frobenius twisting $A$-algebra structure on $A$.
+    The pullback map $\Spec(B)^{(p)}\to \Spec(B)$ is just $b\mapsto b\otimes 1$, the canonical inclusion.
+\end{remark}
+
+\begin{lemma}
+    Let $S$ be a $\Fp$-scheme and let $L$ be a locally free module of rank $1$ over $S$, then 
+    \[
+        f^*L\cong L^{\otimes p}
+    \]
+\end{lemma}
+\begin{proof}
+    For any local section $e$ of $L$ over some $U$, we have $f^*L(U)=\Ocal_S(U)^{(p)}\otimes \Ocal_S(U) L(U)$, we take 
+    \[
+    f^*L(U)\to L(U)^{\otimes p}
+    \]via $1\otimes e\mapsto e^p$. This is well defined because if we some other section $e'=ae$ in $L$, then $1\otimes ae=a^p\otimes e$.
+
+    The map is isomorphism over the opens, because both side are rank $1$.
+\end{proof}
+Given a formal group $G$ over a $\Fp$-scheme $S$, then there is isomorphism
 \[
-\omega_{G^{(p)}}\to \mathrm{Sym}_*\omega_G
-\]which induces isomorphism on $\omega_{G^{(p)}}\cong \omega_{G}^{\otimes p}$.
+\omega_{G^{(p)}}\to \omega_{G}^{\otimes p}
+\]
+
+\begin{lemma}
+    The map $dF: \omega_{G^{(p)}}\to \omega_{G}$ is trivial.
+\end{lemma}
+\begin{proof}
+    We check this out locally over affines $\Spec(A)$. The relative Frobenius map $G\to G^{(p)}$ induces $A[[u]]\to A[[t]]$ by taking $u\mapsto t^p$, which induces $dF$ that takes $du$ to $d(t^p)=pt^{p-1}dt$ over $A[[t]]$, but everything has characteristic $p$.
+\end{proof}
 
 \begin{definition}
     Let $G$ be a formal group over a $\Fp$-scheme $S$, denote $[p]:G\to G$ the $p$th power operation (i.e. $G\xrightarrow{\Delta} G^{\times p}\to G$). We say $G$ has \textbf{height at least $n$} if there is factoring
@@ -34,7 +61,7 @@ Given a formal group $G$ over a $\Fp$-scheme $S$, then there is morphism
 G \arrow[r, "F"] \arrow[rrrrd, "{[p]}"] & G^{(p)} \arrow[r, "F^{(p)}"] & G^{(p^2)} \arrow[r] & ... \arrow[r] & G^{(p^n)} \arrow[d, "V_n"] \\
                                         &                              &                     &               & G                         
 \end{tikzcd}
-    \end{center}we refer to $V_n$ as the \textbf{$n$th Verschiebung}.
+    \end{center}we refer to $V_n$ as the \textbf{$n$th Verschiebung} (the Verschiebung is actually unique).
 \end{definition}
 
 Here we notice that $n$ can be $\infty$
@@ -42,6 +69,88 @@ Here we notice that $n$ can be $\infty$
     Let $\mathbb{G}_a$ denote the formal group over $\Spec(\Fp)$ defined by formal group law $F(x,y)=x+y$, then $[p]=0 :\mathbb{G}_a\to \mathbb{G}_a$. Then the factoring exists for any $n$.
 \end{remark}
 
+\begin{remark}
+    The $p$th power operation over formal group laws is determined by the formal power series $[p]_F: F:=\Spf(A[[t]])\to \Spf(A[[t]])$ determined by $[p]_Ft:=t+_Ft+_F...+_Ft$ $p$ times.
+    Note only the term with power of multiple of $p$ has nonzero coefficients.
+\end{remark}
+
 \begin{definition}
-    Let $\Mfg\otimes \Spec(\Z_{(p)})$ denote the moduli stack of formal groups over $p$-local schemes, (we see $\Mfg\otimes \Spec(\Fp)$ is a closed substack).
+    Let $\Mfg\otimes \Spec(\Z_{(p)})$ denote the moduli stack of formal groups over $p$-local schemes, (we see $\Mfg\otimes \Spec(\Fp)$ is a closed substack). We denote $\Mfg^{\geq n}$ the formal groups of height at least $n$, (for $n=0$, this is the entire stack, and $n>0$, we are looking at the substack of $\Mfg\otimes \Spec(\Fp)$).
 \end{definition}
+
+\begin{proposition}
+    There exists elements $\tilde{v_n}\in \Gamma(\Mfg^{\geq n}, \omega^{\otimes p^n-1})$,
+    such that for $G$ over $\Z_{(p)}$-scheme $S$ of height at least $n$ is in $\Mfg^{\geq n+1}$ if and only if $\tilde{v_n}(G):=\tilde{v_n}|_{G}=0\in \Gamma(S, \omega_G^{\otimes p^n-1})$.
+\end{proposition}
+\begin{proof}
+The $n$th Verschiebung $V_n: G^{(p^n)}\to G$, determines a qcoh map $dV_n: \omega_G\to \omega_{G^{(p^n)}}\cong \omega_G^{\otimes p^n}$. Since $\omega_G$ is invertible, this determines the map 
+\[
+\tilde{v_n}: \Ocal_S\to \omega_G^{\otimes p^n-1}\in \Gamma(S, \omega_G^{\otimes p^n-1})
+\]
+If $V_{n+1}$ exists, then $V_n$ factors as $V_{n+1}\circ F^{(p^{n-1})}$. Recall that $dF^{(p^{n-1})}=0$, and one direction is done.
+
+Suppose $dV_n=0$. If we restrict to the affines $\Spec(A)$, $V_n: \Spf(A[[u]])\to F:=\Spf(A[[t]])$ is induced by some formal power series $V_n(t)=f(u)$.
+
+The differential $dV_n: A\cdot dt\to A\cdot du$ is then $dV_n(dt)= f'(0)du=0$. Therefore, $f'(0)=0$. Moreover, since it is a formal group law morphism, we have
+\[
+    f(F(x,y))=F^{(p)}(f(x),f(y))
+\]where $F^{(p)}$ is our formal group law with all coefficient taken to their $p$th power.
+This implies
+\begin{align*}
+    f'(F(x,0))F_y(x,0)=f'(x)F_y(x,0)=F^{(p)}_y(f(x),f(0))f'(0)=0
+\end{align*}Since $F_y(x,0)\neq 0$, we have $f'(x)=0$.
+
+The obstruction to factor $V_n$ as $V_{n+1}\circ F$ is because $F: \Spf(A[[u]])\to  \Spf(A[[u']]) $ takes $u'$ to $u^p$, so if $V_{n+1}$ exists, and is determined by $t\mapsto g(u')$, then
+\[
+f(u)=g(u^p)
+\]Since $f'(u)=0$, then we have for every coefficient $a_n$ in front of $u^n$ in $f(u)$, $na_n=0$. If $p\not | n$, then $a_n=0$, so
+\[
+    f(u)=\sum_{j=1}^\infty a_{pj}u^{pj}
+\]so choose $g(t)=\sum_{j=1}^\infty a_{pj}t^{j}$ makes everything works.
+
+Push everything globally and we are done with the if and only if.
+
+Notice the pullback property of $\omega$, the element $\tilde{v_n}$ is natural over the entire $\Mfg^{\geq n}$, which implies its existence in $\omega_{\Mfg^{\geq n}}^{\otimes p^n-1}$.
+\end{proof}
+
+Therefore, $\Mfg^{\geq n+1}$ is determined by the vanishing of $\tilde{v_n}$.
+
+\begin{remark}
+    Suppose we are given a formal group law $F$ over $A$. Suppose moreover, it determines a formal group of height at least $n$, then there is formal power series $f(t)$ such that
+    \[
+    f(t^{p^n})=[p]_Ft=a_1t^{p^n}+a_{2}t^{2p^n}+...
+    \]
+    We have then the element $\tilde{V_n}(F) \in \Gamma(\Spec(A), \omega_F^{\otimes p^n-1})$ is then 
+    \[
+        \tilde{V_n}(F)=a_1dt^{p^n-1}
+    \]
+    We denote the element $a_1=v_n$. Of course, a formal group law of height at least $n$ is of height at $n+1$ if and only if $v_n=0$.
+
+    Therefore, we make the definition. A $p$-local formal group law $F$ is of height at least $n$ if $v_i=0$ for all $i<n$, and call the formal group law of height exactly $n$ if $v_i=0$ for all $i<n$ and $v_n$ is an unit.
+\end{remark}
+
+\begin{remark}
+Even though there is not a concept of height over a general formal group, fixing a prime $p$, we still denote $v_n\in L$ as the coefficient of $t^{p^n}$ in $[p]_F$ for the universal formal group law $F_{Univ}$. The ideal $I_n:=(p,v_1,...,v_{n-1})\subset L$ is invariant under the coaction of $LB[u^{\pm}]$.
+\end{remark}
+
+
+\begin{proposition}
+    There exists a formal group law $G$ over $V_p:=\Z_{(p)}[v_1,v_2,...]$, we refer to it as the \textbf{universal $p$-typical formal group law}, such that 
+    \[
+    [p]_Gt=pt+_Gv_1t^p+_Gv_2t^{p^2}+_G...
+    \]such that every $p$-local formal group law $F$ is determined uniquely by a map $\phi:V_p\to A$ such that $\phi$ factors through $V_p/I_n$ if $F$ is of height at least $n$, with the coefficient $v_i^F$ determined as $\phi(v_i)$.
+\end{proposition}
+
+The Hopf algebroid $(V_p, V_p\otimes_L LB[u^{\pm}]\otimes_L V_p)$, with the induced coaction determines a stack
+\[
+[\Spec(V_p)/\Spec(V_p\otimes_L LB[u^{\pm}]\otimes_L V_p)]\to \Mfg\otimes \Spec(\Z_{(p)})
+\]
+The following result shouldn't be too hard to believe 
+\begin{proposition}
+There is equivalence $[\Spec(V_p)/\Spec(V_p\otimes_L LB[u^{\pm}]\otimes_L V_p)]\simeq \Mfg\otimes \Spec(\Z_{(p)})$
+\end{proposition}
+
+    The closed immersion $\Spec(V_p/I_n)\to \Spec(V_p/I_n)$ with the induced Hopf algebroid determines the formal group laws of height at least $n$, and there is the following.
+\begin{corollary}
+    The inclusion $\Mfg^{\geq n}\to \Mfg\otimes \Spec(\Z_{(p)}$ is a closed immersion.
+\end{corollary}

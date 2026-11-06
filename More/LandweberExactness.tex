@@ -1,6 +1,8 @@
 \section{Even Periodic Cohomology}\label{sec:chromatic-more-landweberexactness}
 % Write your notes here.
 
+Great, now we are back to homotopy theory.
+
 \begin{definition}
     A \textbf{even periodic cohomology} is a ring spectrum $E$, such that $\pi_1 E=0$ and there exists $u\in \pi_2 E$ that is invertible. 
 \end{definition}
@@ -20,7 +22,7 @@ Clearly, an even periodic cohomology $E$ is complex orientable (look at the AHSS
     $MP_0\cong L$ and $MP_0MP\cong LB[u^{\pm}]$ as ungraded ring. Hence $[\Spec(MP_0)/\Spec(MP_0MP)]\simeq \Mfg$
 \end{proposition}
 \begin{proof}
-
+    The difficult part is $MP_0MP\cong LB[u^{\pm}]$, which is really only bothered by $u$ (recall we have $MU_*MU\cong LB_*$), shouldn't be too hard to verify the isomorphism.
 \end{proof}
 
 \begin{theorem}\cite{PreLandweber}
@@ -29,24 +31,43 @@ Clearly, an even periodic cohomology $E$ is complex orientable (look at the AHSS
         M_*(-)=MU_*(-)\otimes_{MU_*} M_*
     \end{align*}is a homology
 \end{theorem}
-    Any homology that comes from a Landweber module is called a Landweber homology. Recall this comes from the criterion of flatness over $\Mfg$.
+    Any homology that comes from a Landweber exact module is called a \textbf{Landweber homology}. Recall this comes from the criterion of flatness over $\Mfg$.
+
+\begin{remark}
+    Suppose we have a ungraded Landweber exact module $M$, then 
+    \[
+    M_*(-):=MP_*(-)\otimes_{MP_0}M
+    \]is then a homology, we refer to it as the \textbf{periodic Landweber homology}.
+\end{remark}
 
 
 \begin{proposition}
-    There does not exists phantom maps between Landweber homology.
+    \cite{ChrLurie}
+    There does not exists nontrivial phantom maps between Landweber homology whose coefficient ring is evenly concentrated.
 \end{proposition}
-\begin{proof}
 
-\end{proof}
 
 \begin{lemma}
-    Let $E$ be an even periodic cohomology, such that $F_E$ is flat over $\Mfg$, then 
+    Let $E$ be a cohomology such that $F_E$ is flat over $\Mfg$, then 
     \[
-        E_*(-)\cong MP_*(-)\otimes_{MP_0}E_0
+        E_*(-)\cong MU_*(-)\otimes_{MU_*}E_*
     \]
 \end{lemma}
 \begin{proof}
+    Since $E$ is complex orientable, there is $\psi:MU\to E$, and thus there is
+    \[
+        MU_*(-)\otimes_{MU_*}E_*\xrightarrow{(x,e)\mapsto e\psi_*(x)}E_*(-)
+    \]inducing isomorphism on $S$.
+\end{proof}
 
+\begin{corollary}
+Let $E$ be an even periodic cohomology with unit $u_E$ such that $F_E$ over $\Spec(E_0)$ is flat over $\Mfg$, then 
+    \[
+        E_*(-)\cong MP_*(-)\otimes_{MP_0}E_0
+    \]
+\end{corollary}
+\begin{proof}
+    There is $MP_0(-)\otimes_{MP_0}E_0\to E_0(-)$, which extends to natural transformation $MP_*(-)\otimes_{MP_0}E_0\to E_*$ by taking $u$ to $u_E$.
 \end{proof}
 
 \begin{proposition}
@@ -56,8 +77,9 @@ Clearly, an even periodic cohomology $E$ is complex orientable (look at the AHSS
     \Spec(A_1)\times_{\Mfg}\Spec(A_2)\simeq \Spec(A_1\otimes_L LB[u^{\pm}]\otimes_L A_2)
     \]
 \end{proposition}
+We have been using this results without proof, so this is like a completion of argument
 \begin{proof}
-
+    We have $\Spec(A_1)\times_{\Mfg}\Spec(L)$ classifies the isomorphisms from $G_1$ to $F_{Univ}$, which is determined by $A_1\otimes_L LB[u^{\pm}]\otimes _L L$.
 \end{proof}
 
 \begin{corollary}

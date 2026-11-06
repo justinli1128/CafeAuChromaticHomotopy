@@ -3,9 +3,55 @@
 
 Let $L_{(p)}=L_{S\Z_{(p)}}$ denote the $p$-localization functor.
 \begin{theorem}
+    \cite{ChrBrownPeterson}
     There exists $p$-local ring spectrum $BP$ such that 
     \[
         L_{(p)}MU\simeq \bigvee _i \Sigma^{n_i}BP
     \]
 \end{theorem}
 We refer to this ring spectrum as the \textbf{Brown-Peterson spectrum}.
+
+We will construct the spectrum a little different from how it is constructed in \cite{ChrBrownPeterson}, which requires the deep understanding of the steenrod operations on $H_*(MU; \Fp)$ that we don't (at least I don't) have.
+
+\begin{definition}
+    Recall the ring $V_p:=\Z_{(p)}[v_1,v_2,...]$, there is a natural grading of $|v_i|=2(p^n-1)$ that completes the theory for graded formal group laws. Notice this is flat over $\Mfg$.
+
+    We denote the Brown-Peterson spectrum as the Landweber homology
+    \[
+        BP_*(-):=MU_*(-)\otimes_{MU_*}(V_p)_*
+    \]
+\end{definition}
+
+\begin{lemma}
+    $L_{(p)}$ is smashing. Specifically, $L_{(p)}E\simeq S\Z_{(p)}\wedge E$
+\end{lemma}
+\begin{proof}
+    First of all, $ S\Z_{(p)}\wedge  S\Z_{(p)}\simeq S\Z_{(p)}$. This is because $S\Z_{(p)}\wedge  S\Z_{(p)}$ is connective, 
+    $H_0(S\Z_{(p)}\wedge  S\Z_{(p)})\cong \Z_{(p)}\otimes \Z_{(p)}\cong \Z_{(p)}$, and $H_0(S\Z_{(p)}\wedge  S\Z_{(p)})\cong 0$ from the Kunneth formula and that $\Z_{(p)}$ is flat. 
+
+    Therefore, $S\Z_{(p)}\wedge  E\to S\Z_{(p)}\wedge  S\Z_{(p)}\wedge E\simeq S\Z_{(p)}\wedge  E$ is $S\Z_{(p)}$-equivalence.
+
+    We argue that $F$ is $p$-local if and only if the multiplication $q:F\to F$ by $q$ coprime to $p$ is an equivalence, which would imply that $S\Z_{(p)}\wedge  E$ is $p$-local.
+
+    If $F$ is $p$-local. Since $S/q\wedge S\Z_{(p)}\simeq 0$, because multiplying by $q$ is an equivalence on $S\Z_{(p)}$. Therefore, $F(S/q, F)\simeq 0$ and sits in the cofiber sequence 
+    \[
+    F(S/q, F)\to F\xrightarrow{q}F
+    \]
+    On the other hand, suppose $A\wedge S\Z_{(p)}\simeq 0 $. We have 
+    \[
+        F(A\wedge S\Z_{(p)}, F)\simeq \hocolim_IF(A,F)
+    \]for the transition map the multiplication by numbers that are coprime to $p$. Since each of these map is an equivalence, so $0\simeq F(A\wedge S\Z_{(p)}, F)\simeq F(A, F)$.
+    
+\end{proof}
+
+
+\begin{corollary}
+    For any spectrum $E$, 
+    \[
+    \pi_*(L_{(p)}E)\cong \Z_{(p)}\otimes \pi_*E
+    \]
+\end{corollary}
+\begin{proof}
+    This follows from the fact that filtered homotopy colimits commutes with homotopy groups.
+\end{proof}
+
