@@ -133,24 +133,3 @@ Therefore, $\Mfg^{\geq n+1}$ is determined by the vanishing of $\tilde{v_n}$.
 Even though there is not a concept of height over a general formal group, fixing a prime $p$, we still denote $v_n\in L$ as the coefficient of $t^{p^n}$ in $[p]_F$ for the universal formal group law $F_{Univ}$. The ideal $I_n:=(p,v_1,...,v_{n-1})\subset L$ is invariant under the coaction of $LB[u^{\pm}]$.
 \end{remark}
 
-
-\begin{proposition}
-    There exists a formal group law $G$ over $V_p:=\Z_{(p)}[v_1,v_2,...]$, we refer to it as the \textbf{universal $p$-typical formal group law}, such that 
-    \[
-    [p]_Gt=pt+_Gv_1t^p+_Gv_2t^{p^2}+_G...
-    \]such that every $p$-local formal group law $F$ is determined uniquely by a map $\phi:V_p\to A$ such that $\phi$ factors through $V_p/I_n$ if $F$ is of height at least $n$, with the coefficient $v_i^F$ determined as $\phi(v_i)$.
-\end{proposition}
-
-The Hopf algebroid $(V_p, V_p\otimes_L LB[u^{\pm}]\otimes_L V_p)$, with the induced coaction determines a stack
-\[
-[\Spec(V_p)/\Spec(V_p\otimes_L LB[u^{\pm}]\otimes_L V_p)]\to \Mfg\otimes \Spec(\Z_{(p)})
-\]
-The following result shouldn't be too hard to believe 
-\begin{proposition}
-There is equivalence $[\Spec(V_p)/\Spec(V_p\otimes_L LB[u^{\pm}]\otimes_L V_p)]\simeq \Mfg\otimes \Spec(\Z_{(p)})$
-\end{proposition}
-
-    The closed immersion $\Spec(V_p/I_n)\to \Spec(V_p/I_n)$ with the induced Hopf algebroid determines the formal group laws of height at least $n$, and there is the following.
-\begin{corollary}
-    The inclusion $\Mfg^{\geq n}\to \Mfg\otimes \Spec(\Z_{(p)}$ is a closed immersion.
-\end{corollary}

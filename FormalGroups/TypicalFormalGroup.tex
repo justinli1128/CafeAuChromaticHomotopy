@@ -1,0 +1,47 @@
+\section{$p$-Typical Formal Group Law}\label{sec:formalgroups-typicalFormalGroup}
+
+    We continue to work over $\Spec(\Z_{(p)})$ here.
+
+    Let $F$ be a formal group law over a $p$-local algebra $A$. Suppose $n$ is a positive integer coprime to $p$, then the $n$-series $[n]_Ft:=t+_Ft+_F...+_F t$ ($n$ times) is an invertible formal power series, and we let $[1/n]_F t$ denote the inverse. Let $\zeta$ be a $n$th primitive root of unity, then there is power series
+    \[
+    f_n(t):=[\frac{1}{n}]_F (t+_F \zeta t+_F \zeta^2 t+_F...+_F \zeta^{n-1}t)
+    \]This is actually a power series over $A$.
+\begin{definition}
+    A formal group law $F$ is \textbf{$p$-typical formal group law} if for all prime $q\neq p$, $f_q(t)=0$. A homomorphism of $p$-typical formal group law is just a morphism of formal group law.
+\end{definition}
+
+\begin{remark}
+    Suppose $F$ is a $p$-typical formal group law, then there exists element $v_i \in A$ with $p=v_0$ such that 
+    \[
+    [p]_F t=pt+_F v_1t^{p}+_F v_2t^{p^2}+_F...+_F v_nt^{p^n}+_F...
+    \]
+    Moreover, the element $v_i$ determines the $p$-typical formal group law uniquely.
+
+    Notice, the height of $F$ is determined by the vanishing of $v_i$ entirely.
+\end{remark}
+
+
+\begin{theorem}
+    There exists a formal group law $G$ over $V_p:=\Z_{(p)}[v_1,v_2,...]$, we refer to it as the \textbf{universal $p$-typical formal group law}, such that 
+    \[
+    [p]_Gt=pt+_Gv_1t^p+_Gv_2t^{p^2}+_G...
+    \]such that every $p$-typical formal group law $F$ is determined uniquely by a map $\phi:V_p\to A$ such that $\phi$ factors through $V_p/I_n$ if $F$ is of height at least $n$, with the coefficient $v_i^F$ determined as $\phi(v_i)$.
+\end{theorem}
+
+\begin{theorem}
+    Every $p$-local formal group law is isomorphic to a $p$-typical formal group law.
+\end{theorem}
+
+The Hopf algebroid $(V_p, V_p\otimes_L LB[u^{\pm}]\otimes_L V_p)$, with the induced coaction determines a stack
+\[
+[\Spec(V_p)/\Spec(V_p\otimes_L LB[u^{\pm}]\otimes_L V_p)]\to \Mfg\otimes \Spec(\Z_{(p)})
+\]
+The following result shouldn't be too hard to believe 
+\begin{proposition}
+There is equivalence $[\Spec(V_p)/\Spec(V_p\otimes_L LB[u^{\pm}]\otimes_L V_p)]\simeq \Mfg\otimes \Spec(\Z_{(p)})$
+\end{proposition}
+
+    The closed immersion $\Spec(V_p/I_n)\to \Spec(V_p/I_n)$ with the induced Hopf algebroid determines the formal group laws of height at least $n$, and there is the following.
+\begin{corollary}
+    The inclusion $\Mfg^{\geq n}\to \Mfg\otimes \Spec(\Z_{(p)}$ is a closed immersion.
+\end{corollary}
