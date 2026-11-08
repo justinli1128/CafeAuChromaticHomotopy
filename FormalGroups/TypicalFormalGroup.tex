@@ -5,10 +5,11 @@
     Let $F$ be a formal group law over a $p$-local algebra $A$. Suppose $n$ is a positive integer coprime to $p$, then the $n$-series $[n]_Ft:=t+_Ft+_F...+_F t$ ($n$ times) is an invertible formal power series, and we let $[1/n]_F t$ denote the inverse. Let $\zeta$ be a $n$th primitive root of unity, then there is power series
     \[
     f_n(t):=[\frac{1}{n}]_F (t+_F \zeta t+_F \zeta^2 t+_F...+_F \zeta^{n-1}t)
-    \]This is actually a power series over $A$.
+    \]This is actually a power series over $A$ (since the formal group law is associative and symmetric, all coefficients are symmetric polynomial of $\zeta$, which lives in $\Z_{(p)}$).
 \begin{definition}
     A formal group law $F$ is \textbf{$p$-typical formal group law} if for all prime $q\neq p$, $f_q(t)=0$. A homomorphism of $p$-typical formal group law is just a morphism of formal group law.
 \end{definition}
+
 
 \begin{remark}
     Suppose $F$ is a $p$-typical formal group law, then there exists element $v_i \in A$ with $p=v_0$ such that 
@@ -20,16 +21,89 @@
     Notice, the height of $F$ is determined by the vanishing of $v_i$ entirely.
 \end{remark}
 
+\begin{lemma}
+    Suppose $A$ is torsion-free $p$-local algebra, then the logarithm $\log_F(t)$ of the formal group law $F$ satisfies
+    \[
+    \log_F(t)= \sum_{n=0}^{\infty}m_{n}t^{p^n}
+    \]for $m_{n}\in A\otimes\mathbb{Q}$ if and only if $F$ is $p$-typical.
+\end{lemma}
+\begin{proof}
+    Suppose $\log_F (t)=\sum_{i=1}^{\infty}a_i t^i$ over $A\otimes\mathbb{Q}$.
+
+    Let $q\neq p$ be a prime, and let $\zeta$ be a primitive $q$th root of unity, then by definition
+    \[
+    0=t+_F \zeta t+_F \zeta^2t+_F ...+_F \zeta^{q-1}t
+    \]
+    Then 
+    \begin{align*}
+        0=\sum_{j=0}^{q-1}\log_F(\zeta^{j}t)
+        \\=\sum_{i=1}^{\infty}a_i (\sum_{j=0}^{q-1}\zeta^{ji})t^i
+    \end{align*}
+    The primitive root of unity satisfies the property
+    \begin{align*}
+        \sum_{j=0}^{q-1}\zeta^{ji}=\begin{cases}
+            q, \text{ if $q|i$}
+            \\ 0, \text{ else}
+        \end{cases}
+    \end{align*}
+    Since the equation above is true for all $q\neq p$, the equality implies that 
+    \[
+    \log_F(t)= \sum_{n=0}^{\infty}a_{p^n}t^{p^n}=\sum_{n=0}^{\infty}m_{n}t^{p^n}
+    \]
+
+    For the other direction, we can use the same identity of primitive roots to conclude the $p$-typicalness.
+\end{proof}
+
+Taking one step further, we have
+\begin{lemma}
+    Suppose $A$ is torsion-free $p$-local algebra, then a formal group law $F$ is a $p$-typical formal group law if and only if 
+    \[
+    [p]_F t=pt+_F v_1t^{p}+_F v_2t^{p^2}+_F+...+_F v_nt^{p^n}+_F...
+    \]
+
+    Moreover, the coefficient $v_n$ determines the $p$-typical formal group law entirely.
+\end{lemma}
+\begin{proof}
+    Then equation is equivalent to 
+    \[
+    p\log_F t=\sum_{n=0}^{\infty}\log_F(v_nt^{p^n})
+    \]
+    Since $A$ is torsion-free, then $p$ is invertible in $A\otimes \mathbb{Q}$, then 
+    \[
+    \log_F t=\sum_{n=0}^{\infty}m_{n}t^{p^n}
+    \\=\sum_{n=0}^{\infty}\frac{1}{p}\log_F(v_nt^{p^n})
+    \]
+    Comparing terms conclude the argument
+\end{proof}
+
+\begin{theorem}
+    Every $p$-local formal group law is isomorphic to a $p$-typical formal group law.
+\end{theorem}
+
+\begin{proof}
+    The proof requires the construction of a parametrization, that is an isomorphism of formal group law $\varphi(t)$ from our formal group law to a $p$-typical formal group law. Cartier provided a construction, such that the parametrization is idempotent. We will denote the parametrization of $F$ to be $T(F)$, and the isomorphism to be $\varphi_F: F\to T(F)$.
+
+    The $p$-localized universal formal group law $F_{Univ}$ over $L_{(p)}$ is classified by a ring map $f: L_{(p)}\to L_{(p)}$. Note, $f^2=f$, because the parametrization is idempotent. 
+
+    Of course, $L_{(p)}$ is torsion free, $G:=T(F_{Univ})$ is determined entirely by 
+    \[
+    [p]_G t=\sum_{n\geq 0}^G v_nt^{p^n}
+    \]
+    Recall how we get the Lazard's ring, which is determined by the logarithm coefficient. Using similar logic, the image of $f$ is 
+    \[
+        \Z_{(p)}[v_1,v_2,...]
+    \]with the $p$-typical formal group law $G$.
+
+    Now, every $p$-typical formal group law is determined by the classifying map $L_{(p)}\to A$, which by taking the parametrization, becomes a map
+    \[  \Z_{(p)}[v_1,v_2,...]\to A
+    \]determining the $p$-series.
+\end{proof}
 
 \begin{theorem}
     There exists a formal group law $G$ over $V_p:=\Z_{(p)}[v_1,v_2,...]$, we refer to it as the \textbf{universal $p$-typical formal group law}, such that 
     \[
     [p]_Gt=pt+_Gv_1t^p+_Gv_2t^{p^2}+_G...
     \]such that every $p$-typical formal group law $F$ is determined uniquely by a map $\phi:V_p\to A$ such that $\phi$ factors through $V_p/I_n$ if $F$ is of height at least $n$, with the coefficient $v_i^F$ determined as $\phi(v_i)$.
-\end{theorem}
-
-\begin{theorem}
-    Every $p$-local formal group law is isomorphic to a $p$-typical formal group law.
 \end{theorem}
 
 The Hopf algebroid $(V_p, V_p\otimes_L LB[u^{\pm}]\otimes_L V_p)$, with the induced coaction determines a stack
@@ -45,3 +119,7 @@ There is equivalence $[\Spec(V_p)/\Spec(V_p\otimes_L LB[u^{\pm}]\otimes_L V_p)]\
 \begin{corollary}
     The inclusion $\Mfg^{\geq n}\to \Mfg\otimes \Spec(\Z_{(p)}$ is a closed immersion.
 \end{corollary}
+
+\begin{remark}
+    We will be working often with $p$-typical formal group law. We can use the methods of $p$-typical formal group laws for the study of chromatic homotopy theory and making things nice. 
+\end{remark}

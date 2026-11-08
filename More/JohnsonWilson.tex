@@ -1,3 +1,18 @@
-\section{Height-$n$ Localization and Johnson--Wilson Spectra}\label{sec:chromatic-more-johnsonwilson}
+\section{Johnson--Wilson Spectra}\label{sec:chromatic-more-johnsonwilson}
 % Write your notes here.
-The open substack $\Mfg^{\leq n}\subset \Mfg$ is flat over $\Mfg$
+\begin{definition}
+    The open substack $\Mfg^{\leq n}\subset \Mfg$ is the stack theoretic complement of the closed substack $\Mfg^{\geq n+1}\subset \Mfg$. We refer to it as the \textbf{moduli of formal groups of at most height $n$}.
+\end{definition}
+The open substack $\Mfg^{\leq n}\subset \Mfg$ is flat over $\Mfg$, with the fpqc covering $\Spec(\Z_{(p)}[v_1,v_2,...v_{n}^{\pm}])\to \Mfg^{\leq n}$. 
+\begin{definition}
+    The \textbf{$n$th Johnson-Wilson spectrum} $E(n)$ is the Landweber homology 
+    \[
+        E(n)_*(-):=MU_*(-)\otimes_{MU_*} \Z_{(p)}[v_1,v_2,...v_{n}^{\pm}]
+    \]with the inherited grading on $\Z_{(p)}[v_1,v_2,...v_{n}^{\pm}]$
+    and there is the \textbf{periodic Johnson-Wilson spectra} $E(n)P$
+    \[
+     E(n)P_*(-):=MP_*(-)\otimes_{MP_0} \Z_{(p)}[v_1,v_2,...v_{n}^{\pm}]
+    \]
+\end{definition}
+
+Of course the cooperation $E(n)_*E(n)$ is $E(n)_*\otimes_{MU_*}MU_*MU\otimes_{MU_*}E(n)_*$.

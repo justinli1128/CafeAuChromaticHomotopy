@@ -56,7 +56,14 @@ We will construct the spectrum a little different from how it is constructed in 
 
 Therefore, $\pi_*L_{(p)}MU\cong (L_*)_{(p)}$.
 
-The morphism $L\to V_p$ determining the universal $p$-typical formal group law factors through a map $L_{(p)}\to V_p$. 
+The morphism $L\to V_p$ determining the universal $p$-typical formal group law factors through the map $f:L_{(p)}\to V_p$ that we have constructed in the section of $p$-typical formal group law. 
 \begin{lemma}
-
+    There is a retract $V_p\to L_{(p)}$. Moreover, there is isomorphism $L_{(p)}\cong V_p[x_i: i\neq p^n-1]$.
 \end{lemma}
+\begin{proof}
+    This follows from taking the parametrization of the formal group law over $L_{(p)}$. Therefore, there is map $V_p\to L_{(p)}$ 
+    determining the $p$-typical formal group law, which is a retract of the map $L_{(p)}\to V_p$. Moreover, the comparing of 
+    indecomposibles implies the isomorphism.
+\end{proof}
+
+The proof of our theorem follows from first $\pi_*L_{(p)}MU\cong (L_*)_{(p)}$, the decomposition, and lastly the fact that all graded ring are even concentrated and Landweber, so there is no phantoms and the decomposition exists at the level of ring spectra.

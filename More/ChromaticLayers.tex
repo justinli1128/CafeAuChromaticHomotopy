@@ -1,2 +1,72 @@
-\section{Chromatic Layers}\label{sec:chromatic-more-chromaticlayers}
+\section{Chromatic Tower with Algebraic Geometry}\label{sec:chromatic-more-chromaticlayers}
 % Write your notes here.
+We have defined several spectra, it is time to see the information they carries.
+
+\begin{lemma}
+    Let $E_*$ be a graded Landweber exact module. Denote $E$ the Landweber homology and denote $EP$ the periodic Landwber homology of the underlying ungraded module of $E_*$. Then 
+    \[
+        \langle E \rangle =\langle EP\rangle
+    \] 
+\end{lemma}
+\begin{proof}
+    For any spectrum $X$, we have $E_*(X)[u^{\pm}]\cong EP_*(X)$. This implies the equality of the Bousfield class.
+\end{proof}
+
+\begin{proposition}
+    Let $X$ be a $k$-connected spectrum for some $k\in \Z$, $L_{MU}X\simeq X$ and $L_{BP}X\simeq L_{(p)}X$.
+\end{proposition}
+\begin{proof}
+    For a ring spectrum $E$, a $E$-module $M$ is $E$-local, because there is isomorphism $[X, M]\cong [E\wedge X, M]_E$.
+
+    For any Eilenberg-Maclane spectrum $HA$ admits a complex orientation, hence a $MU$-algebra structure, so every 
+    Eilenberg-Maclane spectrum is $MU$-local.
+
+    Let $X$ be $k$-connected, we have $X\to ... \to \tau_{\geq n}X\to \tau_{\geq n-1}X\to ...\tau_{\geq k}X\cong H\pi_kX$ 
+    admits a homotopy limit tower. This is the Postnikov tower, so each layer is an Eilenberg-Maclane spectrum, so 
+    $\tau_{\geq n}X$ are $MU$-local by induction. Therefore, $X$ as a homotopy limit of $MU$-local spectra is $MU$-local.
+
+    We know $\langle L_{(p)}MU\rangle =\langle BP\rangle$ from the decomposition argument. Therefore, we have simplified our 
+    second argument to $L_{(p)}MU$-localization.
+
+    For $k$-connected spectrum $X$, then $L_{(p)}X$ is also $k$-connected. Every $p$-local Eilenberg Maclane spectrum has the 
+    complex orientation factoring through $L_{(p)}MU$. Similar argument would follows.
+\end{proof}
+
+\begin{remark}
+    Given a flat morphism $\Spec(R)\to \Mfg$, there is the corresponding periodic Landweber homology $RP_*(-)$. The groupoid $(\Spec(R), \Spec(R)\times_{\Mfg}\Spec(R))$ determines a stack $q:\mathcal{R}\to \Mfg$. 
+
+    For any spectrum $X$, the comodule $RP_0(X)$ then corresponds to a quasicoherent module $\F_{\mathcal{R}}(X)$ over $\mathcal{R}$.
+
+    Suppose $MU_*X$ is evenly concentrated, the entirety of $RP_*(X)$ is recovered by $\F_{\mathcal{R}}(\Sigma^{2k}X)$ of $k\in \Z$ 
+    because $RP_*$ is even concentrated. We have as $R$-module $\F_{\mathcal{R}}(\Sigma^{2k}X)\cong \F_{\mathcal{R}}(X)$, the coaction however, of 
+    $\F_{\mathcal{R}}(\Sigma^{2k}X)$ is the twisted one, where 
+    \[
+    \F_{\mathcal{R}}(\Sigma^{2k}X)\cong \F_{\mathcal{R}}(X)\otimes_{\mathcal{R}}q^*\omega_{\Mfg}^{\otimes k}
+    \]
+\end{remark}
+
+\begin{proposition}
+    For $n\in \mathbb{N}\cup\{\infty\}$ and $m\geq n$, $\langle E(m)\rangle \geq \langle E(n)\rangle$. In other words, there exists natural transformation $L_{E(m)}\to L_{E(n)}$.
+\end{proposition}
+\begin{proof}
+    Suppose a spectra $X$ is $E(m)$-acyclic, so $\F_{\Mfg^{\leq m}}(X)\cong 0$. Then along the inclusion $\iota: \Mfg^{\leq n}\to \Mfg^{\leq m}$, we have 
+    \[
+  \F_{\Mfg^{\leq n}}(X) \cong \iota^*\F_{\Mfg^{\leq m}}(X)\cong 0
+    \]and we are done (Wow simple).
+\end{proof}
+
+Therefore, there is a tower 
+\[
+    L_{(p)}\to L_{BP}\to ...\to L_n\to L_{n-1}\to ...\to L_1\to L_0\simeq L_{\mathbb{Q}}
+\]where $L_n:=L_{E(n)}$.
+
+As it turns out, we have the following (very magical) theorem, that gives the name (I think) to the field chromatic homotopy theory.
+\begin{theorem}(Chromatic Convergence Theorem)
+    For a finite spectrum $X$, the tower
+    \[
+     L_{(p)}X\simeq L_{BP} X\to ...\to L_nX \to L_{n-1}X\to ...\to L_1X\to L_0X\simeq X\wedge H\mathbb{Q}
+    \]converges.
+\end{theorem}
+
+We will leave the proof of this theorem for every later, when we have more tools and results.
+
