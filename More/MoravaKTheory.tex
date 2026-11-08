@@ -1,2 +1,63 @@
 \section{Morava $K$-Theory}\label{sec:chromatic-more-moravaktheory}
 % Write your notes here.
+The intersection $\HH(n):=\Mfg^{\leq n}\cap \Mfg^{\geq n}$, which we refer to as the \textbf{moduli stack of formal groups of height exactly $n$}, admits a cover
+\[
+\Spec(\Fp[v_n^{\pm}])\to \HH(n)
+\]
+Unfortunately, $\Spec(\Fp[v_n^{\pm}])$ is not flat over $\Mfg$, so we cannot get a Landweber homology like what we did for $BP$ and $E(n)$. 
+
+However, there is a silver lining.
+\begin{theorem}
+    For every $n\in \mathbb{N}$, there are ring spectra $K(n)$, such that 
+    \begin{enumerate}
+        \item $K(n)_*\cong \Fp[v_n^{\pm}]$ for $|v_n|=2(p^n-1)$, and $K(0)_*\cong \mathbb{Q}$
+        \item $K(n)$ are complex oriented, whose formal group law $F_n$ is $p$-typical with $p$-series $[p]_{F_n}t=v_nt^{p^n}$
+    \end{enumerate}
+\end{theorem}
+
+We first note several properties of $K(n)$ before we show the existence and uniqueness
+
+\begin{lemma}
+    For any spectrum $X$, $K(n)\wedge X\simeq \bigvee \Sigma^{\alpha }K(n)$ 
+\end{lemma}
+\begin{proof}
+    Since $\Fp[v_n^{\pm}]$ is a graded field, every module over $\Fp[v_n^{\pm}]$ is free. The decomposition then follows.
+\end{proof}
+
+\begin{lemma}
+      There is Kunneth isomorphism $K(n)_*X\otimes_{K(n)_*}K(n)_*Y\cong K(n)_*(X\wedge Y)$ for any spectra $X$ and $Y$.
+\end{lemma}
+\begin{proof}
+    We have $K(n)\wedge X\simeq \bigvee \Sigma^{\alpha }K(n)$, then 
+    \[
+    K(n)\wedge X\wedge Y\simeq \Sigma^{\alpha }K(n)\wedge Y\simeq \Sigma^{\alpha_\beta }K(n)
+    \]
+\end{proof}
+
+We begin the construction of $K(n)$. 
+
+Let $E(n)$ be the Johnson-Wilson spectrum. There is self map $p: E(n)\to E(n)$. We have cofiber sequence
+\[
+E(n)\xrightarrow{p} E(n)\to M(1)
+\]which becomes the exact sequence
+\[
+... \to M(1)_{*+1} \to E(n)_*\xrightarrow{p} E(n)_*\to M(1)_*\to E(n)_{*-1}\to ...
+\]
+Notice the map $p:E(n)_*\to E(n)_*$ is injective, therefore 
+\[
+  M(1)_*\cong \Fp[v_1,...,v_n^{\pm}]
+\]
+Similarly, there is map $v_1: \Sigma^{-2(p-1)}M(1)\to M(1)$, with cofiber $M(2)$ such that $M(2)_*\cong \Fp[v_2,...,v_n^{\pm}]$. 
+
+Denote $K(n):=M(n)$. The complex orientation of $E(n)$, which determines the $p$-typical formal group law $G_n$ with $p$-series 
+\[
+[p]_{G_n} t=pt+_Gv_1t^p+_G...+v_nt^{p^n}
+\]Therefore, the complex orientation over $K(n)$ determines the $p$-typical formal group law $F_n$ with $p$-series
+\[
+[p]_{F_n}t=v_nt^{p^n}
+\]
+
+Fantastic, now we are left with uniqueness.
+
+
+

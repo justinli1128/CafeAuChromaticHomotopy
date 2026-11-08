@@ -1,4 +1,4 @@
-\section{Chromatic Tower with Algebraic Geometry}\label{sec:chromatic-more-chromaticlayers}
+\section{Chromatic Homotopy with Algebraic Geometry}\label{sec:chromatic-more-chromaticlayers}
 % Write your notes here.
 We have defined several spectra, it is time to see the information they carries.
 
@@ -33,9 +33,9 @@ We have defined several spectra, it is time to see the information they carries.
 \end{proof}
 
 \begin{remark}
-    Given a flat morphism $\Spec(R)\to \Mfg$, there is the corresponding periodic Landweber homology $RP_*(-)$. The groupoid $(\Spec(R), \Spec(R)\times_{\Mfg}\Spec(R))$ determines a stack $q:\mathcal{R}\to \Mfg$. 
+    Given a morphism $\Spec(R)\to \Mfg$, the groupoid $(\Spec(R), \Spec(R)\times_{\Mfg}\Spec(R))$ determines a stack $q:\mathcal{R}\to \Mfg$. 
 
-    For any spectrum $X$, the comodule $RP_0(X)$ then corresponds to a quasicoherent module $\F_{\mathcal{R}}(X)$ over $\mathcal{R}$.
+    If $\Spec(R)\to \Mfg$ is flat, then $R$ is Landweber exact and determines the periodic Landweber homology $RP_*(-)$. For any spectrum $X$, the comodule $RP_0(X)$ then corresponds to a quasicoherent module $\F_{\mathcal{R}}(X)$ over $\mathcal{R}$.
 
     Suppose $MU_*X$ is evenly concentrated, the entirety of $RP_*(X)$ is recovered by $\F_{\mathcal{R}}(\Sigma^{2k}X)$ of $k\in \Z$ 
     because $RP_*$ is even concentrated. We have as $R$-module $\F_{\mathcal{R}}(\Sigma^{2k}X)\cong \F_{\mathcal{R}}(X)$, the coaction however, of 
@@ -70,3 +70,55 @@ As it turns out, we have the following (very magical) theorem, that gives the na
 
 We will leave the proof of this theorem for every later, when we have more tools and results.
 
+\begin{remark}
+    Let $f:\X \to \Mfg$ be a flat morphism between stacks, there is then a Cêch nerve of $\X$, determined by the pullbacks
+    \begin{align*}
+        \begin{tikzcd}
+... \arrow[r] & {f^*\Spec(LB[u^\pm]\otimes_L LB[u^\pm])} \arrow[d] \arrow[r] \arrow[r, shift left] \arrow[r, shift right] & {f^*\Spec(LB[u^\pm])} \arrow[d] \arrow[r, shift left] \arrow[r, shift right] & f^*\Spec(L) \arrow[r] \arrow[d] & \X \arrow[d, "f"] \\
+... \arrow[r] & {\Spec(LB[u^\pm]\otimes_L LB[u^\pm])} \arrow[r] \arrow[r, shift right] \arrow[r, shift left]              & {\Spec(LB[u^\pm])} \arrow[r, shift left] \arrow[r, shift right]              & \Spec(L) \arrow[r]              & \Mfg             
+\end{tikzcd}
+    \end{align*}
+    Let $\Mfg_{\bullet}$ denote the Cêch nerve determined by $(L,LB[u^{\pm}])$. By assumption, $f$ is representable, then $f^*\Spec(\Mfg_{\bullet})=:\X_{\bullet}$ are schemes. 
+    If moreover, $f$ is affine, then $\X_{\bullet}$ are affine schemes, with cosimplicial structure ring $R^{\bullet}$. In this case, $\X_\bullet$ determines a cosimplicial 
+    even periodic homology $RP^{\bullet}_*(-)$ where
+    \[
+   RP^{n}_*(-)=MP_*(-)\otimes_{MP_0}R^n
+    \]with the obvious definition of the natural transformation between homologies.
+
+    Recall that there does not exist phantom maps between even periodic homology, so the cosimplicial diagram of homology lifts uniquely 
+    to a homotopy coherent cosimplicial diagram of spectra. We define $\Ocal_{\fg}(\X):=\holim_n RP^{n}$. 
+
+    Suppose, $\X=\Spec(E)$, then $\Ocal_{\fg}(\Spec(E))\simeq EP$. If $\X=[\Spec(E)/\Spec(E\otimes_L LB[u^{\pm}]\otimes_L E)]$, then 
+    $\Ocal_{\fg}(\X)\simeq \hat{S}_{EP}$ is the $EP$-completion of the sphere spectrum.
+
+    As it turns out, the construction we gave extends to a fpqc-homotopy sheaf of spectra over $\Mfg$ (actually to a $\infty$-sheaf of $E_\infty$-spectra,
+     what this means is not too relevant. Maybe I'll talk about it if I want to talk about power operations or Goerss-Hopkins-Miller's construction of $TMF$, 
+     who knows?). Therefore, given a fpqc cover $\{U_i\to \X\}$, we have a spectral sequence, coming from the Bousfield-Kan spectral sequence,
+     \begin{align*}
+        E_{1}^{s,t}=\prod_{i_0,...,i_s}\pi_t\Ocal_{\fg}(U_{i_0}\times_{\X}... \times_{\X}U_{i_s})\implies \pi_{t-s}\Ocal_{\fg}(\X)
+     \end{align*}
+    
+    With our Cêch nerve, the $E_1$ page assembles to the Cêch complex $\hat{C}_{\X_{\bullet}}(\X, f^*\omega^{t/2})$ for $t\in 2\Z$. Therefore, there is spectral 
+    sequence
+    \begin{align*}
+    E_{2}^{s,t}=H^{s}(\X, f^*\omega^{\otimes t})\implies \pi_{2t-s}\Ocal_{\fg}(\X)
+    \end{align*}
+\end{remark}
+
+The spectral sequence we have can be viewed as an algebro-geometric generalization of the Adams-spectral sequence for sphere.
+
+\begin{remark}
+Let $\X=[\Spec(EP_0)/\Spec(EP_0EP)]$ for the even periodic homology we obtained from a Landweber exact ring $E$. We have 
+\[
+\Qcoh_{\X}\simeq co\Module_{(EP_0, EP_0EP)}\simeq co\Module_{(EP_*, EP_*EP)}^{even}
+\]where the last category is the even concentrated $(EP_*, EP_*EP)$-comodule (the equivalence is obtained from the unit in $EP_2$).
+
+The module $f^*\omega^{\otimes t}$ corresponds to the comodule $EP_*[2t]$ with the twisted action of $EP_*EP$. Therefore,
+\[
+    H^s(\X, f^*\omega^{\otimes t})\cong \mathrm{Ext}_{EP_*, EP_*EP}^2(EP_*, EP_*[2t])
+\]
+which indeed assembles to the $EP$-Adams spectral sequence that converges to $\hat{S}_{EP}$.
+
+For instance, $\X=\Mfg$ gives the $MP$-Adams spectral sequence, which converges to $L_{MP}S\simeq S$. For $\X=\Mfg\otimes \Spec(\Z_{(p)})$, 
+this is the $BPP$-Adams spectral sequence that converges to $L_{(p)}S$. For $\Mfg^{\leq n}$, this is the $E(n)P$-spectral sequence converging to $L_n S$.
+\end{remark}
