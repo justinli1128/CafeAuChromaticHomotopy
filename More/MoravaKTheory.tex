@@ -15,6 +15,8 @@ However, there is a silver lining.
     \end{enumerate}
 \end{theorem}
 
+We refer to this ring spectrum as the \textbf{Morava K theory}.
+
 We first note several properties of $K(n)$ before we show the existence and uniqueness
 
 \begin{lemma}
@@ -59,5 +61,76 @@ Denote $K(n):=M(n)$. The complex orientation of $E(n)$, which determines the $p$
 
 Fantastic, now we are left with uniqueness.
 
+In this note, I will only show the unique of Morava K theory as ring spectrum. However, we should note that there does exists a much 
+refined structure, called $A_{\infty}$-algebra, that the Morave K theory are members of. It was shown that $K(n)$ admits such a structure 
+in \cite{ChrRobinson}, and the uniqueness of such $A_{\infty}$-structure in \cite{ChrAngeltveit}.
 
+Our proof of the uniqueness of the ring spectrum comes from \cite{ChrLurie}. We fix our construction to be the Morava K theory $K(n)$, and 
+show that any other ring spectrum $E$ that satisfies the same condtion, we have $E\simeq K(n)$.
+
+\begin{lemma}
+    Let $f:X\to Y$ be a map of spectra. Suppose $X$ and $Y$ are both $K(n)$-module, then $f_*:\pi_* X\to \pi_*Y$ is a $\Fp[v_n^{\pm}]$-linear map.
+\end{lemma}
+\begin{proof}
+    From the unit map $S\to K(n)$, there is factorization of $f$
+    \[
+        X\to K(n)\wedge X\to K(n)\wedge Y\to Y
+    \]where we let $K(n)\wedge X$ and $K(n)\wedge X$ admit the canonical left action of $K(n)$. All of these but $X\to K(n)\wedge X$ are $K(n)$-module 
+    map, so we just need to show $X\to K(n)\wedge X$ implies the statement. Since $X$ is a $K(n)$-module, then we have that $K(n)^*X$ determines a 
+    decomposition $X\simeq \bigvee \Sigma^{\alpha}K(n)$. All is left to show is the statement for $K(n)\to K(n)\wedge K(n)$.
+
+    Let $g: K(n)\to K(n)\wedge K(n)$ be the inclusion to the first coordinate, which is a $K(n)$-module map for the left action on $K(n)\wedge K(n)$. We will show
+    \[
+    f_*=g_*
+    \]which follows from $f_*(v_n)=g_*(v_n)$.
+
+    The map $f$ and $g$ determines two complex orientation and hence two $p$-typical formal group law $F$ and $G$ over $K(n)\wedge K(n)$ such that
+    \[
+    [p]_Ft=f_*(v_n)t^{p^n}, \\ [p]_G t=g_*(v_n)t^{p^n}
+    \]
+    The map $f\wedge g:K(n)\wedge K(n)\to K(n)\wedge K(n)$ determines a map $\theta:K(n)\wedge MU\to MU\wedge K(n)$ and hence a 
+    strict isomorphism $h(t)=t+b_1t^2+...$ from $G$ to $F$. Note that morphism between formal group law determines the equality
+    \[
+    h([p]_Gt)=g_*(v_n)t^{p^n}+b_1g_*(v_n)^2t^{2p^n}+...
+    \\= [p]_F (h(t))=f_*(v_n)(t+b_1t^2+...)^{p^n}
+    \]
+    Comparing coefficients implies $f_*(v_n)=g_*(v_n)$.
+\end{proof}
+
+\begin{corollary}
+    Let $X$ be a $K(n)$-module, and let $i:Y\to X$ be a retract with projection $p: X\to Y$, then $Y$ admits a $K(n)$-module structure.
+\end{corollary}
+\begin{proof}  
+
+    The map $ip: X\to X$ is between $K(n)$-module, so $i_*p_*$ is $\Fp[v^{\pm}]$-linear. The image of $i_*p_*$ is also free, and is isomorphic to $\pi_*Y$. Which determines a decomposition of $Y$.
+\end{proof}
+
+\begin{corollary}
+    Let $E$ be a ring spectrum such that all homogeneous elements of $E_*$ are unit (we call this a \textbf{field}), if $K(n)\wedge E\not \simeq 0$, then $E$ admits a $K(n)$-module structure (hence a $K(n)$-algebra).
+\end{corollary}
+\begin{proof}
+    The map $E\to K(n)\wedge E$ is a retract because $E_*$ is a field and $ K(n)\wedge E\not \simeq 0$.
+\end{proof}
+
+\begin{proposition}
+    Let $E$ be a nontrivial complex oriented cohomology whose formal group law has height exactly $n$, then $E\wegde K(n)\not \simeq 0$.
+\end{proposition}
+
+\begin{proof}
+    There is the map $E(n)\to K(n)$ from the iterative construction of $E(n)$. The homotopy fiber of this map is $E(n-1)$ by 
+    noticing the map $E(n)\to \text{hofib}$ induces isomorphism on homotopy. 
+
+    The spectrum $E\wedge E(n-1)$ has two complex orientations, determining two formal group laws that are isomorphic. One of height $\leq n-1$ and one of height exactly $n$. Hence $E\wegde E(n-1)\simeq 0$. 
+
+    Therefore, $E\wedge E(n)\simeq E\wedge K(n)$. Moreover, $E(n)_*E\cong E(n)P_0E$ is a quasicoherent module over $\Mfg^{\leq n}$, for which vanishes if and only if $BPP_0E$ is supported on $\Mfg^{\geq n+1}$, which is very much not the case.
+
+    Therefore, $E\wedge K(n)\not \simeq 0$.
+\end{proof}
+
+\begin{corollary}
+    Let $E$ be a complex oriented spectrum such that $E_*\cong \Fp[v_n^{\pm}]$ with formal group law of height exactly $n$. Then $E\simeq K(n)$.
+\end{corollary}
+\begin{proof}
+    Since te formal group law of $E$ has height exactly $n$, $E\wedge K(n)\not \simeq 0$, so $E$ is a $K(n)$-algebra. The coefficient ring then forces $E\simeq K(n)$.
+\end{proof}
 
