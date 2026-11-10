@@ -112,19 +112,33 @@ show that any other ring spectrum $E$ that satisfies the same condtion, we have 
     The map $E\to K(n)\wedge E$ is a retract because $E_*$ is a field and $ K(n)\wedge E\not \simeq 0$.
 \end{proof}
 
+\begin{lemma}
+    We have equality of Bousfield class $\langle E(n)\rangle=\langle E(n-1)\rangle\vee \langle K(n)\rangle$
+\end{lemma}
+\begin{proof}
+    Let $X$ be $E(n)$-acyclic. We immediately have $X$ is $E(n-1)$-acyclic. For $K(n)$-acyclicity, we see that $E(n)$-acyclic implies $M(1)$-acyclicity, which implies 
+    $M(2)$-acyclicity, etc. 
+
+    On the other hand, suppose $X$ is $E(n-1)$-acyclic, if $X$ is moreover $K(n)$-acyclic, we will use reverse induction on $i$ to show
+    $X$ is $M(i)$-acyclic.
+
+    For $i=n$, this is the assumption. Suppose $X$ is $M(i+1)$-acyclic, then $v_i$ acts invertibly on $M(i)_*X$. Hence $M(i)_*X\cong M(i)[v_i^{-1}]_*X$. 
+    
+    If $X$ is $M(0)[v_i^{-1}]$-acyclic, then by the cofiber construction of $M(i)[v_i^{-1}]$, this implies $M(i)[v_i^{-1}]$-acyclicity of $X$. We will show that
+    $X$ is $M(0)[v_i^{-1}]$-acyclic.
+
+    The algebra $M(0)[v_i^{-1}]_*\cong \Z_{(p)}[v_1,...,v_i^{\pm}, v_{i+1},...,v_n^{\pm}]$ is a flat covering of the open substack $\Mfg^{\leq i}$ of $\Mfg$. $i\leq n-1$, and we already have $\F_{\Mfg^{\leq n-1}}(X)$ vanishes ($E(n-1)$-acyclicity).
+
+    The statement follows.
+\end{proof}
+
 \begin{proposition}
     Let $E$ be a nontrivial complex oriented cohomology whose formal group law has height exactly $n$, then $E\wedge K(n)\not \simeq 0$.
 \end{proposition}
 
 \begin{proof}
-    There is the map $E(n)\to K(n)$ from the iterative construction of $E(n)$. The homotopy fiber of this map is $E(n-1)$ by 
-    noticing the map $E(n)\to \text{hofib}$ induces isomorphism on homotopy. 
-
     The spectrum $E\wedge E(n-1)$ has two complex orientations, determining two formal group laws that are isomorphic. One of height $\leq n-1$ and one of height exactly $n$. Hence $E\wedge E(n-1)\simeq 0$. 
-
-    Therefore, $E\wedge E(n)\simeq E\wedge K(n)$. Moreover, $E(n)_*E\cong E(n)P_0E$ is a quasicoherent module over $\Mfg^{\leq n}$, for which vanishes if and only if $BPP_0E$ is supported on $\Mfg^{\geq n+1}$, which is very much not the case.
-
-    Therefore, $E\wedge K(n)\not \simeq 0$.
+    The statement follows from the previous lemma.
 \end{proof}
 
 \begin{corollary}
